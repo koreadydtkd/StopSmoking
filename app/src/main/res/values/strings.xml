@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">진짜 금연</string>
+
+    <!-- Admob -->
+    <string name="admob_app_id">ca-app-pub-3924676263890790~2315907382</string>
+    <string name="banner_ad_id">ca-app-pub-3924676263890790/8274811070</string>
+    <string name="banner_ad_test_id">ca-app-pub-3940256099942544/6300978111</string>
+
+
+    <!-- Registration -->
+    <string name="stop_smoking_start">금연 시작</string>
+    <string name="resolution">각오</string>
+    <string name="amount_of_smoking">하루 흡연량(개비)</string>
+    <string name="tobacco_price">담배 가격</string>
+
+    <string name="toast_amount_of_smoking">하루 흡연량을 입력해주세요.</string>
+    <string name="toast_tobacco_price">담배 가격을 입력해주세요.</string>
+    <string name="toast_my_resolution">금연하기 위한 각오를 입력해주세요.</string>
+    <string name="toast_zero_input_exception">0보다 크게 입력해주세요.</string>
+
+
+    <!-- Main -->
+    <string name="stop_smoking_text">금연한지 %d일 째..</string>
+    
+</resources>
