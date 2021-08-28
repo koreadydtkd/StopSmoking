@@ -46,6 +46,7 @@ class RegistrationActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // 금연 정보 등록
             noSmokingRegistration()
         }
     }
@@ -56,11 +57,13 @@ class RegistrationActivity : AppCompatActivity() {
         val tobaccoPrice = binding.tobaccoPriceEditText.text.toString().toInt()
         val myResolution = binding.myResolutionEditText.text.toString()
 
+        // 기본 값 0 입력 체크
         if(amountOfSmoking < 1 || tobaccoPrice < 1) {
             Toast.makeText(this, getString(R.string.toast_zero_input_exception), Toast.LENGTH_SHORT).show()
             return
         }
 
+        // 금연 관련 정보 저장
         spf.edit {
             putBoolean(IS_REGISTRATION, true)
             putString(STOP_SMOKING_DATE, getDatePicker())
@@ -69,6 +72,7 @@ class RegistrationActivity : AppCompatActivity() {
             putString(MY_RESOLUTION, myResolution)
         }
 
+        // 메인 화면으로 이동
         goMainActivity()
     }
 

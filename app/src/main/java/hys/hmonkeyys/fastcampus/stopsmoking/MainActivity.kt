@@ -33,8 +33,13 @@ class MainActivity : AppCompatActivity() {
         val stopSmokingDate = spf.getString(STOP_SMOKING_DATE, "") ?: ""
         val dDay = stopSmokingDate.split("-")
 
-        val d = getDDay(dDay[0].toInt(), dDay[1].toInt(), dDay[2].toInt())
-        binding.dDayTextView.text = getString(R.string.stop_smoking_text, d)
+        val elapsedDate = getDDay(dDay[0].toInt(), dDay[1].toInt(), dDay[2].toInt())
+        if (elapsedDate > 0) {
+            binding.dDayTextView.text = getString(R.string.stop_smoking_text, elapsedDate)
+        } else {
+            binding.dDayTextView.text = "날짜를 다시 확인해주세요."
+        }
+
     }
 
     /** 하단 배너광고 초기화 */
@@ -58,28 +63,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun getCurrentDate(): String {
-        val mDate = Date(System.currentTimeMillis())
-        val simpleDate = SimpleDateFormat("yyyy-MM-dd")
-        return simpleDate.format(mDate)
-    }
-
-    companion object {
-        private const val TAG = "SS_MainActivity"
-        private const val DAY = 86400000 //->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
-    }
-
+    // 오늘 날짜, 입력한 날짜로 d-day 계산
     private fun getDDay(year: Int, month: Int, day: Int): Int {
         return try {
-            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
-            val todayCal = Calendar.getInstance() //오늘날자 가져오기
-            val dDayCal = Calendar.getInstance() //오늘날자를 가져와 변경시킴
+            val todayCal = Calendar.getInstance()
+            val dDayCal = Calendar.getInstance()
 
-            dDayCal[year, month - 1] = day // D-day의 날짜를 입력
-
-            Log.e("테스트", simpleDateFormat.format(todayCal.time).toString() + "")
-            Log.e("테스트", simpleDateFormat.format(dDayCal.time).toString() + "")
+            // D-day의 날짜를 입력
+            dDayCal[year, month - 1] = day
 
             val today = todayCal.timeInMillis / DAY
             val dDay = dDayCal.timeInMillis / DAY
@@ -91,5 +82,10 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
             -1
         }
+    }
+
+    companion object {
+        private const val TAG = "SS_MainActivity"
+        private const val DAY = 86400000 // ->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
     }
 }
