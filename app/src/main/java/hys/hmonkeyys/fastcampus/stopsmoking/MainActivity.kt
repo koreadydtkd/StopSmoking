@@ -1,6 +1,7 @@
 package hys.hmonkeyys.fastcampus.stopsmoking
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initDDayTextView()
+        initViews()
         initAdmob()
     }
 
@@ -34,12 +36,27 @@ class MainActivity : AppCompatActivity() {
         val dDay = stopSmokingDate.split("-")
 
         val elapsedDate = getDDay(dDay[0].toInt(), dDay[1].toInt(), dDay[2].toInt())
-        if (elapsedDate > 0) {
-            binding.dDayTextView.text = getString(R.string.stop_smoking_text, elapsedDate)
-        } else {
-            binding.dDayTextView.text = "날짜를 다시 확인해주세요."
+        binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, elapsedDate)
+    }
+
+    /** 각 뷰 초기화 */
+    private fun initViews() {
+
+        binding.editCardView.setOnDuplicatePreventionClickListener {
+            // todo 수정 화면으로 이동
+            val intent = Intent(this, RegistrationActivity::class.java)
+            intent.putExtra("edit", true)
+            startActivity(intent)
+            finish()
         }
 
+        binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
+
+        }
+
+        binding.communityLayout.setOnDuplicatePreventionClickListener {
+
+        }
     }
 
     /** 하단 배너광고 초기화 */
@@ -77,7 +94,9 @@ class MainActivity : AppCompatActivity() {
 
             // 오늘 날짜에서 d day 날짜를 빼기
             val count = today - dDay
-            count.toInt()
+
+            // 오늘 부터 시작이면 1일 차
+            count.toInt() + 1
         } catch (e: Exception) {
             e.printStackTrace()
             -1

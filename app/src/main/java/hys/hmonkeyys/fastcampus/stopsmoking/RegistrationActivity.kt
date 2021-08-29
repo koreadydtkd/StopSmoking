@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.content.edit
+import androidx.core.view.isVisible
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.IS_REGISTRATION
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.MY_RESOLUTION
+import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.NICK_NAME
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.SHARED_PREFERENCES_KEY
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.STOP_SMOKING_DATE
 import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.TOBACCO_PRICE
@@ -25,7 +27,34 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val isEdit = intent.getBooleanExtra("edit", false)
+        if(isEdit) {
+            setDefaultData()
+            binding.cancelView.isVisible = true
+        } else {
+            binding.cancelView.isVisible = false
+        }
+
         initViews()
+    }
+
+    /** 수정에서 들어온 경우 셋팅 */
+    private fun setDefaultData() {
+        val nickName = spf.getString(NICK_NAME, "")
+        val amountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
+        val tobaccoPrice = spf.getInt(TOBACCO_PRICE, 0)
+        val myResolution = spf.getString(MY_RESOLUTION, "")
+
+
+        binding.nickNameEditText.setText(nickName)
+        binding.myResolutionEditText.setText(myResolution)
+
+        if(amountOfSmoking > 0 && tobaccoPrice > 0) {
+            binding.amountOfSmokingEditText.setText("$amountOfSmoking")
+            binding.tobaccoPriceEditText.setText("$tobaccoPrice")
+        }
+
+        binding.stopSmokingButton.text = getString(R.string.edit)
     }
 
     /** 각 뷰 초기화 */
@@ -33,7 +62,16 @@ class RegistrationActivity : AppCompatActivity() {
         // 날짜 최대 오늘날짜 까지 선택 가능
         binding.datePicker.maxDate = System.currentTimeMillis()
 
+        binding.cancelView.setOnClickListener {
+            goMainActivity()
+        }
+
         binding.stopSmokingButton.setOnClickListener {
+            if(binding.nickNameEditText.text.toString().isBlank()) {
+                Toast.makeText(this, getString(R.string.toast_nick_name), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if(binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
                 Toast.makeText(this, getString(R.string.toast_amount_of_smoking), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -56,9 +94,16 @@ class RegistrationActivity : AppCompatActivity() {
 
     /** 금연 정보 등록 */
     private fun noSmokingRegistration() {
+        val nickName = binding.nickNameEditText.text.toString()
         val amountOfSmoking = binding.amountOfSmokingEditText.text.toString().toInt()
         val tobaccoPrice = binding.tobaccoPriceEditText.text.toString().toInt()
         val myResolution = binding.myResolutionEditText.text.toString()
+
+        // 띄어쓰기 입력 체크
+        if(nickName.contains(" ")) {
+            Toast.makeText(this, getString(R.string.toast_input_space), Toast.LENGTH_SHORT).show()
+            return
+        }
 
         // 기본 값 0 입력 체크
         if(amountOfSmoking < 1 || tobaccoPrice < 1) {
@@ -70,12 +115,12 @@ class RegistrationActivity : AppCompatActivity() {
         spf.edit {
             putBoolean(IS_REGISTRATION, true)
             putString(STOP_SMOKING_DATE, getDatePicker())
+            putString(NICK_NAME, nickName)
             putInt(AMOUNT_OF_SMOKING_PER_DAY, amountOfSmoking)
             putInt(TOBACCO_PRICE, tobaccoPrice)
             putString(MY_RESOLUTION, myResolution)
         }
 
-        // 메인 화면으로 이동
         goMainActivity()
     }
 
