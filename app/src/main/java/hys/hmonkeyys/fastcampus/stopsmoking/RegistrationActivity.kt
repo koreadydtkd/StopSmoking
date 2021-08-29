@@ -30,6 +30,9 @@ class RegistrationActivity : AppCompatActivity() {
 
     /** 각 뷰 초기화 */
     private fun initViews() {
+        // 날짜 최대 오늘날짜 까지 선택 가능
+        binding.datePicker.maxDate = System.currentTimeMillis()
+
         binding.stopSmokingButton.setOnClickListener {
             if(binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
                 Toast.makeText(this, getString(R.string.toast_amount_of_smoking), Toast.LENGTH_SHORT).show()

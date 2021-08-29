@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:text="금연을 시작한 날짜를 선택해주세요."
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,20 +38,51 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nickNameTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:hint="닉네임"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePickerCardView"
+        app:startIconDrawable="@drawable/ic_baseline_person_pin_24"
+        app:startIconTint="@color/main_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nickNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/amountOfSmokingTextField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/amount_of_smoking"
+        app:counterEnabled="true"
+        app:counterMaxLength="2"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datePickerCardView"
+        app:layout_constraintTop_toBottomOf="@+id/nickNameTextField"
         app:startIconDrawable="@drawable/ic_baseline_smoking_rooms_24"
-        app:startIconTint="@android:color/holo_red_dark">
+        app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/amountOfSmokingEditText"
@@ -70,15 +101,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/tobacco_price"
+        app:counterEnabled="true"
+        app:counterMaxLength="5"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountOfSmokingTextField"
         app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
-        app:startIconTint="@color/yellow">
+        app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tobaccoPriceEditText"
@@ -97,7 +130,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/resolution"
         app:counterEnabled="true"
@@ -105,7 +138,9 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tobaccoPriceTextField">
+        app:layout_constraintTop_toBottomOf="@+id/tobaccoPriceTextField"
+        app:startIconDrawable="@drawable/ic_baseline_message_24"
+        app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/myResolutionEditText"
@@ -122,7 +157,7 @@
         android:id="@+id/stopSmokingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:text="@string/stop_smoking_start"
         android:textStyle="bold"
