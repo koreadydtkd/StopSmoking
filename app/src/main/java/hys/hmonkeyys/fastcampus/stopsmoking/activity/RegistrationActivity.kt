@@ -1,21 +1,22 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.fastcampus.stopsmoking.activity
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.content.edit
 import androidx.core.view.isVisible
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.IS_REGISTRATION
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.MY_RESOLUTION
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.NICK_NAME
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.SHARED_PREFERENCES_KEY
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.STOP_SMOKING_DATE
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.TOBACCO_PRICE
+import hys.hmonkeyys.fastcampus.stopsmoking.R
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.EDIT
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.IS_REGISTRATION
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.MY_RESOLUTION
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.SHARED_PREFERENCES_KEY
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.TOBACCO_PRICE
 import hys.hmonkeyys.fastcampus.stopsmoking.databinding.ActivityRegistrationBinding
 
 class RegistrationActivity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val isEdit = intent.getBooleanExtra("edit", false)
+        val isEdit = intent.getBooleanExtra(EDIT, false)
         if(isEdit) {
             setDefaultData()
             binding.cancelView.isVisible = true
@@ -136,5 +137,9 @@ class RegistrationActivity : AppCompatActivity() {
     private fun goMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    override fun onBackPressed() {
+        goMainActivity()
     }
 }

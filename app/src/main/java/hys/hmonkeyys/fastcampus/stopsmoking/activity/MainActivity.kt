@@ -1,4 +1,4 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.fastcampus.stopsmoking.activity
 
 import android.content.Context
 import android.content.Intent
@@ -10,16 +10,21 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.SHARED_PREFERENCES_KEY
-import hys.hmonkeyys.fastcampus.stopsmoking.SharedPreferencesKey.Companion.STOP_SMOKING_DATE
+import com.google.android.material.snackbar.Snackbar
+import hys.hmonkeyys.fastcampus.stopsmoking.R
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.EDIT
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.SHARED_PREFERENCES_KEY
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
 import hys.hmonkeyys.fastcampus.stopsmoking.databinding.ActivityMainBinding
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.setOnDuplicatePreventionClickListener
 import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val spf: SharedPreferences by lazy { getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE) }
+
+    private var backPressTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,22 +46,30 @@ class MainActivity : AppCompatActivity() {
 
     /** 각 뷰 초기화 */
     private fun initViews() {
-
         binding.editCardView.setOnDuplicatePreventionClickListener {
-            // todo 수정 화면으로 이동
-            val intent = Intent(this, RegistrationActivity::class.java)
-            intent.putExtra("edit", true)
-            startActivity(intent)
-            finish()
+            goEditActivity()
+        }
+
+        binding.shareButton.setOnDuplicatePreventionClickListener {
+
         }
 
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
-
+            startActivity(Intent(this, BodyChangesActivity::class.java))
         }
 
         binding.communityLayout.setOnDuplicatePreventionClickListener {
-
+            showSnackBar("현재 준비중입니다. 조금만 기다려주세요.")
         }
+
+    }
+
+    /** 수정(등록) 화면으로 이동 - 등록화면 재 활용 */
+    private fun goEditActivity() {
+        val intent = Intent(this, RegistrationActivity::class.java)
+        intent.putExtra(EDIT, true)
+        startActivity(intent)
+        finish()
     }
 
     /** 하단 배너광고 초기화 */
@@ -103,8 +116,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun showSnackBar(text: String) {
+        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
+    }
+
+    override fun onBackPressed() {
+        val time = System.currentTimeMillis()
+        if (time - backPressTime > ONE_POINT_FIVE_SECOND) {
+            showSnackBar(getString(R.string.snack_backward_finish))
+            backPressTime = time
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     companion object {
         private const val TAG = "SS_MainActivity"
         private const val DAY = 86400000 // ->(24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초->초 변환 1000)
+        private const val ONE_POINT_FIVE_SECOND = 1500L
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/default_background"
-    tools:context=".RegistrationActivity">
+    tools:context=".activity.RegistrationActivity">
 
     <TextView
         android:id="@+id/datePickerTextView"
@@ -22,9 +22,10 @@
         android:id="@+id/cancelView"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/ic_baseline_cancel_24"
+        android:backgroundTint="@color/main_color"
         android:gravity="center"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +34,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/datePickerCardView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
         app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePickerTextView">
 
@@ -56,7 +59,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/nick_name"
         app:counterEnabled="true"
@@ -85,7 +88,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/amount_of_smoking"
         app:counterEnabled="true"
@@ -114,7 +117,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/tobacco_price"
         app:counterEnabled="true"
@@ -143,7 +146,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/resolution"
         app:counterEnabled="true"
@@ -178,13 +181,17 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/stopSmokingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:text="@string/stop_smoking_start"
+        android:textSize="15sp"
         android:textStyle="bold"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myResolutionTextField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

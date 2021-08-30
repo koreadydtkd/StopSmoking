@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <TextView
         android:id="@+id/labelDDayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autoSizeMaxTextSize="24dp"
         android:text="@string/main_top_label"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -27,19 +28,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:autoSizeMaxTextSize="32dp"
         android:textColor="@color/main_color"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/labelDDayTextView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="+1" />
+        tools:text="1일차" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mainCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toTopOf="@+id/bodyChangesLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,14 +52,164 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autoSizeMaxTextSize="16dp"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:text="OOO님 금연에 꼭 성공하세요!"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/myResolutionView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/border_main_color"
+                app:layout_constraintBottom_toTopOf="@+id/increasedLifespanView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="18dp"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:text="각오"
+                android:textSize="15sp"
+                android:translationY="-8dp"
+                app:layout_constraintEnd_toEndOf="@id/myResolutionView"
+                app:layout_constraintStart_toStartOf="@id/myResolutionView"
+                app:layout_constraintTop_toTopOf="@+id/myResolutionView" />
+
+            <TextView
+                android:id="@+id/myResolutionTextView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="18dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="각오 합시다. 각오 합시다. 각오 합시다. 각오 합시다"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/myResolutionView"
+                app:layout_constraintEnd_toEndOf="@id/myResolutionView"
+                app:layout_constraintStart_toStartOf="@id/myResolutionView"
+                app:layout_constraintTop_toTopOf="@+id/myResolutionView" />
+
+
+            <View
+                android:id="@+id/increasedLifespanView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/border_main_color"
+                app:layout_constraintBottom_toTopOf="@+id/saveMoneyView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myResolutionView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="18dp"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:text="늘어난 수명"
+                android:textSize="15sp"
+                android:translationY="-8dp"
+                app:layout_constraintEnd_toEndOf="@id/increasedLifespanView"
+                app:layout_constraintStart_toStartOf="@id/increasedLifespanView"
+                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView" />
+
+            <TextView
+                android:id="@+id/increasedLifespanTextView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="18dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="1일 22시간 33분"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/increasedLifespanView"
+                app:layout_constraintEnd_toEndOf="@id/increasedLifespanView"
+                app:layout_constraintStart_toStartOf="@id/increasedLifespanView"
+                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView" />
+
+
+            <View
+                android:id="@+id/saveMoneyView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/border_main_color"
+                app:layout_constraintBottom_toTopOf="@+id/shareButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/increasedLifespanView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="18dp"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:text="절약한 담배 값"
+                android:textSize="15sp"
+                android:translationY="-8dp"
+                app:layout_constraintEnd_toEndOf="@id/saveMoneyView"
+                app:layout_constraintStart_toStartOf="@id/saveMoneyView"
+                app:layout_constraintTop_toTopOf="@+id/saveMoneyView" />
+
+            <TextView
+                android:id="@+id/saveMoneyTextView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="18dp"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="502,500원"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/saveMoneyView"
+                app:layout_constraintEnd_toEndOf="@id/saveMoneyView"
+                app:layout_constraintStart_toStartOf="@id/saveMoneyView"
+                app:layout_constraintTop_toTopOf="@+id/saveMoneyView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/shareButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:text="@string/stop_smoking_share_friends"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/guidView"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginBottom="18dp"
@@ -71,7 +225,7 @@
         app:cardCornerRadius="40dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/mainCardView"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/guidView">
 
         <View
             android:layout_width="match_parent"
@@ -84,23 +238,25 @@
 
     <LinearLayout
         android:id="@+id/bodyChangesLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_main_color"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="4dp"
+        android:paddingVertical="8dp"
         app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toStartOf="@+id/communityLayout"
         app:layout_constraintStart_toStartOf="parent">
 
         <View
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/ic_baseline_favorite_24"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_baseline_accessibility_new_24"
             android:backgroundTint="@color/white" />
 
         <TextView
@@ -116,22 +272,24 @@
 
     <LinearLayout
         android:id="@+id/communityLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_main_color"
+        android:backgroundTint="@android:color/darker_gray"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="@id/bodyChangesLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bodyChangesLayout"
         app:layout_constraintTop_toTopOf="@id/bodyChangesLayout">
 
         <View
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/ic_baseline_forum_24"
             android:backgroundTint="@color/white" />
 

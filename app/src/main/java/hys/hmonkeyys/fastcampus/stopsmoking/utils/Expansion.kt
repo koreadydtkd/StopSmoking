@@ -1,4 +1,4 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.fastcampus.stopsmoking.utils
 
 import android.os.Handler
 import android.os.Looper

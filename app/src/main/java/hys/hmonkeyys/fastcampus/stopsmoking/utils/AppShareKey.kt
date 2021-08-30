@@ -1,8 +1,8 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.fastcampus.stopsmoking.utils
 
-class SharedPreferencesKey {
+class AppShareKey {
     companion object {
-        // default key
+        // === SharedPreference key Start ===
         const val SHARED_PREFERENCES_KEY = "stop_smoking"
 
         const val IS_REGISTRATION = "is_registration"
@@ -12,5 +12,10 @@ class SharedPreferencesKey {
         const val AMOUNT_OF_SMOKING_PER_DAY = "amount_of_smoking_per_day"
         const val TOBACCO_PRICE = "tobacco_price"
         const val MY_RESOLUTION = "my_resolution"
+        // === SharedPreference key End ===
+
+
+        // share intent key
+        const val EDIT = "edit"
     }
 }
