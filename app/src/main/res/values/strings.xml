@@ -8,11 +8,12 @@
 
 
     <!-- Registration -->
+    <string name="date_select_text">금연을 시작한 날짜를 선택해주세요.</string>
     <string name="stop_smoking_start">금연 시작</string>
     <string name="nick_name">닉네임</string>
     <string name="resolution">각오</string>
     <string name="amount_of_smoking">하루 흡연량(개비)</string>
-    <string name="tobacco_price">담배 가격</string>
+    <string name="tobacco_price">담배 가격(1갑)</string>
     <string name="user_widget">각오는 위젯에 사용됩니다.</string>
 
     <string name="toast_nick_name">닉네임을 입력해주세요..</string>
@@ -25,8 +26,8 @@
 
     <!-- Main -->
     <string name="main_top_label">금연한지</string>
-    <string name="stop_smoking_d_day">%d일</string>
-    <string name="date_select_text">금연을 시작한 날짜를 선택해주세요.</string>
+    <string name="stop_smoking_d_day">%d일차</string>
+    <string name="main_title">%s님 금연에 꼭 성공하세요!</string>
     <string name="chat">담소 (준비중)</string>
     <string name="stop_smoking_after_body_changes">금연 후\n신체 변화</string>
     <string name="stop_smoking_share_friends">금연 시작 친구에게 공유</string>

@@ -16,13 +16,20 @@ import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.EDIT
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.SHARED_PREFERENCES_KEY
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
 import hys.hmonkeyys.fastcampus.stopsmoking.databinding.ActivityMainBinding
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.MY_RESOLUTION
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.TOBACCO_PRICE
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.setOnDuplicatePreventionClickListener
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.toCommaWon
 import java.lang.Exception
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val spf: SharedPreferences by lazy { getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE) }
+
+    private var elapsedDate = 0
 
     private var backPressTime = 0L
 
@@ -40,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val stopSmokingDate = spf.getString(STOP_SMOKING_DATE, "") ?: ""
         val dDay = stopSmokingDate.split("-")
 
-        val elapsedDate = getDDay(dDay[0].toInt(), dDay[1].toInt(), dDay[2].toInt())
+        elapsedDate = getDDay(dDay[0].toInt(), dDay[1].toInt(), dDay[2].toInt())
         binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, elapsedDate)
     }
 
@@ -51,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.shareButton.setOnDuplicatePreventionClickListener {
-
+            // todo 카카오 로그인 팝업 띄우고 로그인 되면 공유하도록
         }
 
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
@@ -62,6 +69,14 @@ class MainActivity : AppCompatActivity() {
             showSnackBar("현재 준비중입니다. 조금만 기다려주세요.")
         }
 
+        val nickName = spf.getString(NICK_NAME, "OOO") ?: "OOO"
+        binding.titleTextView.text = getString(R.string.main_title, nickName)
+
+        binding.myResolutionTextView.text = spf.getString(MY_RESOLUTION, "") ?: ""
+
+        val inputAmountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
+        binding.increasedLifespanTextView.text = getIncreasedLifespan(inputAmountOfSmoking)
+        binding.saveMoneyTextView.text = getTobaccoPrice(inputAmountOfSmoking)
     }
 
     /** 수정(등록) 화면으로 이동 - 등록화면 재 활용 */
@@ -70,6 +85,24 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(EDIT, true)
         startActivity(intent)
         finish()
+    }
+
+    /** 1개비 11분 기준으로 늘어난 수명 계산 */
+    private fun getIncreasedLifespan(inputAmountOfSmoking: Int): String {
+        val oneDay = inputAmountOfSmoking * 11 * elapsedDate
+        val day = oneDay / 1440      // 하루
+        val hour = oneDay / 60       // 시간
+        val minute = oneDay % 60     // 분
+
+        return "${day}일 ${hour}시간 ${minute}분"
+    }
+
+    /** 입력한 담배값에 1개비 금액을 구한 후 하루에 피우는 개비 만큼 곱하기 */
+    private fun getTobaccoPrice(inputAmountOfSmoking: Int): String {
+        val inputPrice = spf.getInt(TOBACCO_PRICE, 0)
+        val onePrice = inputPrice / 20
+
+        return (onePrice * inputAmountOfSmoking * elapsedDate).toCommaWon()
     }
 
     /** 하단 배너광고 초기화 */

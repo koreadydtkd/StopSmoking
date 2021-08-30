@@ -64,10 +64,10 @@
                 android:autoSizeMaxTextSize="16dp"
                 android:background="@color/white"
                 android:paddingHorizontal="8dp"
-                android:text="OOO님 금연에 꼭 성공하세요!"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="OOO님 금연에 꼭 성공하세요!" />
 
             <View
                 android:id="@+id/myResolutionView"
@@ -142,7 +142,7 @@
                 android:autoSizeMaxTextSize="18dp"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="1일 22시간 33분"
+                tools:text="1일 22시간 33분"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/increasedLifespanView"
@@ -184,7 +184,7 @@
                 android:autoSizeMaxTextSize="18dp"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="502,500원"
+                tools:text="502,500원"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/saveMoneyView"

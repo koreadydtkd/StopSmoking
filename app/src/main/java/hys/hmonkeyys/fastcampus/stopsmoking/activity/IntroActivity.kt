@@ -32,6 +32,6 @@ class IntroActivity : AppCompatActivity() {
                 startActivity(Intent(this, RegistrationActivity::class.java))
             }
             finish()
-        }, 1000)
+        }, 1200)
     }
 }

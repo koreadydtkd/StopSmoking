@@ -11,31 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StopSmoking">
-        <activity
-            android:name=".activity.CommunityActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activity.BodyChangesActivity"
-            android:exported="true" /> <!-- 배너 광고 -->
+
+        <!-- 배너 광고 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <activity
-            android:name=".activity.IntroActivity"
-            android:exported="true">
+        <activity android:name=".activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.RegistrationActivity"
-            android:exported="true" />
+
+        <activity android:name=".activity.RegistrationActivity" />
+
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true" />
+            android:theme="@style/Theme.Status.Custom" />
+
+        <activity android:name=".activity.CommunityActivity" />
+
+        <activity android:name=".activity.BodyChangesActivity" />
+
     </application>
 
 </manifest>

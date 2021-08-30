@@ -9,4 +9,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/default_background</item>
         <!-- Customize your theme here. -->
     </style>
+
+     <!-- 전체 화면이 아닌 경우 상태바 커스텀 -->
+     <style name="Theme.Status.Custom" parent="Theme.MaterialComponents.Light.NoActionBar">
+         <item name="colorPrimary">@color/main_color</item>
+         <item name="android:statusBarColor" tools:targetApi="l">@color/main_color</item>
+     </style>
 </resources>

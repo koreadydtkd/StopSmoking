@@ -29,7 +29,7 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val isEdit = intent.getBooleanExtra(EDIT, false)
-        if(isEdit) {
+        if (isEdit) {
             setDefaultData()
             binding.cancelView.isVisible = true
         } else {
@@ -50,7 +50,7 @@ class RegistrationActivity : AppCompatActivity() {
         binding.nickNameEditText.setText(nickName)
         binding.myResolutionEditText.setText(myResolution)
 
-        if(amountOfSmoking > 0 && tobaccoPrice > 0) {
+        if (amountOfSmoking > 0 && tobaccoPrice > 0) {
             binding.amountOfSmokingEditText.setText("$amountOfSmoking")
             binding.tobaccoPriceEditText.setText("$tobaccoPrice")
         }
@@ -60,30 +60,32 @@ class RegistrationActivity : AppCompatActivity() {
 
     /** 각 뷰 초기화 */
     private fun initViews() {
-        // 날짜 최대 오늘날짜 까지 선택 가능
+        // 최대 오늘날짜 까지 선택 가능
         binding.datePicker.maxDate = System.currentTimeMillis()
 
+        // 수정으로 들어온 경우 취소 버튼
         binding.cancelView.setOnClickListener {
             goMainActivity()
         }
 
+        // 기본 예외 처리 후 등록
         binding.stopSmokingButton.setOnClickListener {
-            if(binding.nickNameEditText.text.toString().isBlank()) {
+            if (binding.nickNameEditText.text.toString().isBlank()) {
                 Toast.makeText(this, getString(R.string.toast_nick_name), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if(binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
+            if (binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
                 Toast.makeText(this, getString(R.string.toast_amount_of_smoking), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if(binding.tobaccoPriceEditText.text.isNullOrEmpty()) {
+            if (binding.tobaccoPriceEditText.text.isNullOrEmpty()) {
                 Toast.makeText(this, getString(R.string.toast_tobacco_price), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if(binding.myResolutionEditText.text.toString().isBlank()) {
+            if (binding.myResolutionEditText.text.toString().isBlank()) {
                 Toast.makeText(this, getString(R.string.toast_my_resolution), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -101,13 +103,13 @@ class RegistrationActivity : AppCompatActivity() {
         val myResolution = binding.myResolutionEditText.text.toString()
 
         // 띄어쓰기 입력 체크
-        if(nickName.contains(" ")) {
+        if (nickName.contains(" ")) {
             Toast.makeText(this, getString(R.string.toast_input_space), Toast.LENGTH_SHORT).show()
             return
         }
 
         // 기본 값 0 입력 체크
-        if(amountOfSmoking < 1 || tobaccoPrice < 1) {
+        if (amountOfSmoking < 1 || tobaccoPrice < 1) {
             Toast.makeText(this, getString(R.string.toast_zero_input_exception), Toast.LENGTH_SHORT).show()
             return
         }
