@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
             <TextView
                 android:id="@+id/titleTextView"
@@ -74,9 +74,9 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginVertical="12dp"
                 android:background="@drawable/border_main_color"
-                app:layout_constraintBottom_toTopOf="@+id/increasedLifespanView"
+                app:layout_constraintBottom_toTopOf="@+id/cigarettesSavedView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
@@ -99,10 +99,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:autoSizeMaxTextSize="18dp"
+                android:ellipsize="end"
                 android:gravity="center"
-                android:padding="16dp"
-                android:text="각오 합시다. 각오 합시다. 각오 합시다. 각오 합시다"
-                android:textSize="18sp"
+                android:maxLines="2"
+                android:padding="12dp"
+                android:text="각오합시다각오합시다각오합시다각오합시다"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/myResolutionView"
                 app:layout_constraintEnd_toEndOf="@id/myResolutionView"
@@ -111,16 +113,57 @@
 
 
             <View
+                android:id="@+id/cigarettesSavedView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/border_main_color"
+                app:layout_constraintBottom_toTopOf="@+id/increasedLifespanView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myResolutionView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="18dp"
+                android:background="@color/white"
+                android:paddingHorizontal="8dp"
+                android:text="안피운 담배"
+                android:textSize="15sp"
+                android:translationY="-8dp"
+                app:layout_constraintEnd_toEndOf="@id/cigarettesSavedView"
+                app:layout_constraintStart_toStartOf="@id/cigarettesSavedView"
+                app:layout_constraintTop_toTopOf="@+id/cigarettesSavedView" />
+
+            <TextView
+                android:id="@+id/cigarettesSavedTextView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="18dp"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/cigarettesSavedView"
+                app:layout_constraintEnd_toEndOf="@id/cigarettesSavedView"
+                app:layout_constraintStart_toStartOf="@id/cigarettesSavedView"
+                app:layout_constraintTop_toTopOf="@+id/cigarettesSavedView"
+                tools:text="100개비" />
+
+
+            <View
                 android:id="@+id/increasedLifespanView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginVertical="12dp"
                 android:background="@drawable/border_main_color"
                 app:layout_constraintBottom_toTopOf="@+id/saveMoneyView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myResolutionView" />
+                app:layout_constraintTop_toBottomOf="@+id/cigarettesSavedView" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -141,14 +184,14 @@
                 android:layout_height="0dp"
                 android:autoSizeMaxTextSize="18dp"
                 android:gravity="center"
-                android:padding="16dp"
-                tools:text="1일 22시간 33분"
+                android:padding="12dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/increasedLifespanView"
                 app:layout_constraintEnd_toEndOf="@id/increasedLifespanView"
                 app:layout_constraintStart_toStartOf="@id/increasedLifespanView"
-                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView" />
+                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView"
+                tools:text="1일 22시간 33분" />
 
 
             <View
@@ -156,8 +199,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginVertical="12dp"
                 android:background="@drawable/border_main_color"
                 app:layout_constraintBottom_toTopOf="@+id/shareButton"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -183,14 +225,14 @@
                 android:layout_height="0dp"
                 android:autoSizeMaxTextSize="18dp"
                 android:gravity="center"
-                android:padding="16dp"
-                tools:text="502,500원"
+                android:padding="12dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/saveMoneyView"
                 app:layout_constraintEnd_toEndOf="@id/saveMoneyView"
                 app:layout_constraintStart_toStartOf="@id/saveMoneyView"
-                app:layout_constraintTop_toTopOf="@+id/saveMoneyView" />
+                app:layout_constraintTop_toTopOf="@+id/saveMoneyView"
+                tools:text="502,500원" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/shareButton"
@@ -246,7 +288,7 @@
         android:background="@drawable/rounded_main_color"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingVertical="8dp"
+        android:paddingVertical="6dp"
         app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toStartOf="@+id/communityLayout"
         app:layout_constraintStart_toStartOf="parent">

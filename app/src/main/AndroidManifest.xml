@@ -33,7 +33,9 @@
 
         <activity android:name=".activity.CommunityActivity" />
 
-        <activity android:name=".activity.BodyChangesActivity" />
+        <activity
+            android:name=".activity.BodyChangesActivity"
+            android:theme="@style/Theme.Status.Custom" />
 
     </application>
 

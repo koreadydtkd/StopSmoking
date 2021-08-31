@@ -20,6 +20,7 @@ import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.AMOUNT_O
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.MY_RESOLUTION
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.AppShareKey.Companion.TOBACCO_PRICE
+import hys.hmonkeyys.fastcampus.stopsmoking.utils.Utility
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.setOnDuplicatePreventionClickListener
 import hys.hmonkeyys.fastcampus.stopsmoking.utils.toCommaWon
 import java.lang.Exception
@@ -70,11 +71,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         val nickName = spf.getString(NICK_NAME, "OOO") ?: "OOO"
-        binding.titleTextView.text = getString(R.string.main_title, nickName)
+
+
+        binding.titleTextView.text = Utility.changePartialTextColor(
+            getString(R.string.main_title, nickName),
+            getColor(R.color.black),
+            0,
+            nickName.length
+        )
 
         binding.myResolutionTextView.text = spf.getString(MY_RESOLUTION, "") ?: ""
 
         val inputAmountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
+        binding.cigarettesSavedTextView.text = "${inputAmountOfSmoking * elapsedDate}개비"
         binding.increasedLifespanTextView.text = getIncreasedLifespan(inputAmountOfSmoking)
         binding.saveMoneyTextView.text = getTobaccoPrice(inputAmountOfSmoking)
     }
@@ -90,9 +99,10 @@ class MainActivity : AppCompatActivity() {
     /** 1개비 11분 기준으로 늘어난 수명 계산 */
     private fun getIncreasedLifespan(inputAmountOfSmoking: Int): String {
         val oneDay = inputAmountOfSmoking * 11 * elapsedDate
-        val day = oneDay / 1440      // 하루
-        val hour = oneDay / 60       // 시간
-        val minute = oneDay % 60     // 분
+
+        val day = oneDay / 1440                 // 하루
+        val hour = (oneDay % 1440) / 60         // 시간 - 하루를 나눈 후 나머지로 계산
+        val minute = oneDay % 60                // 분
 
         return "${day}일 ${hour}시간 ${minute}분"
     }

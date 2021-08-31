@@ -11,4 +11,6 @@
     <color name="main_color">#e45666</color>
     <color name="default_background">#f8f8f8</color>
     <color name="yellow">#FBC02D</color>
+    <color name="light_grey">#AAAAAA</color>
+    <color name="dark_grey">#595959</color>
 </resources>

@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_grey_color.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_color.xml" value="0.3421296296296296" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3421296296296296" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_forum_24.xml" value="0.3421296296296296" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.3421296296296296" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_main_color.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_body_changes.xml" value="0.3277777777777778" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_body_changes.xml" value="0.2765625" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community.xml" value="0.3277777777777778" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.36875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />

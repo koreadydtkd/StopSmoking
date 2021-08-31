@@ -35,8 +35,39 @@
     <string name="snack_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
 
 
+    <!-- BodyChanges -->
+    <string name="twenty_minutes">20분 경과</string>
+    <string name="twenty_minutes_info">혈압이 정상으로 떨어지고 손과 발의 체온이 정상으로 돌아옵니다.</string>
+    <string name="eight_hours">8시간 경과</string>
+    <string name="eight_hours_info">혈중 일산화탄소량이 정상으로 떨어지고 혈중 산소량이 정상치로 올라갑니다.</string>
+    <string name="twelve_hours">12시간 경과</string>
+    <string name="twelve_hours_info">심장마비 위험이 감소합니다.</string>
+    <string name="one_day">24시간 경과</string>
+    <string name="one_day_info">흡연으로 인해 몸 안에 쌓였던 일산화탄소가 몸 밖으로 전부 배출되며 금단 증상이 나타나는 시간입니다.</string>
+    <string name="two_day">48시간 경과</string>
+    <string name="two_day_info">후각과 미각이 향상됩니다. 같은 음식을 먹더라도 색 다른 맛을 느낄 수 있습니다.</string>
+    <string name="three_day">72시간 경과</string>
+    <string name="three_day_info">체내 니코킨 잔량이 대부분 배출되며 폐의 회복이 시작됩니다. 금단 증상이 극에 달합니다.</string>
+    <string name="one_week">1주 경과</string>
+    <string name="one_week_info">가래의 점도와 색이 정상적으로 되돌아오며, 흡연에 대한 욕구는 여전히 남아있습니다.</string>
+    <string name="two_week">2주 경과</string>
+    <string name="two_week_info">잇몸, 치아 상태가 회복되며 흡연에 대한 욕구가 감소합니다.</string>
+    <string name="one_two_month">1~2개월 경과</string>
+    <string name="one_two_month_info">피부가 개선되며 폐 기능이 30%정도 향샹되어 체력이 증가합니다.</string>
+    <string name="three_month">3개월 경과</string>
+    <string name="three_month_info">남성의 경우 성 기능이 향상되며 정자 수가 증가됩니다.</string>
+    <string name="nine_month">9개월 경과</string>
+    <string name="nine_month_info">피로와 호흡 곤란 증상이 완화하며 호흡기 질환에 대한 면역력이 강화되고 폐가 정상 기능으로 회복됩니다.</string>
+    <string name="one_year">1년 경과</string>
+    <string name="one_year_info">혈액의 모든 세포가 정상화되며 심장병 발병률이 흡연자 절반으로 줄어듭니다.</string>
+    <string name="five_year">5년 경과</string>
+    <string name="five_year_info">자궁경부암, 뇌졸증, 중풍의 발병률이 비흡연자와 비슷한 수치로 떨어지며 신체 체중도 증가합니다.</string>
+    <string name="ten_year">10년 경과</string>
+    <string name="ten_year_info">폐암으로 인한 사망률이 흡연자 절반으로 떨어지며, 구강암, 후두암, 식도암 등 흡연으로 발생되는 주요 암들이 발병률이 감소합니다.</string>
+    <string name="fifteen_year">15년 경과</string>
+    <string name="fifteen_year_info">한번도 흡연하지 않은 사람과 같은 수준의 몸 상태로 회복합니다.</string>
+
     <!-- Default -->
     <string name="edit">수정</string>
-
 
 </resources>
