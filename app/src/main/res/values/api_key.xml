@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 카카오 -->
+    <string name="kakao_scheme_native_key">kakao993c7dcff2f008b6d821b0415d6b895a</string>
+    <string name="kakao_native_key">993c7dcff2f008b6d821b0415d6b895a</string>
+</resources>

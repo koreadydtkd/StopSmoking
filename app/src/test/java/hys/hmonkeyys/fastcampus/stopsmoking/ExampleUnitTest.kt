@@ -1,4 +1,4 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.stopsmoking
 
 import org.junit.Test
 

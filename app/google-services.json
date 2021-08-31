@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "122705995254",
+    "project_id": "stop-smoking-54dc3",
+    "storage_bucket": "stop-smoking-54dc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122705995254:android:82e06c66b4b620406f13d7",
+        "android_client_info": {
+          "package_name": "hys.hmonkeyys.stopsmoking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122705995254-i9t6hl5tg9kq2pdilun5u63gj1tsrle6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp0FZ4SgbdeSrud4HYj_pcELK3NjBHVv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122705995254-i9t6hl5tg9kq2pdilun5u63gj1tsrle6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

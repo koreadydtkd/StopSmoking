@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hys.hmonkeyys.fastcampus.stopsmoking">
+    package="hys.hmonkeyys.stopsmoking">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- 앱이 Android 11을 타겟팅하는 경우 queries 요소를 추가해야함 -->
+    <queries>
+        <package android:name="com.kakao.talk" />
+    </queries>
+
     <application
+        android:name=".StopSmokingApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,12 +26,18 @@
         <activity android:name=".activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <!-- "kakao{YOUR_NATIVE_APP_KEY}://kakaolink" 형식의 앱 실행 스킴을 설정하는데 사용 -->
+                <data
+                    android:host="kakaolink"
+                    android:scheme="@string/kakao_scheme_native_key" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.RegistrationActivity" />
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:theme="@style/Theme.Status.Custom" />
 
         <activity
             android:name=".activity.MainActivity"

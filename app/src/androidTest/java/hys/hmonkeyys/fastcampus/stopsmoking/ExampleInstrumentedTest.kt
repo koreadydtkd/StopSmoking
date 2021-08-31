@@ -1,4 +1,4 @@
-package hys.hmonkeyys.fastcampus.stopsmoking
+package hys.hmonkeyys.stopsmoking
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("hys.hmonkeyys.fastcampus.stopsmoking", appContext.packageName)
+        assertEquals("hys.hmonkeyys.stopsmoking", appContext.packageName)
     }
 }

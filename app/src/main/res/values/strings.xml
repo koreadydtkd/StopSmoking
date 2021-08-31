@@ -16,23 +16,25 @@
     <string name="tobacco_price">담배 가격(1갑)</string>
     <string name="user_widget">각오는 위젯에 사용됩니다.</string>
 
-    <string name="toast_nick_name">닉네임을 입력해주세요..</string>
-    <string name="toast_amount_of_smoking">하루 흡연량을 입력해주세요.</string>
-    <string name="toast_tobacco_price">담배 가격을 입력해주세요.</string>
-    <string name="toast_my_resolution">금연하기 위한 각오를 입력해주세요.</string>
-    <string name="toast_zero_input_exception">0보다 크게 입력해주세요.</string>
-    <string name="toast_input_space">공백은 입력할 수 없습니다.</string>
+    <string name="message_nick_name">닉네임을 입력해주세요..</string>
+    <string name="message_amount_of_smoking">하루 흡연량을 입력해주세요.</string>
+    <string name="message_tobacco_price">담배 가격을 입력해주세요.</string>
+    <string name="message_my_resolution">금연하기 위한 각오를 입력해주세요.</string>
+    <string name="message_zero_input_exception">0보다 크게 입력해주세요.</string>
+    <string name="message_input_space">공백은 입력할 수 없습니다.</string>
 
 
     <!-- Main -->
     <string name="main_top_label">금연한지</string>
     <string name="stop_smoking_d_day">%d일차</string>
     <string name="main_title">%s님 금연에 꼭 성공하세요!</string>
+    <string name="main_save_tobacco">%d개비</string>
     <string name="chat">담소 (준비중)</string>
     <string name="stop_smoking_after_body_changes">금연 후\n신체 변화</string>
     <string name="stop_smoking_share_friends">금연 시작 친구에게 공유</string>
 
-    <string name="snack_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
+    <string name="message_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
+    <string name="message_kakao_not_install">카카오톡이 설치되지 않거나 로그인하지 않은 경우\n해당 기능을 이용할 수 없습니다.</string>
 
 
     <!-- BodyChanges -->
