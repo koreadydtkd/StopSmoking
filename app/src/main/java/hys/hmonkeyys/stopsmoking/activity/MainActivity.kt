@@ -18,6 +18,7 @@ import com.kakao.sdk.template.model.Content
 import com.kakao.sdk.template.model.FeedTemplate
 import com.kakao.sdk.template.model.Link
 import hys.hmonkeyys.stopsmoking.R
+import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
@@ -108,22 +109,29 @@ class MainActivity : AppCompatActivity() {
 
         // 피드 메시지 보내기
         // 카카오톡 설치여부 확인
-        if (LinkClient.instance.isKakaoLinkAvailable(this)) {
-            // 카카오톡으로 카카오링크 공유 가능
-            LinkClient.instance.defaultTemplate(this, getDefaultFeed()) { linkResult, error ->
-                if (error != null) {
-                    showSnackBar("카카오링크 보내기에 실패하였습니다. 잠시 후 다시 시도해주세요.")
-                } else if (linkResult != null) {
-                    startActivity(linkResult.intent)
+        try {
+            if (LinkClient.instance.isKakaoLinkAvailable(this)) {
+                // 카카오톡으로 카카오링크 공유 가능
+                LinkClient.instance.defaultTemplate(this, getDefaultFeed()) { linkResult, error ->
+                    if (error != null) {
+                        showSnackBar(getString(R.string.message_kakao_link_send_fail))
+                    } else if (linkResult != null) {
+                        startActivity(linkResult.intent)
 
-                    // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.
-                    Log.w(TAG, "Warning Msg: ${linkResult.warningMsg}")
-                    Log.w(TAG, "Argument Msg: ${linkResult.argumentMsg}")
+                        // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.
+                        Log.w(TAG, "Warning Msg: ${linkResult.warningMsg}")
+                        Log.w(TAG, "Argument Msg: ${linkResult.argumentMsg}")
+                    }
                 }
+            } else {
+                showSnackBar(getString(R.string.message_kakao_not_install))
             }
-        } else {
-            showSnackBar(getString(R.string.message_kakao_not_install))
+        } catch (e: Exception) {
+            FirebaseCrashlytics.getInstance().recordException(e)
+            showSnackBar(getString(R.string.message_kakao_error))
+            e.printStackTrace()
         }
+
     }
 
     /** 1개비 11분 기준으로 늘어난 수명 계산 */

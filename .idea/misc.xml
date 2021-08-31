@@ -3,27 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_grey_color.xml" value="0.288671875" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_color.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_forum_24.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_main_color.xml" value="0.3421296296296296" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_body_changes.xml" value="0.2765625" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community.xml" value="0.3277777777777778" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.36875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_registration.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_registration.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2234375" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2234375" />
         <entry key="app/src/main/res/drawable/rounded_main_color.xml" value="0.24861111111111112" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.21666666666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22430555555555556" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.22708333333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

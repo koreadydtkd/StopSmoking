@@ -15,5 +15,12 @@ object Utility {
         ssb.setSpan(ForegroundColorSpan(color), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return ssb
     }
+
+    /** 금연 시작날짜 가져오기 */
+    fun getDatePicker(year: Int, inputMonth: Int, inputDay: Int): String {
+        val month = "%02d".format(inputMonth + 1)
+        val day = "%02d".format(inputDay)
+        return "${year}-${month}-$day"
+    }
 }
 

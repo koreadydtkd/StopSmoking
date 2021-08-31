@@ -35,6 +35,8 @@
 
     <string name="message_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
     <string name="message_kakao_not_install">카카오톡이 설치되지 않거나 로그인하지 않은 경우\n해당 기능을 이용할 수 없습니다.</string>
+    <string name="message_kakao_error">진행 중 예기치 못한 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.</string>
+    <string name="message_kakao_link_send_fail">카카오링크 보내기에 실패하였습니다.\n잠시 후 다시 시도해주세요.</string>
 
 
     <!-- BodyChanges -->

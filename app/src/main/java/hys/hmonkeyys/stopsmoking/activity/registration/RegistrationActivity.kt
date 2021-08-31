@@ -1,25 +1,27 @@
-package hys.hmonkeyys.stopsmoking.activity
+package hys.hmonkeyys.stopsmoking.activity.registration
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.edit
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import hys.hmonkeyys.stopsmoking.R
+import hys.hmonkeyys.stopsmoking.activity.BaseActivity
+import hys.hmonkeyys.stopsmoking.activity.MainActivity
+import hys.hmonkeyys.stopsmoking.databinding.ActivityRegistrationBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.IS_REGISTRATION
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.MY_RESOLUTION
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.TOBACCO_PRICE
-import hys.hmonkeyys.stopsmoking.databinding.ActivityRegistrationBinding
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
+import hys.hmonkeyys.stopsmoking.utils.Utility
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RegistrationActivity : AppCompatActivity() {
+internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
+
+    override val viewModel: RegistrationViewModel by viewModel()
 
     private val binding: ActivityRegistrationBinding by lazy { ActivityRegistrationBinding.inflate(layoutInflater) }
     private val spf: SharedPreferences by lazy { getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE) }
@@ -27,16 +29,22 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+    }
 
-        val isEdit = intent.getBooleanExtra(EDIT, false)
-        if (isEdit) {
-            setDefaultData()
-            binding.cancelView.isVisible = true
-        } else {
-            binding.cancelView.isVisible = false
+    override fun observeData() {
+        viewModel.registrationLiveData.observe(this) {
+            when (it) {
+                is RegistrationState.Initialized -> {
+                    val isEdit = intent.getBooleanExtra(EDIT, false)
+                    if (isEdit) {
+                        setDefaultData()
+                    }
+                    binding.cancelView.isVisible = isEdit
+
+                    initViews()
+                }
+            }
         }
-
-        initViews()
     }
 
     /** 수정에서 들어온 경우 셋팅 */
@@ -45,7 +53,6 @@ class RegistrationActivity : AppCompatActivity() {
         val amountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
         val tobaccoPrice = spf.getInt(TOBACCO_PRICE, 0)
         val myResolution = spf.getString(MY_RESOLUTION, "")
-
 
         binding.nickNameEditText.setText(nickName)
         binding.myResolutionEditText.setText(myResolution)
@@ -116,25 +123,16 @@ class RegistrationActivity : AppCompatActivity() {
 
         // todo 정보 저장하기 전 닉네임 중복확인 후 다음 프로세스
 
-        // 금연 관련 정보 저장
-        spf.edit {
-            putBoolean(IS_REGISTRATION, true)
-            putString(STOP_SMOKING_DATE, getDatePicker())
-            putString(NICK_NAME, nickName)
-            putInt(AMOUNT_OF_SMOKING_PER_DAY, amountOfSmoking)
-            putInt(TOBACCO_PRICE, tobaccoPrice)
-            putString(MY_RESOLUTION, myResolution)
-        }
+        viewModel.saveNoSmokingInformation(
+            true,
+            Utility.getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth),
+            nickName,
+            amountOfSmoking,
+            tobaccoPrice,
+            myResolution
+        )
 
         goMainActivity()
-    }
-
-    /** 금연 시작날짜 가져오기 */
-    private fun getDatePicker(): String {
-        val year = binding.datePicker.year
-        val month = "%02d".format(binding.datePicker.month + 1)
-        val day = "%02d".format(binding.datePicker.dayOfMonth)
-        return "${year}-${month}-$day"
     }
 
     /** 메인 화면으로 이동 */
