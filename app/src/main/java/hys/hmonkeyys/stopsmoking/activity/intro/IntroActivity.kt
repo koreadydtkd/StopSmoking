@@ -1,12 +1,11 @@
 package hys.hmonkeyys.stopsmoking.activity.intro
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.main.MainActivity
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
+import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class IntroActivity : BaseActivity<IntroViewModel>() {
@@ -22,21 +21,14 @@ internal class IntroActivity : BaseActivity<IntroViewModel>() {
             when (it) {
                 is IntroState.GetImageUrlForKakaoLink -> {
                     if (viewModel.isFirstTime()) {
-                        goNextActivity(MainActivity::class.java)
+                        goNextActivity(this, MainActivity::class.java, 1000, true)
                     } else {
-                        goNextActivity(RegistrationActivity::class.java)
+                        goNextActivity(this, RegistrationActivity::class.java, 1000, true)
                     }
                 }
 
             }
         }
-    }
-
-    private fun <T> goNextActivity(clazz: Class<T>) {
-        Handler(mainLooper).postDelayed({
-            startActivity(Intent(this, clazz))
-            finish()
-        }, 1200)
     }
 
 }

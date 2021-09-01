@@ -1,4 +1,4 @@
-package hys.hmonkeyys.stopsmoking.activity
+package hys.hmonkeyys.stopsmoking.activity.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

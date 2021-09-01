@@ -16,7 +16,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 internal class RegistrationViewModel(
-    private val sharedPreferences: SharedPreferences
+    private val spf: SharedPreferences
 ) : BaseViewModel() {
 
     private var _registrationLiveData = MutableLiveData<RegistrationState>()
@@ -26,6 +26,22 @@ internal class RegistrationViewModel(
         _registrationLiveData.postValue(RegistrationState.Initialized)
     }
 
+    /** 저장한 금연 관련 정보 가져오기 */
+    fun getDefaultData() {
+        val date = spf.getString(STOP_SMOKING_DATE, "2021-01-01") ?: "2021-01-01"
+        val dateArray = date.split("-")
+
+        val nickName = spf.getString(NICK_NAME, "OOO") ?: "OOO"
+        val amountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
+        val tobaccoPrice = spf.getInt(TOBACCO_PRICE, 0)
+        val myResolution = spf.getString(MY_RESOLUTION, "각오를 입력하세요.") ?: "각오를 입력하세요."
+
+        _registrationLiveData.postValue(
+            RegistrationState.StoredValue(dateArray, nickName, amountOfSmoking, tobaccoPrice, myResolution)
+        )
+    }
+
+    /** 금연 관련 정보 저장 */
     fun saveNoSmokingInformation(
         isFirst: Boolean,
         datePicker: String,
@@ -34,7 +50,7 @@ internal class RegistrationViewModel(
         tobaccoPrice: Int,
         myResolution: String
     ) {
-        sharedPreferences.edit {
+        spf.edit {
             putBoolean(IS_REGISTRATION, isFirst)
             putString(STOP_SMOKING_DATE, datePicker)
             putString(NICK_NAME, nickName)

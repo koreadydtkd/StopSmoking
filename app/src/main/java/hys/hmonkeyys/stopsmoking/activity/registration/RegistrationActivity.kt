@@ -1,31 +1,22 @@
 package hys.hmonkeyys.stopsmoking.activity.registration
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.google.android.material.snackbar.Snackbar
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.main.MainActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityRegistrationBinding
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.MY_RESOLUTION
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.TOBACCO_PRICE
-import hys.hmonkeyys.stopsmoking.utils.Utility
+import hys.hmonkeyys.stopsmoking.utils.Utility.getDatePicker
+import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
+import hys.hmonkeyys.stopsmoking.utils.Utility.showSnackBar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
-
     private val binding: ActivityRegistrationBinding by lazy { ActivityRegistrationBinding.inflate(layoutInflater) }
-
     override val viewModel: RegistrationViewModel by viewModel()
 
-    private val spf: SharedPreferences by lazy { getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE) }
+    private var isEdit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,25 +27,28 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
         viewModel.registrationLiveData.observe(this) {
             when (it) {
                 is RegistrationState.Initialized -> {
-                    val isEdit = intent.getBooleanExtra(EDIT, false)
-                    if (isEdit) {
-                        setDefaultData()
-                    }
-                    binding.cancelView.isVisible = isEdit
-
+                    cameInFromMain()
                     initViews()
+                }
+                is RegistrationState.StoredValue -> {
+                    setDefaultData(it.dateArray, it.nickName, it.myResolution, it.amountOfSmoking, it.tobaccoPrice)
                 }
             }
         }
     }
 
-    /** 수정에서 들어온 경우 셋팅 */
-    private fun setDefaultData() {
-        val nickName = spf.getString(NICK_NAME, "")
-        val amountOfSmoking = spf.getInt(AMOUNT_OF_SMOKING_PER_DAY, 0)
-        val tobaccoPrice = spf.getInt(TOBACCO_PRICE, 0)
-        val myResolution = spf.getString(MY_RESOLUTION, "")
+    /** 메인에서 수정하기 위해 들어왔는지 확인 */
+    private fun cameInFromMain() {
+        isEdit = intent.getBooleanExtra(EDIT, false)
+        if (isEdit) {
+            viewModel.getDefaultData()
+        }
+        binding.cancelView.isVisible = isEdit
+    }
 
+    /** 기본 셋팅 */
+    private fun setDefaultData(dateArray: List<String>, nickName: String, myResolution: String, amountOfSmoking: Int, tobaccoPrice: Int) {
+        binding.datePicker.updateDate(dateArray[0].toInt(), dateArray[1].toInt() - 1, dateArray[2].toInt())
         binding.nickNameEditText.setText(nickName)
         binding.myResolutionEditText.setText(myResolution)
 
@@ -73,28 +67,28 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
         // 수정으로 들어온 경우 취소 버튼
         binding.cancelView.setOnClickListener {
-            goMainActivity()
+            onBackPressed()
         }
 
         // 기본 예외 처리 후 등록
         binding.stopSmokingButton.setOnClickListener {
             if (binding.nickNameEditText.text.toString().isBlank()) {
-                showSnackBar(getString(R.string.message_nick_name))
+                showSnackBar(binding.root, getString(R.string.message_nick_name))
                 return@setOnClickListener
             }
 
             if (binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
-                showSnackBar(getString(R.string.message_amount_of_smoking))
+                showSnackBar(binding.root, getString(R.string.message_amount_of_smoking))
                 return@setOnClickListener
             }
 
             if (binding.tobaccoPriceEditText.text.isNullOrEmpty()) {
-                showSnackBar(getString(R.string.message_tobacco_price))
+                showSnackBar(binding.root, getString(R.string.message_tobacco_price))
                 return@setOnClickListener
             }
 
             if (binding.myResolutionEditText.text.toString().isBlank()) {
-                showSnackBar(getString(R.string.message_my_resolution))
+                showSnackBar(binding.root, getString(R.string.message_my_resolution))
                 return@setOnClickListener
             }
 
@@ -112,13 +106,13 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
         // 띄어쓰기 입력 체크
         if (nickName.contains(" ")) {
-            showSnackBar(getString(R.string.message_input_space))
+            showSnackBar(binding.root, getString(R.string.message_input_space))
             return
         }
 
         // 기본 값 0 입력 체크
         if (amountOfSmoking < 1 || tobaccoPrice < 1) {
-            showSnackBar(getString(R.string.message_zero_input_exception))
+            showSnackBar(binding.root, getString(R.string.message_zero_input_exception))
             return
         }
 
@@ -126,28 +120,22 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
         viewModel.saveNoSmokingInformation(
             true,
-            Utility.getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth),
+            getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth),
             nickName,
             amountOfSmoking,
             tobaccoPrice,
             myResolution
         )
 
-        goMainActivity()
-    }
-
-    /** 메인 화면으로 이동 */
-    private fun goMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
-    }
-
-    /** 스낵바 띄우기 */
-    private fun showSnackBar(text: String) {
-        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
+        goNextActivity(this, MainActivity::class.java, 0, true)
     }
 
     override fun onBackPressed() {
-        goMainActivity()
+        if (isEdit) {
+            goNextActivity(this, MainActivity::class.java, 0, true)
+        } else {
+            super.onBackPressed()
+        }
+
     }
 }

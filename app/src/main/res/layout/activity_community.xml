@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:background="@color/default_background"
     android:layout_height="match_parent"
-    tools:context=".activity.CommunityActivity">
+    tools:context=".activity.community.CommunityActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

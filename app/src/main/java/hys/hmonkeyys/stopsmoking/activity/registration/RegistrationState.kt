@@ -1,5 +1,13 @@
 package hys.hmonkeyys.stopsmoking.activity.registration
 
 sealed class RegistrationState {
-    object Initialized: RegistrationState()
+    object Initialized : RegistrationState()
+
+    data class StoredValue(
+        val dateArray: List<String>,
+        val nickName: String,
+        val amountOfSmoking: Int,
+        val tobaccoPrice: Int,
+        val myResolution: String
+    ) : RegistrationState()
 }

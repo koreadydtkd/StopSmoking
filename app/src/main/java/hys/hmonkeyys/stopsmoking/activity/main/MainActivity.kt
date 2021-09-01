@@ -12,11 +12,12 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.kakao.sdk.link.LinkClient
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
-import hys.hmonkeyys.stopsmoking.activity.BodyChangesActivity
+import hys.hmonkeyys.stopsmoking.activity.bodychanges.BodyChangesActivity
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
 import hys.hmonkeyys.stopsmoking.utils.Utility
+import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
 import hys.hmonkeyys.stopsmoking.utils.setOnDuplicatePreventionClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -81,7 +82,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
 
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
-            startActivity(Intent(this, BodyChangesActivity::class.java))
+            goNextActivity(this, BodyChangesActivity::class.java, 0)
         }
 
         binding.communityLayout.setOnDuplicatePreventionClickListener {

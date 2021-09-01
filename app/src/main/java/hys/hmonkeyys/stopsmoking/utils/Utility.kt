@@ -1,10 +1,17 @@
 package hys.hmonkeyys.stopsmoking.utils
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.os.Handler
+import android.os.Looper
 import android.text.Spannable
 
 import android.text.style.ForegroundColorSpan
 
 import android.text.SpannableStringBuilder
+import android.view.View
+import com.google.android.material.snackbar.Snackbar
 
 
 object Utility {
@@ -21,6 +28,20 @@ object Utility {
         val month = "%02d".format(inputMonth + 1)
         val day = "%02d".format(inputDay)
         return "${year}-${month}-$day"
+    }
+
+    /** 스낵바 띄우기 */
+    fun showSnackBar(view: View, text: String) {
+        Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+    }
+
+    fun <T> goNextActivity(activity: Activity, clazz: Class<T>, delayMillis: Long, isFinish: Boolean = false) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            activity.startActivity(Intent(activity, clazz))
+            if (isFinish) {
+                activity.finish()
+            }
+        }, delayMillis)
     }
 }
 

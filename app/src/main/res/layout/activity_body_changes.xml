@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".activity.BodyChangesActivity">
+    tools:context=".activity.bodychanges.BodyChangesActivity">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -14,6 +14,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="금연 후 신체변화"
+        android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +40,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/border_grey_color"
         android:orientation="vertical"
-        android:padding="6dp"
+        android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +69,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/eight_hours"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -84,7 +85,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/twelve_hours"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -93,14 +94,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/twelve_hours_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/one_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -109,14 +110,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/one_day_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/two_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -125,14 +126,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/two_day_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/three_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -141,14 +142,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/three_day_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/one_week"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -157,14 +158,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/one_week_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/two_week"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -173,14 +174,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/two_week_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/one_two_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -189,14 +190,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/one_two_month_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/three_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -205,14 +206,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/three_month_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/nine_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -221,14 +222,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/nine_month_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/one_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -237,14 +238,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/one_year_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/five_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -253,14 +254,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/five_year_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/ten_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -269,14 +270,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/ten_year_info"
                 android:textColor="@color/dark_grey" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="@string/fifteen_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
@@ -285,7 +286,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="@string/fifteen_year_info"
                 android:textColor="@color/dark_grey" />
         </LinearLayout>

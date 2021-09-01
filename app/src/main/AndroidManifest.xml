@@ -44,10 +44,10 @@
             android:name=".activity.main.MainActivity"
             android:theme="@style/Theme.Status.Custom" />
 
-        <activity android:name=".activity.CommunityActivity" />
+        <activity android:name=".activity.community.CommunityActivity" />
 
         <activity
-            android:name=".activity.BodyChangesActivity"
+            android:name=".activity.bodychanges.BodyChangesActivity"
             android:theme="@style/Theme.Status.Custom" />
 
         <!-- 배너 광고 -->
