@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
-import hys.hmonkeyys.stopsmoking.activity.MainActivity
+import hys.hmonkeyys.stopsmoking.activity.main.MainActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityRegistrationBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.AMOUNT_OF_SMOKING_PER_DAY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
@@ -21,9 +21,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
+    private val binding: ActivityRegistrationBinding by lazy { ActivityRegistrationBinding.inflate(layoutInflater) }
+
     override val viewModel: RegistrationViewModel by viewModel()
 
-    private val binding: ActivityRegistrationBinding by lazy { ActivityRegistrationBinding.inflate(layoutInflater) }
     private val spf: SharedPreferences by lazy { getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

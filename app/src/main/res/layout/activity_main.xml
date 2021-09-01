@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.main.MainActivity">
 
     <TextView
         android:id="@+id/labelDDayTextView"
@@ -221,7 +221,7 @@
                 android:autoSizeMaxTextSize="18dp"
                 android:background="@color/white"
                 android:paddingHorizontal="8dp"
-                android:text="절약한 담배 값"
+                android:text="@string/save_money"
                 android:textSize="15sp"
                 android:translationY="-8dp"
                 app:layout_constraintEnd_toEndOf="@id/saveMoneyView"

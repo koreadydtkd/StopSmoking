@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
-import hys.hmonkeyys.stopsmoking.activity.MainActivity
+import hys.hmonkeyys.stopsmoking.activity.main.MainActivity
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -37,7 +37,6 @@ internal class IntroActivity : BaseActivity<IntroViewModel>() {
             startActivity(Intent(this, clazz))
             finish()
         }, 1200)
-
     }
 
 }

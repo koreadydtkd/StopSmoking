@@ -22,7 +22,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -34,6 +33,7 @@
                     android:host="kakaolink"
                     android:scheme="@string/kakao_scheme_native_key" />
             </intent-filter>
+
         </activity>
 
         <activity
@@ -41,7 +41,7 @@
             android:theme="@style/Theme.Status.Custom" />
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.main.MainActivity"
             android:theme="@style/Theme.Status.Custom" />
 
         <activity android:name=".activity.CommunityActivity" />
