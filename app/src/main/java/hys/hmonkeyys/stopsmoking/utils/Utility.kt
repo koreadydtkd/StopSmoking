@@ -1,7 +1,6 @@
 package hys.hmonkeyys.stopsmoking.utils
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper

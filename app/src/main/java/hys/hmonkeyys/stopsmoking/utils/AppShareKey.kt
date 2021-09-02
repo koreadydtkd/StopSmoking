@@ -17,5 +17,7 @@ class AppShareKey {
         // share intent key
         const val EDIT = "edit"
 
+        // firebase
+        const val DB_NICKNAME = "db_nick_name"
     }
 }

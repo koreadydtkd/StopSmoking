@@ -10,7 +10,8 @@
     <!-- Registration -->
     <string name="date_select_text">금연을 시작한 날짜를 선택해주세요.</string>
     <string name="stop_smoking_start">금연 시작</string>
-    <string name="nick_name">닉네임</string>
+    <string name="nick_name">닉네임(등록 후 변경불가)</string>
+    <string name="edit_nick_name">닉네임</string>
     <string name="resolution">각오</string>
     <string name="amount_of_smoking">하루 흡연량(개비)</string>
     <string name="tobacco_price">담배 가격(1갑)</string>
@@ -22,6 +23,8 @@
     <string name="message_my_resolution">금연하기 위한 각오를 입력해주세요.</string>
     <string name="message_zero_input_exception">0보다 크게 입력해주세요.</string>
     <string name="message_input_space">공백은 입력할 수 없습니다.</string>
+    <string name="message_length">최소 2자 이상 입력해주세요.</string>
+    <string name="message_reduplication">중복된 닉네임이 있습니다. 다시 입력해주세요.</string>
 
 
     <!-- Main -->
@@ -74,5 +77,6 @@
 
     <!-- Default -->
     <string name="edit">수정</string>
+    <string name="error">예기치 못한 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</string>
 
 </resources>

@@ -18,6 +18,7 @@ import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
 import hys.hmonkeyys.stopsmoking.utils.Utility
 import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
+import hys.hmonkeyys.stopsmoking.utils.Utility.showSnackBar
 import hys.hmonkeyys.stopsmoking.utils.setOnDuplicatePreventionClickListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -86,7 +87,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
 
         binding.communityLayout.setOnDuplicatePreventionClickListener {
-            showSnackBar("현재 준비중입니다. 조금만 기다려주세요.")
+            showSnackBar(binding.root, "현재 준비중입니다. 조금만 기다려주세요.")
         }
     }
 
@@ -109,7 +110,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
                 // 카카오톡으로 카카오링크 공유 가능
                 LinkClient.instance.defaultTemplate(this, viewModel.getDefaultFeed()) { linkResult, error ->
                     if (error != null) {
-                        showSnackBar(getString(R.string.message_kakao_link_send_fail))
+                        showSnackBar(binding.root, getString(R.string.message_kakao_link_send_fail))
                     } else if (linkResult != null) {
                         startActivity(linkResult.intent)
 
@@ -119,11 +120,11 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
                     }
                 }
             } else {
-                showSnackBar(getString(R.string.message_kakao_not_install))
+                showSnackBar(binding.root, getString(R.string.message_kakao_not_install))
             }
         } catch (e: Exception) {
             FirebaseCrashlytics.getInstance().recordException(e)
-            showSnackBar(getString(R.string.message_kakao_error))
+            showSnackBar(binding.root ,getString(R.string.message_kakao_error))
             e.printStackTrace()
         }
 
@@ -139,7 +140,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
             adListener = object : AdListener() {
                 override fun onAdLoaded() {
                     super.onAdLoaded()
-                    Log.i(TAG, "광고가 문제 없이 로드됨 onAdLoaded")
+                    Log.i(TAG, "onAdLoaded")
                 }
 
                 override fun onAdFailedToLoad(error: LoadAdError) {
@@ -150,15 +151,10 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
-    /** 스낵바 띄우기 */
-    private fun showSnackBar(text: String) {
-        Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT).show()
-    }
-
     override fun onBackPressed() {
         val time = System.currentTimeMillis()
         if (time - backPressTime > ONE_POINT_FIVE_SECOND) {
-            showSnackBar(getString(R.string.message_backward_finish))
+            showSnackBar(binding.root, getString(R.string.message_backward_finish))
             backPressTime = time
         } else {
             super.onBackPressed()
