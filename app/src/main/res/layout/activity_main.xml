@@ -35,16 +35,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/labelDDayTextView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="1일차" />
+        tools:text="1일" />
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="위젯은 추후 업데이트 예정입니다."
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/mainCardView"
-        app:layout_constraintStart_toStartOf="@id/mainCardView" />
+        app:layout_constraintStart_toStartOf="@id/mainCardView" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mainCardView"
@@ -361,7 +361,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_id"
+        ads:adUnitId="@string/banner_ad_test_id"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent" />

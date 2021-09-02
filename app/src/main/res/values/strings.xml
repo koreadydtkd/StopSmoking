@@ -29,7 +29,7 @@
 
     <!-- Main -->
     <string name="main_top_label">금연한지</string>
-    <string name="stop_smoking_d_day">%d일차</string>
+    <string name="stop_smoking_d_day">%d일</string>
     <string name="main_title">%s님 금연에 꼭 성공하세요!</string>
     <string name="main_save_tobacco">%d개비</string>
     <string name="save_money">절약한 금액</string>

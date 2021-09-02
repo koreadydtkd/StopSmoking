@@ -170,7 +170,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -178,7 +178,7 @@
         android:textColor="@color/black"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@id/myResolutionTextField"
-        app:layout_constraintTop_toBottomOf="@+id/myResolutionTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/myResolutionTextField" />-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/stopSmokingButton"

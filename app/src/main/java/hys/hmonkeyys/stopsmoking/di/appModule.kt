@@ -10,6 +10,7 @@ import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationViewModel
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_NICKNAME
+import hys.hmonkeyys.stopsmoking.widget.WidgetProvider
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
