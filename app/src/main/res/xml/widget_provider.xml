@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/widget"
-    android:minWidth="72dp"
+    android:minWidth="144dp"
     android:minHeight="72dp"
+    android:previewImage="@drawable/widget_image"
     android:resizeMode="horizontal|vertical"
-    android:widgetCategory="home_screen"
-    android:updatePeriodMillis="7200000">
+    android:updatePeriodMillis="7200000"
+    android:widgetCategory="home_screen">
 
 </appwidget-provider>
 <!-- 3600000 1시간 -->
-<!--    android:previewImage="@drawable/ic_baseline_smoking_rooms_24"-->

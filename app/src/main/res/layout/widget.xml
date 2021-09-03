@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/widget_background"
     android:padding="@dimen/widget_margin"
-    tools:layout_height="72dp">
+    tools:layout_gravity="center"
+    tools:layout_height="144dp"
+    tools:layout_width="216dp">
 
     <TextView
         android:id="@+id/dDayWidgetTextView"
@@ -12,8 +15,8 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="@color/main_color"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:textStyle="bold"
-        tools:text="금연 +158일" />
+        tools:text="금연한지 +365일" />
 
 </FrameLayout>

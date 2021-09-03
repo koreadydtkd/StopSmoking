@@ -74,18 +74,22 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 각 뷰 초기화 */
     private fun initViews() {
+        // 수정 버튼
         binding.editCardView.setOnDuplicatePreventionClickListener {
             goEditActivity()
         }
 
+        // 카카오 링크 공유 버튼
         binding.shareButton.setOnDuplicatePreventionClickListener {
             shareKakaoLink()
         }
 
+        // 금연 후 신체변화 버튼
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
             goNextActivity(this, BodyChangesActivity::class.java, 0)
         }
 
+        // 담소 버튼
         binding.communityLayout.setOnDuplicatePreventionClickListener {
             showSnackBar(binding.root, "현재 준비중입니다. 조금만 기다려주세요.")
         }

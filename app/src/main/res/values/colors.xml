@@ -13,4 +13,6 @@
     <color name="yellow">#FBC02D</color>
     <color name="light_grey">#AAAAAA</color>
     <color name="dark_grey">#595959</color>
+
+    <color name="widget_color">#44808080</color>
 </resources>

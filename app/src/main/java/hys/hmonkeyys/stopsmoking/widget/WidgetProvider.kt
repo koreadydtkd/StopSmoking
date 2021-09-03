@@ -33,7 +33,7 @@ class WidgetProvider : AppWidgetProvider() {
             // 앱 위젯의 레이아웃을 가져오고 클릭 시 리스너를 버튼에 연결합니다.
             val views: RemoteViews = RemoteViews(context?.packageName, R.layout.widget).apply {
                 val dDay = spf?.getString(STOP_SMOKING_DATE, "0") ?: "0"
-                setTextViewText(R.id.dDayWidgetTextView, "금연 +${getDDay(dDay)}일")
+                setTextViewText(R.id.dDayWidgetTextView, "금연한지 +${getDDay(dDay)}일")
                 setOnClickPendingIntent(R.id.dDayWidgetTextView, pendingIntent)
             }
 
