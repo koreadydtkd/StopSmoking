@@ -6,13 +6,14 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.intro.IntroActivity
-import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
 import java.util.*
+import android.content.ComponentName
+import hys.hmonkeyys.stopsmoking.R
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.WIDGET_UPDATE
+
 
 class WidgetProvider : AppWidgetProvider() {
 
@@ -41,6 +42,25 @@ class WidgetProvider : AppWidgetProvider() {
             appWidgetManager?.updateAppWidget(appWidgetId, views)
         }
     }
+
+
+    override fun onReceive(context: Context, intent: Intent) {
+        super.onReceive(context, intent)
+
+        if (intent.action.equals(WIDGET_UPDATE)) {
+            // widget update started
+            val remoteViews = RemoteViews(context.packageName, R.layout.widget)
+
+            // Update text , images etc
+            val spf = context.getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE)
+            val dDay = spf?.getString(STOP_SMOKING_DATE, "0") ?: "0"
+            remoteViews.setTextViewText(R.id.dDayWidgetTextView, "금연한지 +${getDDay(dDay)}일")
+
+            // Trigger widget layout update
+            AppWidgetManager.getInstance(context).updateAppWidget(ComponentName(context, WidgetProvider::class.java), remoteViews)
+        }
+    }
+
 
     /** 오늘 날짜, 입력한 날짜로 d-day 계산 */
     private fun getDDay(stopSmokingDate: String): Int {

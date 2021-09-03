@@ -1,5 +1,7 @@
 package hys.hmonkeyys.stopsmoking.activity.registration
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.os.Bundle
 import androidx.core.content.edit
 import androidx.core.view.isVisible
@@ -13,7 +15,15 @@ import hys.hmonkeyys.stopsmoking.utils.Utility.getDatePicker
 import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
 import hys.hmonkeyys.stopsmoking.utils.Utility.showSnackBar
 import hys.hmonkeyys.stopsmoking.utils.setOnDuplicatePreventionClickListener
+import hys.hmonkeyys.stopsmoking.widget.WidgetProvider
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import android.app.PendingIntent
+import android.app.PendingIntent.CanceledException
+
+import android.content.Intent
+import android.util.Log
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.WIDGET_UPDATE
+
 
 internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
     private val binding: ActivityRegistrationBinding by lazy { ActivityRegistrationBinding.inflate(layoutInflater) }
@@ -117,7 +127,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
     /** 닉네임 중복확인 결과에 따른 분기처리 */
     private fun nickNameCheckResult(hasNickName: Boolean?) {
-        when(hasNickName) {
+        when (hasNickName) {
             null -> {
                 showSnackBar(binding.root, getString(R.string.error))
             }
@@ -161,6 +171,8 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
                 tobaccoPrice,
                 myResolution
             )
+            // 수정인 경우에만 위젯 수정
+            updateWidget()
         } else {
             viewModel.checkForDuplicateNicknamesAndSaveInfo(
                 true,
@@ -174,6 +186,20 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
     }
 
+    /** 수정 시 위젯도 같이 업데이트 */
+    private fun updateWidget() {
+        try {
+            val updateWidgetIntent = Intent(this, WidgetProvider::class.java)
+            updateWidgetIntent.action = WIDGET_UPDATE
+
+            val pendingIntent = PendingIntent.getBroadcast(this, 0, updateWidgetIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            pendingIntent.send()
+        } catch (e: CanceledException) {
+            Log.e(TAG, "Widget Error ... $e")
+        }
+    }
+
+    /** 수정에서 온 경우 메인으로 이동 */
     override fun onBackPressed() {
         if (isEdit) {
             goNextActivity(this, MainActivity::class.java, 0, true)
@@ -182,4 +208,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
         }
     }
 
+    companion object {
+        private const val TAG = "SS_RegistrationActivity"
+    }
 }
