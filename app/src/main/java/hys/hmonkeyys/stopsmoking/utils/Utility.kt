@@ -11,6 +11,9 @@ import android.text.style.ForegroundColorSpan
 import android.text.SpannableStringBuilder
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_FCM_TOKEN
 
 
 object Utility {
@@ -34,6 +37,7 @@ object Utility {
         Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
     }
 
+    /** 다음 화면으로 이동 - 딜레이, 액티비티 종료 여부 확인 */
     fun <T> goNextActivity(activity: Activity, clazz: Class<T>, delayMillis: Long, isFinish: Boolean = false) {
         Handler(Looper.getMainLooper()).postDelayed({
             activity.startActivity(Intent(activity, clazz))
@@ -42,5 +46,10 @@ object Utility {
             }
         }, delayMillis)
     }
+
+    /** Firebase DB 에 token 값 저장 */
+    /*fun saveTokenInFirebase(token: String) {
+        Firebase.database.reference.child(DB_FCM_TOKEN).push().setValue(token)
+    }*/
 }
 

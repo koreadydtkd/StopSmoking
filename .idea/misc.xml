@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_smoking_rooms_24.xml" value="0.2565972222222222" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/widget_background.xml" value="0.2565972222222222" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />

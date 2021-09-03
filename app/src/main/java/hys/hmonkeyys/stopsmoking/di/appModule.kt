@@ -17,6 +17,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 internal val appModule = module {
+
     single { Dispatchers.Main }
     single { Dispatchers.IO }
 
@@ -25,12 +26,15 @@ internal val appModule = module {
 
     // Firebase NickName DB 초기화
     single { initNickNameDB() }
+
 }
 
 internal val viewModelModule = module {
+
     viewModel { IntroViewModel(get()) }
     viewModel { RegistrationViewModel(get(), get()) }
     viewModel { MainViewModel(get()) }
+
 }
 
 internal fun initNickNameDB(): DatabaseReference {
