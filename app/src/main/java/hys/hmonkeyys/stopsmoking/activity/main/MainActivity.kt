@@ -37,7 +37,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         viewModel.mainLiveData.observe(this) {
             when(it) {
                 is MainState.Initialize -> {
-                    initTextViews()
+                    initSmokingCessationInformation()
                     initViews()
                     initAdmob()
                 }
@@ -45,8 +45,8 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
-    /** 금연 일 수 초기화 */
-    private fun initTextViews() {
+    /** 금연 정보 초기화(TextView) */
+    private fun initSmokingCessationInformation() {
         // 상단 d-day
         binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
 
@@ -95,7 +95,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
-    /** 수정(등록) 화면으로 이동 - 등록화면 재 활용 */
+    /** 수정(등록) 화면으로 이동 - 'RegistrationActivity' 재 활용 */
     private fun goEditActivity() {
         val intent = Intent(this, RegistrationActivity::class.java)
         intent.putExtra(EDIT, true)
@@ -105,12 +105,13 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 카카오 링크 공유 */
     private fun shareKakaoLink() {
-        val keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
-        Log.e(TAG, "Hash Key: $keyHash")
-
         try {
+            val keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
+            Log.e(TAG, "Hash Key: $keyHash")
+
             // 카카오톡 설치여부 확인
             if (LinkClient.instance.isKakaoLinkAvailable(this)) {
+
                 // 카카오톡으로 카카오링크 공유 가능
                 LinkClient.instance.defaultTemplate(this, viewModel.getDefaultFeed()) { linkResult, error ->
                     if (error != null) {
@@ -123,6 +124,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
                         Log.w(TAG, "Argument Msg: ${linkResult.argumentMsg}")
                     }
                 }
+
             } else {
                 showSnackBar(binding.root, getString(R.string.message_kakao_not_install))
             }
@@ -131,7 +133,6 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
             showSnackBar(binding.root ,getString(R.string.message_kakao_error))
             e.printStackTrace()
         }
-
     }
 
     /** 하단 배너광고 초기화 */

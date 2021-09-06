@@ -20,7 +20,6 @@ class AppShareKey {
 
         // firebase
         const val DB_NICKNAME = "db_nick_name"
-        const val DB_FCM_TOKEN = "db_fcm_token"
 
         // widget
         const val WIDGET_UPDATE ="update_widget"

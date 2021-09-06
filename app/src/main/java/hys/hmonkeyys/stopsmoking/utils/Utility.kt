@@ -11,9 +11,6 @@ import android.text.style.ForegroundColorSpan
 import android.text.SpannableStringBuilder
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_FCM_TOKEN
 
 
 object Utility {
@@ -47,9 +44,5 @@ object Utility {
         }, delayMillis)
     }
 
-    /** Firebase DB 에 token 값 저장 */
-    /*fun saveTokenInFirebase(token: String) {
-        Firebase.database.reference.child(DB_FCM_TOKEN).push().setValue(token)
-    }*/
 }
 

@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import hys.hmonkeyys.stopsmoking.R
@@ -39,6 +40,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         NotificationManagerCompat.from(this).notify(type, createNotification(type, title, message))
     }
 
+    /** 알림 채널 생성 */
     private fun createNotificationChannel() {
         val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
         channel.description = CHANNEL_DESCRIPTION
@@ -47,29 +49,32 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     }
 
+    /** 알림 생성 */
     private fun createNotification(type: Int, title: String, message: String): Notification {
-        val intent = Intent(this, IntroActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, type, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val intent = Intent(this, IntroActivity::class.java)
+            val pendingIntent = PendingIntent.getActivity(this, type, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.mipmap.ic_launcher_round)              // 작은 아이콘 설정
-            .setContentTitle(title)                                             // 제목
-            .setContentText(message)                                            // 내용
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)                   // 우선순위
-            .setContentIntent(pendingIntent)                                    // 펜딩인텐트 위임
-            .setAutoCancel(true)                                                // 클릭 시 사라짐
+            val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.mipmap.ic_launcher_round)                           // 작은 아이콘 설정
+                .setContentTitle(title)                                             // 제목
+                .setContentText(message)                                            // 내용
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)                   // 우선순위
+                .setContentIntent(pendingIntent)                                    // 펜딩인텐트 위임
+                .setAutoCancel(true)                                                // 클릭 시 사라짐
 
-        when (type) {
-            0 -> {
-                // 기본
+            when (type) {
+                0 -> {
+                    // 기본
+                }
+
+                1 -> {
+                    // 이미지
+                }
             }
 
-            1 -> {
-                // 이미지
-            }
-        }
+            return notificationBuilder.build()
 
-        return notificationBuilder.build()
+
     }
 
     companion object {

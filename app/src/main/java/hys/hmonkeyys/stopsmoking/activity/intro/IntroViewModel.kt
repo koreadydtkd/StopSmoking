@@ -26,6 +26,7 @@ internal class IntroViewModel(
         getKakaoLinkImageUrl()
     }
 
+    /** 카카오링크 공유 시 전달할 이미지 가져오기 */
     private fun getKakaoLinkImageUrl() {
         Firebase.storage.reference.child(IMAGE_URL_PATH).child(IMAGE_NAME).downloadUrl
             .addOnSuccessListener { uri ->
@@ -35,33 +36,24 @@ internal class IntroViewModel(
                 FirebaseCrashlytics.getInstance().recordException(it)
                 _introStateLiveData.postValue(IntroState.GetImageUrlForKakaoLink)
             }
+
     }
 
+    /** App 처음 실행 여부 */
     fun isFirstTime() = spf.getBoolean(IS_REGISTRATION, false)
 
     /** FCM token 가져오기 */
-    fun getFCMToken() {
+    /*fun getFCMToken() {
         FirebaseMessaging.getInstance().token
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    saveToken(task.result)
+                    Log.d(TAG, "${task.result}")
                 }
-//                _introStateLiveData.postValue(IntroState.GetTokenSuccess)
 
             }.addOnFailureListener {
                 FirebaseCrashlytics.getInstance().recordException(it)
-//                _introStateLiveData.postValue(IntroState.GetTokenSuccess)
             }
-    }
-
-    /** 토큰 값 저장 */
-    private fun saveToken(token: String?) {
-        token?.let {
-            Log.i(TAG, it)
-//            spf.edit().putString(FCM_TOKEN, it).apply()
-//            saveTokenInFirebase(token)
-        }
-    }
+    }*/
 
     companion object {
         private const val TAG = "SS_IntroViewModel"

@@ -20,12 +20,8 @@ internal class IntroActivity : BaseActivity<IntroViewModel>() {
         viewModel.introLiveData.observe(this) {
             when (it) {
                 is IntroState.GetImageUrlForKakaoLink -> {
-//                    viewModel.getFCMToken()
                     goNext()
                 }
-//                is IntroState.GetTokenSuccess -> {
-//                    goNext()
-//                }
             }
         }
     }

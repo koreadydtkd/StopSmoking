@@ -48,7 +48,7 @@ internal class RegistrationViewModel(
     /** 닉네임 중복 확인 후 금연 정보 저장 */
     fun checkForDuplicateNicknamesAndSaveInfo(
         isFirst: Boolean,
-        datePicker: String,
+        date: String,
         nickName: String,
         amountOfSmoking: Int,
         tobaccoPrice: Int,
@@ -73,7 +73,7 @@ internal class RegistrationViewModel(
                     // spf 저장
                     spf.edit {
                         putBoolean(IS_REGISTRATION, isFirst)
-                        putString(STOP_SMOKING_DATE, datePicker)
+                        putString(STOP_SMOKING_DATE, date)
                         putString(NICK_NAME, nickName)
                         putInt(AMOUNT_OF_SMOKING_PER_DAY, amountOfSmoking)
                         putInt(TOBACCO_PRICE, tobaccoPrice)

@@ -1,15 +1,11 @@
 package hys.hmonkeyys.stopsmoking.activity.registration
 
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.os.Bundle
-import androidx.core.content.edit
 import androidx.core.view.isVisible
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.main.MainActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityRegistrationBinding
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
 import hys.hmonkeyys.stopsmoking.utils.Utility.getDatePicker
 import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
@@ -52,11 +48,13 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
 
                 // 처음 금연 정보 등록할 때 닉네임 체크 후 기본 정보 저장
                 is RegistrationState.CheckNickName -> {
+                    binding.progressBar.isVisible = false
                     nickNameCheckResult(it.hasNickName)
                 }
 
                 // 수정 완료에 대한 처리
                 is RegistrationState.EditInformation -> {
+                    binding.progressBar.isVisible = false
                     onBackPressed()
                 }
             }
@@ -82,30 +80,15 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
             onBackPressed()
         }
 
-        // 기본 예외 처리 후 등록
+        // 등록 버튼 클릭
         binding.stopSmokingButton.setOnDuplicatePreventionClickListener {
-            if (binding.nickNameEditText.text.toString().isBlank()) {
-                showSnackBar(binding.root, getString(R.string.message_nick_name))
-                return@setOnDuplicatePreventionClickListener
-            }
-
-            if (binding.amountOfSmokingEditText.text.isNullOrEmpty()) {
-                showSnackBar(binding.root, getString(R.string.message_amount_of_smoking))
-                return@setOnDuplicatePreventionClickListener
-            }
-
-            if (binding.tobaccoPriceEditText.text.isNullOrEmpty()) {
-                showSnackBar(binding.root, getString(R.string.message_tobacco_price))
-                return@setOnDuplicatePreventionClickListener
-            }
-
-            if (binding.myResolutionEditText.text.toString().isBlank()) {
-                showSnackBar(binding.root, getString(R.string.message_my_resolution))
-                return@setOnDuplicatePreventionClickListener
-            }
-
-            // 금연 정보 등록
-            noSmokingRegistration()
+            // 기본 예외 처리 후 등록
+            inputInformationException(
+                binding.nickNameEditText.text.toString(),
+                binding.amountOfSmokingEditText.text.toString(),
+                binding.tobaccoPriceEditText.text.toString(),
+                binding.myResolutionEditText.text.toString()
+            )
         }
     }
 
@@ -140,53 +123,91 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
         }
     }
 
-    /** 금연 정보 등록 */
-    private fun noSmokingRegistration() {
-        val nickName = binding.nickNameEditText.text.toString()
-        val amountOfSmoking = binding.amountOfSmokingEditText.text.toString().toInt()
-        val tobaccoPrice = binding.tobaccoPriceEditText.text.toString().toInt()
-        val myResolution = binding.myResolutionEditText.text.toString()
+    /** 입력 정보 예외 처리 */
+    private fun inputInformationException(nickName: String, amountOfSmoking: String, tobaccoPrice: String, myResolution: String) {
 
-        // 띄어쓰기 입력 체크
-        if (nickName.contains(" ")) {
-            showSnackBar(binding.root, getString(R.string.message_input_space))
-            return
-        } else if (nickName.length < 2) {
-            showSnackBar(binding.root, getString(R.string.message_length))
-            return
+        when {
+            // 닉네임 예외 처리
+            nickName.isEmpty() -> {
+                showSnackBar(binding.root, getString(R.string.message_nick_name))
+                return
+            }
+            nickName.contains(" ") -> {
+                showSnackBar(binding.root, getString(R.string.message_input_space))
+                return
+            }
+            nickName.length < 2 || nickName.length > 10 -> {
+                showSnackBar(binding.root, getString(R.string.message_nick_name_length))
+                return
+            }
+
+            // 하루 흡연량 예외 처리
+            amountOfSmoking.isEmpty() -> {
+                showSnackBar(binding.root, getString(R.string.message_amount_of_smoking))
+                return
+            }
+            amountOfSmoking.length > 3 -> {
+                showSnackBar(binding.root, getString(R.string.message_amount_of_smoking_length))
+                return
+            }
+            amountOfSmoking.toInt() < 1 -> {
+                showSnackBar(binding.root, getString(R.string.message_zero_input_exception, getString(R.string.amount_of_smoking)))
+                return
+            }
+
+            // 담배 가격 예외 처리
+            tobaccoPrice.isEmpty() -> {
+                showSnackBar(binding.root, getString(R.string.message_tobacco_price))
+                return
+            }
+            tobaccoPrice.length > 6 -> {
+                showSnackBar(binding.root, getString(R.string.message_tobacco_price_length))
+                return
+            }
+            tobaccoPrice.toInt() < 1 -> {
+                showSnackBar(binding.root, getString(R.string.message_zero_input_exception, getString(R.string.tobacco_price)))
+                return
+            }
+
+            // 각오 예외 처리
+            myResolution.isEmpty() -> {
+                showSnackBar(binding.root, getString(R.string.message_my_resolution))
+                return
+            }
+            myResolution.length > 20 -> {
+                showSnackBar(binding.root, getString(R.string.message_my_resolution_length))
+                return
+            }
         }
 
-        // 기본 값 0 입력 체크
-        if (amountOfSmoking < 1 || tobaccoPrice < 1) {
-            showSnackBar(binding.root, getString(R.string.message_zero_input_exception))
-            return
-        }
+        // 수정에서 들어온 경우에 따라 분기 처리
+        val inputDate = getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth)
+        noSmokingRegistration(inputDate, nickName, amountOfSmoking.toInt(), tobaccoPrice.toInt(), myResolution)
+    }
 
-        // 수정인 경우 금연정도만 수정.
-        // 등록인 경우 닉네임 체크 후 저장
+    /**
+     * 수정인 경우 금연정보 수정 및 위젯 업데이트.
+     * 등록인 경우 닉네임 체크 후 저장
+     * */
+    private fun noSmokingRegistration(inputDate: String, nickName: String, amountOfSmoking: Int, tobaccoPrice: Int, myResolution: String) {
+        binding.progressBar.isVisible = true
+
         if (isEdit) {
-            viewModel.saveInfo(
-                getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth),
-                amountOfSmoking,
-                tobaccoPrice,
-                myResolution
-            )
-            // 수정인 경우에만 위젯 수정
+            viewModel.saveInfo(inputDate, amountOfSmoking, tobaccoPrice, myResolution)
             updateWidget()
         } else {
             viewModel.checkForDuplicateNicknamesAndSaveInfo(
-                true,
-                getDatePicker(binding.datePicker.year, binding.datePicker.month, binding.datePicker.dayOfMonth),
-                nickName,
-                amountOfSmoking,
-                tobaccoPrice,
-                myResolution
+                isFirst = true,
+                date = inputDate,
+                nickName = nickName,
+                amountOfSmoking = amountOfSmoking,
+                tobaccoPrice = tobaccoPrice,
+                myResolution = myResolution
             )
         }
-
     }
 
-    /** 수정 시 위젯도 같이 업데이트 */
+    /** 위젯 업데이트 */
     private fun updateWidget() {
         try {
             val updateWidgetIntent = Intent(this, WidgetProvider::class.java)

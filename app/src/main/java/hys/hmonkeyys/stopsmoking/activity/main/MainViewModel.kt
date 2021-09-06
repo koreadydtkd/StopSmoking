@@ -113,7 +113,10 @@ internal class MainViewModel(
     /** 안피운 담배 개비 구하기 */
     fun getCigaretteCount(): Int = inputAmountOfSmoking * elapsedDate
 
+    /** 닉네임 가져오기 */
     fun getNickName(): String = spf.getString(AppShareKey.NICK_NAME, "OOO") ?: "OOO"
+
+    /** 각오 가져오기 */
     fun getMyResolution(): String = spf.getString(AppShareKey.MY_RESOLUTION, "") ?: ""
 
     companion object {
