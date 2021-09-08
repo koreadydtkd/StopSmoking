@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_array">
+        <item>금연 성공담</item>
+        <item>금연 실패담</item>
+        <item>잡담</item>
+    </string-array>
+</resources>
