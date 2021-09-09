@@ -1,20 +1,15 @@
 package hys.hmonkeyys.stopsmoking.activity.main
 
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.kakao.sdk.link.LinkClient
 import com.kakao.sdk.template.model.Button
 import com.kakao.sdk.template.model.Content
 import com.kakao.sdk.template.model.FeedTemplate
 import com.kakao.sdk.template.model.Link
-import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseViewModel
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey
-import hys.hmonkeyys.stopsmoking.utils.Utility
 import hys.hmonkeyys.stopsmoking.utils.toCommaWon
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

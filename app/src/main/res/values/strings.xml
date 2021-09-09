@@ -37,7 +37,10 @@
     <string name="main_title">%s님 금연에 꼭 성공하세요!</string>
     <string name="main_save_tobacco">%d개비</string>
     <string name="save_money">절약한 금액</string>
-    <string name="chat">담소 (준비중)</string>
+    <string name="my_resolution">나의 각오</string>
+    <string name="un_smoked_cigarettes">지금까지 안피운 담배</string>
+    <string name="increased_lifespan">금연 후 늘어난 수명</string>
+    <string name="chat">담소</string>
     <string name="stop_smoking_after_body_changes">금연 후\n신체 변화</string>
     <string name="stop_smoking_share_friends">금연 시작 친구에게 공유</string>
 
@@ -48,6 +51,7 @@
 
 
     <!-- BodyChanges -->
+    <string name="body_changes_after_quitting_smoking">금연 후 신체변화</string>
     <string name="twenty_minutes">20분 경과</string>
     <string name="twenty_minutes_info">혈압이 정상으로 떨어지고 손과 발의 체온이 정상으로 돌아옵니다.</string>
     <string name="eight_hours">8시간 경과</string>
@@ -79,7 +83,20 @@
     <string name="fifteen_year">15년 경과</string>
     <string name="fifteen_year_info">한번도 흡연하지 않은 사람과 같은 수준의 몸 상태로 회복합니다.</string>
 
+
+    <!-- Community -->
+    <string name="warning_description">타인을 비방, 비하, 욕설 게시물은 통보 없이 삭제될 수 있습니다.</string>
+    <string name="write_post">글 쓰기</string>
+
+    <!-- Write -->
+    <string name="shared_no_smoking_story">금연 성공담, 실패담 등등 이야기를 다른 사람들과 공유해보세요.</string>
+    <string name="input_title">제목을 입력해주세요.</string>
+    <string name="input_contents">내용을 입력해주세요.(최대 150자)</string>
+    <string name="set_up_category">카테고리를 설정해주세요.</string>
+
+
     <!-- Default -->
+    <string name="check">확인</string>
     <string name="edit">수정</string>
     <string name="error">예기치 못한 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</string>
 

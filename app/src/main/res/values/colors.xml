@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="main_color">#e45666</color>
+    <color name="main_color_blur">#80e45666</color>
     <color name="default_background">#f8f8f8</color>
     <color name="yellow">#FBC02D</color>
     <color name="light_grey">#AAAAAA</color>

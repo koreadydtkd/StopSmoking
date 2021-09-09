@@ -7,12 +7,12 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.kakao.sdk.link.LinkClient
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.bodychanges.BodyChangesActivity
+import hys.hmonkeyys.stopsmoking.activity.community.CommunityActivity
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.EDIT
@@ -91,7 +91,8 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
         // 담소 버튼
         binding.communityLayout.setOnDuplicatePreventionClickListener {
-            showSnackBar(binding.root, "현재 준비중입니다. 조금만 기다려주세요.")
+//            showSnackBar(binding.root, "현재 준비중입니다. 조금만 기다려주세요.")
+            goNextActivity(this, CommunityActivity::class.java, 0)
         }
     }
 

@@ -2,6 +2,7 @@ package hys.hmonkeyys.stopsmoking.utils
 
 import android.os.Handler
 import android.os.Looper
+import android.text.format.DateFormat
 import android.view.View
 import java.text.DecimalFormat
 
@@ -18,3 +19,6 @@ fun View.setOnDuplicatePreventionClickListener(OnDuplicatePreventionClick: () ->
 
 /** Int 10000 -> 10,000원 으로 변환 */
 fun Int.toCommaWon() = DecimalFormat("###,###").format(this).plus("원")
+
+
+fun Long.convertTimeStampToDateFormat(): String = DateFormat.format("yyyy-MM-dd HH:mm:ss", this).toString()

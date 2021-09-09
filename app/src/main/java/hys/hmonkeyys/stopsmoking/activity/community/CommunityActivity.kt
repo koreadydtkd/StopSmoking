@@ -1,6 +1,5 @@
 package hys.hmonkeyys.stopsmoking.activity.community
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -8,28 +7,59 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import hys.hmonkeyys.stopsmoking.R
+import hys.hmonkeyys.stopsmoking.activity.BaseActivity
+import hys.hmonkeyys.stopsmoking.activity.community.adapter.CommunityAdapter
+import hys.hmonkeyys.stopsmoking.activity.write.WriteActivity
+import hys.hmonkeyys.stopsmoking.data.entity.CommunityModel
 import hys.hmonkeyys.stopsmoking.databinding.ActivityCommunityBinding
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_ALL
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_FAIL
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_OTHER
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_SUCCESS
+import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CommunityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
+internal class CommunityActivity : BaseActivity<CommunityViewModel>(), AdapterView.OnItemSelectedListener {
 
     private val binding: ActivityCommunityBinding by lazy { ActivityCommunityBinding.inflate(layoutInflater) }
+    override val viewModel: CommunityViewModel by viewModel()
+
+    private lateinit var communityAdapter: CommunityAdapter
+
+    override fun observeData() {
+        viewModel.communityLiveData.observe(this) {
+            when(it) {
+                is CommunityState.Initialize -> {
+                    initViews()
+                    initRecyclerView()
+                    initSpinner()
+                }
+                is CommunityState.PostFetchSuccess -> {
+                    it.communityList?.let { list ->
+                        communityAdapter.submitList(list)
+                    }
+
+                }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        initViews()
-        initSpinner()
     }
 
     /** 뷰 초기화 */
     private fun initViews() {
+        // 취소 버튼
         binding.cancelView.setOnClickListener {
             finish()
         }
 
+        // 글 쓰기 버튼
         binding.writeButton.setOnClickListener {
-            // todo 글쓰기 화면으로 이동
+            goNextActivity(this, WriteActivity::class.java, 0L)
         }
     }
 
@@ -42,10 +72,12 @@ class CommunityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
         binding.categorySpinner.onItemSelectedListener = this
     }
 
-
-    // todo ViewModel 로 이동. 카테고리에 맞게 데이터 가져오기
-    private fun fetchPostList(postCategory: String) {
-        // todo 받은 데이터 리사이클러뷰에 뿌려주기
+    /** RecyclerView 초기화 */
+    private fun initRecyclerView() {
+        communityAdapter = CommunityAdapter {
+            Log.e("+++", "${System.currentTimeMillis()}")
+        }
+        binding.recyclerView.adapter = communityAdapter
     }
 
     /** Spinner 아이템 클릭 시
@@ -56,21 +88,16 @@ class CommunityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
 
         val item = parent?.getItemAtPosition(position)
         when (item.toString()) {
-            "금연 성공담" -> fetchPostList(NO_SMOKING_SUCCESS)
-            "금연 실패담" -> fetchPostList(NO_SMOKING_FAIL)
-            "잡담" -> fetchPostList(NO_SMOKING_OTHER)
+            "모두" -> viewModel.fetchPostList(NO_SMOKING_ALL)
+            "금연 성공담" -> viewModel.fetchPostList(NO_SMOKING_SUCCESS)
+            "금연 실패담" -> viewModel.fetchPostList(NO_SMOKING_FAIL)
+            "잡담" -> viewModel.fetchPostList(NO_SMOKING_OTHER)
         }
 
         Handler(mainLooper).postDelayed({
             view?.isClickable = true
-        }, 500)
+        }, 300)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
-
-    companion object {
-        private const val NO_SMOKING_SUCCESS = "no_smoking_success"
-        private const val NO_SMOKING_FAIL = "no_smoking_fail"
-        private const val NO_SMOKING_OTHER = "no_smoking_other"
-    }
 }

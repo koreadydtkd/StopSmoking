@@ -20,8 +20,15 @@ class AppShareKey {
 
         // firebase
         const val DB_NICKNAME = "db_nick_name"
+        const val DB_Community = "db_community"
 
         // widget
         const val WIDGET_UPDATE ="update_widget"
+
+        // Category
+        const val NO_SMOKING_ALL = "no_smoking_all"
+        const val NO_SMOKING_SUCCESS = "no_smoking_success"
+        const val NO_SMOKING_FAIL = "no_smoking_fail"
+        const val NO_SMOKING_OTHER = "no_smoking_other"
     }
 }

@@ -13,9 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="금연 후 신체변화"
-        android:textStyle="bold"
+        android:text="@string/body_changes_after_quitting_smoking"
         android:textColor="@color/black"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,14 +60,20 @@
                 android:text="@string/twenty_minutes"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/twenty_minutes_info"
-                android:textColor="@color/dark_grey" />
+                android:textColor="@color/dark_grey"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -73,14 +82,20 @@
                 android:text="@string/eight_hours"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="@string/eight_hours_info"
-                android:textColor="@color/dark_grey" />
+                android:textColor="@color/dark_grey"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -89,11 +104,17 @@
                 android:text="@string/twelve_hours"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/twelve_hours_info"
                 android:textColor="@color/dark_grey" />
@@ -105,11 +126,17 @@
                 android:text="@string/one_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/one_day_info"
                 android:textColor="@color/dark_grey" />
@@ -121,12 +148,18 @@
                 android:text="@string/two_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:text="@string/two_day_info"
                 android:textColor="@color/dark_grey" />
 
@@ -137,11 +170,17 @@
                 android:text="@string/three_day"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/three_day_info"
                 android:textColor="@color/dark_grey" />
@@ -153,11 +192,17 @@
                 android:text="@string/one_week"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/one_week_info"
                 android:textColor="@color/dark_grey" />
@@ -169,12 +214,18 @@
                 android:text="@string/two_week"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:text="@string/two_week_info"
                 android:textColor="@color/dark_grey" />
 
@@ -185,12 +236,18 @@
                 android:text="@string/one_two_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:text="@string/one_two_month_info"
                 android:textColor="@color/dark_grey" />
 
@@ -201,11 +258,17 @@
                 android:text="@string/three_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/three_month_info"
                 android:textColor="@color/dark_grey" />
@@ -217,11 +280,17 @@
                 android:text="@string/nine_month"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/nine_month_info"
                 android:textColor="@color/dark_grey" />
@@ -233,12 +302,18 @@
                 android:text="@string/one_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:text="@string/one_year_info"
                 android:textColor="@color/dark_grey" />
 
@@ -249,11 +324,17 @@
                 android:text="@string/five_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/five_year_info"
                 android:textColor="@color/dark_grey" />
@@ -265,12 +346,18 @@
                 android:text="@string/ten_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:text="@string/ten_year_info"
                 android:textColor="@color/dark_grey" />
 
@@ -281,11 +368,17 @@
                 android:text="@string/fifteen_year"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="16sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform"
                 android:layout_marginTop="2dp"
                 android:text="@string/fifteen_year_info"
                 android:textColor="@color/dark_grey" />

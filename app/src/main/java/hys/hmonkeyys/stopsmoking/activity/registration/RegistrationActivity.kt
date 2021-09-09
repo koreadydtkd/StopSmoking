@@ -84,7 +84,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel>() {
         binding.stopSmokingButton.setOnDuplicatePreventionClickListener {
             // 기본 예외 처리 후 등록
             inputInformationException(
-                binding.nickNameEditText.text.toString(),
+                binding.nickNameEditText.text.toString().trim(),
                 binding.amountOfSmokingEditText.text.toString(),
                 binding.tobaccoPriceEditText.text.toString(),
                 binding.myResolutionEditText.text.toString()

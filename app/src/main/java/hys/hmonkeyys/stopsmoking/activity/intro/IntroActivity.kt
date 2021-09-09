@@ -32,9 +32,9 @@ internal class IntroActivity : BaseActivity<IntroViewModel>() {
      * */
     private fun goNext() {
         if (viewModel.isFirstTime()) {
-            goNextActivity(this, MainActivity::class.java, 1000, true)
+            goNextActivity(this, MainActivity::class.java, 800, true)
         } else {
-            goNextActivity(this, RegistrationActivity::class.java, 1000, true)
+            goNextActivity(this, RegistrationActivity::class.java, 800, true)
         }
     }
 }
