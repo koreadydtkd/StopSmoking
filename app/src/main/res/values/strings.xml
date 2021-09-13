@@ -88,6 +88,9 @@
     <string name="warning_description">타인을 비방, 비하, 욕설 게시물은 통보 없이 삭제될 수 있습니다.</string>
     <string name="write_post">글 쓰기</string>
 
+    <!-- CommunityDetail -->
+    <string name="from_writer">%s님이\n작성한 게시글입니다.</string>
+
     <!-- Write -->
     <string name="shared_no_smoking_story">금연 성공담, 실패담 등등 이야기를 다른 사람들과 공유해보세요.</string>
     <string name="input_title">제목을 입력해주세요.</string>

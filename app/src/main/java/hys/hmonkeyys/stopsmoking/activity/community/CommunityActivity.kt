@@ -88,8 +88,8 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel>(), AdapterVi
                     putExtra(COMMUNITY_DETAIL_KEY, it)
                 }
             )
-
         }
+
         binding.recyclerView.adapter = communityAdapter
     }
 

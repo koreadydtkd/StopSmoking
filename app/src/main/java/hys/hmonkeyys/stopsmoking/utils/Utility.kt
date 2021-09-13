@@ -1,6 +1,7 @@
 package hys.hmonkeyys.stopsmoking.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +11,7 @@ import android.text.style.ForegroundColorSpan
 
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -44,5 +46,11 @@ object Utility {
         }, delayMillis)
     }
 
+    /** 키보드, 커서 숨기기 */
+    fun hideKeyboardAndCursor(context: Context, view: View) {
+        val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        inputMethodManager?.hideSoftInputFromWindow(view.windowToken, 0) // 키보드 숨기기
+        view.clearFocus() // 커서 숨기기
+    }
 }
 

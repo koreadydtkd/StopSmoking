@@ -8,6 +8,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import hys.hmonkeyys.stopsmoking.activity.community.CommunityViewModel
+import hys.hmonkeyys.stopsmoking.activity.communitydetail.CommunityDetailViewModel
 import hys.hmonkeyys.stopsmoking.activity.intro.IntroViewModel
 import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationViewModel
@@ -40,6 +41,7 @@ internal val viewModelModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { CommunityViewModel(get()) }
     viewModel { WriteViewModel(get(), get()) }
+    viewModel { CommunityDetailViewModel() }
 }
 
 internal fun initNickNameDB(): DatabaseReference {

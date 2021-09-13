@@ -1,10 +1,17 @@
 package hys.hmonkeyys.stopsmoking.activity.communitydetail
 
 import android.os.Bundle
+import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.community.CommunityActivity.Companion.COMMUNITY_DETAIL_KEY
 import hys.hmonkeyys.stopsmoking.data.entity.CommunityModel
 import hys.hmonkeyys.stopsmoking.databinding.ActivityCommunityDetailBinding
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_FAIL
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_OTHER
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_SUCCESS
+import hys.hmonkeyys.stopsmoking.utils.Utility
+import hys.hmonkeyys.stopsmoking.utils.convertTimeStampToDateFormat
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class CommunityDetailActivity : BaseActivity<CommunityDetailViewModel>() {
@@ -23,23 +30,42 @@ internal class CommunityDetailActivity : BaseActivity<CommunityDetailViewModel>(
         viewModel.communityDetailLiveData.observe(this) {
             when (it) {
                 CommunityDetailState.Initialized -> {
-                    initIntent()
+                    getIntentAndSetView()
+                    initViews()
                 }
             }
         }
     }
 
     /** 전달 받은 Intent 데이터 뷰에 셋팅 */
-    private fun initIntent() {
+    private fun getIntentAndSetView() {
         communityModel = intent.getParcelableExtra<CommunityModel>(COMMUNITY_DETAIL_KEY)
         communityModel?.let {
-            it.title
-            it.date
-            it.category
-            it.contents
-            it.writer
+            binding.writerTextView.text = Utility.changePartialTextColor(
+                getString(R.string.from_writer, it.writer),
+                getColor(R.color.black),
+                0,
+                it.writer.length
+            )
 
-            // todo 디테일 뷰에 뿌려주기
+            binding.titleTextView.text = it.title
+            binding.dateTextView.text = it.date.convertTimeStampToDateFormat()
+            binding.contentsTextView.text = it.contents
+            binding.viewCountTextView.text = "${1014}"
+            binding.categoryTextView.text = when (it.category) {
+                NO_SMOKING_SUCCESS -> "금연 성공담"
+                NO_SMOKING_FAIL -> "금연 실패담"
+                else -> "잡담"
+            }
         }
     }
+
+    /** 뷰 초기화 */
+    private fun initViews() {
+        // cancel button
+        binding.cancelView.setOnClickListener {
+            finish()
+        }
+    }
+
 }
