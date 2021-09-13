@@ -3,6 +3,7 @@ package hys.hmonkeyys.stopsmoking.activity.main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
@@ -106,6 +107,8 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 카카오 링크 공유 */
     private fun shareKakaoLink() {
+        binding.progressBar.visibility = View.VISIBLE
+
         try {
             val keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
             Log.e(TAG, "Hash Key: $keyHash")
@@ -124,14 +127,17 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
                         Log.w(TAG, "Warning Msg: ${linkResult.warningMsg}")
                         Log.w(TAG, "Argument Msg: ${linkResult.argumentMsg}")
                     }
+                    binding.progressBar.visibility = View.GONE
                 }
 
             } else {
                 showSnackBar(binding.root, getString(R.string.message_kakao_not_install))
+                binding.progressBar.visibility = View.GONE
             }
         } catch (e: Exception) {
             FirebaseCrashlytics.getInstance().recordException(e)
             showSnackBar(binding.root ,getString(R.string.message_kakao_error))
+            binding.progressBar.visibility = View.GONE
             e.printStackTrace()
         }
     }

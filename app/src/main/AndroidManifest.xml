@@ -35,28 +35,31 @@
                     android:scheme="@string/kakao_scheme_native_key" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.registration.RegistrationActivity"
             android:theme="@style/Theme.Status.Custom" />
-
         <activity
             android:name=".activity.main.MainActivity"
             android:theme="@style/Theme.Status.Custom" />
-
         <activity
             android:name=".activity.community.CommunityActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
             android:name=".activity.write.WriteActivity"
             android:theme="@style/Theme.Status.Custom" />
-
         <activity
             android:name=".activity.bodychanges.BodyChangesActivity"
-            android:theme="@style/Theme.Status.Custom" /> <!-- 배너 광고 -->
+            android:theme="@style/Theme.Status.Custom" />
+        <activity
+            android:name=".activity.communitydetail.CommunityDetailActivity"
+            android:theme="@style/Theme.Status.Custom" />
+
+        <!-- 배너 광고 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id" /> <!-- 위젯 기능 2 X 1 -->
+            android:value="@string/admob_app_id" />
+
+        <!-- 위젯 기능 2 X 1 -->
         <receiver android:name=".widget.WidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -67,6 +70,7 @@
                 android:resource="@xml/widget_provider" />
         </receiver>
 
+        <!-- FCM -->
         <service
             android:name=".fcm.MyFirebaseMessagingService"
             android:exported="false">

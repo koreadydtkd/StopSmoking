@@ -6,6 +6,8 @@ plugins {
 
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
+
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -16,7 +18,7 @@ android {
         minSdk 26
         targetSdk 30
         versionCode 5
-        versionName "1.0"
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

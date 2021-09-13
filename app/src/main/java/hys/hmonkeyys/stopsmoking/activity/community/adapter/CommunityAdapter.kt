@@ -12,9 +12,10 @@ import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_FAIL
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_OTHER
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_SUCCESS
 import hys.hmonkeyys.stopsmoking.utils.convertTimeStampToDateFormat
+import hys.hmonkeyys.stopsmoking.utils.setOnDuplicatePreventionClickListener
 
 class CommunityAdapter(
-    val onCommunityItemClickListener: () -> Unit
+    val onCommunityItemClickListener: (CommunityModel) -> Unit
 ): ListAdapter<CommunityModel ,CommunityAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemCommunityBinding): RecyclerView.ViewHolder(binding.root) {
@@ -35,8 +36,8 @@ class CommunityAdapter(
             binding.writerTextView.text = community.writer
             binding.dateTextView.text = community.date.convertTimeStampToDateFormat()
 
-            binding.root.setOnClickListener {
-                onCommunityItemClickListener()
+            binding.root.setOnDuplicatePreventionClickListener {
+                onCommunityItemClickListener(community)
             }
         }
     }

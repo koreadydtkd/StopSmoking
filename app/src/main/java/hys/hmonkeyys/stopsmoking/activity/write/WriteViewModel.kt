@@ -31,7 +31,7 @@ internal class WriteViewModel(
     fun registerPost(title: String, category: String, contents: String) {
         val nickName = spf.getString(NICK_NAME, null)
         if (nickName == null) {
-            _writeStateLiveData.postValue(WriteState.NickNameError)
+            _writeStateLiveData.postValue(WriteState.RegisterSuccess(false))
             return
         }
 

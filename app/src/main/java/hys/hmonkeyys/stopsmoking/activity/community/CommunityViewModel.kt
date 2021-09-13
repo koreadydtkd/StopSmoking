@@ -32,7 +32,7 @@ internal class CommunityViewModel(
         if (postCategory == NO_SMOKING_ALL) {
             communityDB
                 .orderBy("date", Query.Direction.DESCENDING)
-                .limit(5)
+                .limit(LIST_LIMIT)
                 .get()
                 .addOnSuccessListener {
                     val communityList = it.toObjects(CommunityModel::class.java)
@@ -46,7 +46,7 @@ internal class CommunityViewModel(
             communityDB
                 .whereEqualTo("category", postCategory)
                 .orderBy("date", Query.Direction.DESCENDING)
-                .limit(5)
+                .limit(LIST_LIMIT)
                 .get()
                 .addOnSuccessListener {
                     val communityList = it.toObjects(CommunityModel::class.java)
@@ -59,5 +59,9 @@ internal class CommunityViewModel(
         }
 
 
+    }
+
+    companion object {
+        private const val LIST_LIMIT = 10L
     }
 }

@@ -34,15 +34,15 @@ internal class WriteActivity : BaseActivity<WriteViewModel>(), AdapterView.OnIte
                     initViews()
                     initSpinner()
                 }
-                WriteState.NickNameError -> showSnackBar(binding.root, "예기치 못한 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+
                 is WriteState.RegisterSuccess -> {
                     if (it.isSuccess) {
-                        showSnackBar(binding.root, "업로드 성공")
-                        Handler(mainLooper).postDelayed({ finish() }, 300)
+                        showSnackBar(binding.root, getString(R.string.message_upload_success))
+                        Handler(mainLooper).postDelayed({ finish() }, 350)
                     } else {
-                        showSnackBar(binding.root, "업로드 실패\n잠시 후 다시 시도해주세요.")
+                        showSnackBar(binding.root, getString(R.string.message_upload_fail))
                     }
-
+                    binding.progressBar.visibility = View.GONE
                 }
             }
         }
@@ -70,19 +70,21 @@ internal class WriteActivity : BaseActivity<WriteViewModel>(), AdapterView.OnIte
         binding.categorySpinner.onItemSelectedListener = this
     }
 
-    /** 등록 전 예외 학인 */
+    /** 등록 전 예외 확인 */
     private fun checkExceptionBeforeRegister() {
+        binding.progressBar.visibility = View.VISIBLE
+
         val title = binding.titleEditText.text.toString().trim()
         val contents = binding.contentsEditText.text.toString()
 
         when {
             title.length < 2 -> {
-                showSnackBar(binding.root, "제목은 최소 1자 이상 입력해주세요.")
+                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "제목"))
                 return
             }
 
             contents.length < 10 -> {
-                showSnackBar(binding.root, "내용은 최소 10자 이상 입력해주세요.")
+                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "내용"))
                 return
             }
         }
