@@ -27,7 +27,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/ic_baseline_cancel_24"
+        android:background="@drawable/ic_cancel_24"
         android:backgroundTint="@color/main_color"
         android:elevation="6dp"
         android:gravity="center"
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePickerCardView"
-        app:startIconDrawable="@drawable/ic_baseline_person_pin_24"
+        app:startIconDrawable="@drawable/ic_person_pin_24"
         app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -104,7 +104,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nickNameTextField"
-        app:startIconDrawable="@drawable/ic_baseline_smoking_rooms_24"
+        app:startIconDrawable="@drawable/ic_smoking_rooms_24"
         app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -134,7 +134,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountOfSmokingTextField"
-        app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
+        app:startIconDrawable="@drawable/ic_monetization_on_24"
         app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tobaccoPriceTextField"
-        app:startIconDrawable="@drawable/ic_baseline_message_24"
+        app:startIconDrawable="@drawable/ic_message_24"
         app:startIconTint="@color/main_color">
 
         <com.google.android.material.textfield.TextInputEditText

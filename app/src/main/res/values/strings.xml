@@ -87,6 +87,7 @@
     <!-- Community -->
     <string name="warning_description">타인을 비방, 비하, 욕설 게시물은 통보 없이 삭제될 수 있습니다.</string>
     <string name="write_post">글 쓰기</string>
+    <string name="zero">0</string>
 
     <!-- CommunityDetail -->
     <string name="from_writer">%s님이\n작성한 게시글입니다.</string>

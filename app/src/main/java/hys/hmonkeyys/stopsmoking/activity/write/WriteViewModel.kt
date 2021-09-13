@@ -6,11 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import hys.hmonkeyys.stopsmoking.activity.BaseViewModel
 import hys.hmonkeyys.stopsmoking.data.entity.CommunityModel
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_Community
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NICK_NAME
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -35,7 +32,7 @@ internal class WriteViewModel(
             return
         }
 
-        val communityPost = CommunityModel(title, category, nickName, contents, System.currentTimeMillis())
+        val communityPost = CommunityModel(title, category, nickName, contents, System.currentTimeMillis(), 0L)
 
         communityDB.add(communityPost)
             .addOnSuccessListener {

@@ -15,6 +15,7 @@ import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationViewModel
 import hys.hmonkeyys.stopsmoking.activity.write.WriteViewModel
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
+import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_Community
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_NICKNAME
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
@@ -41,7 +42,7 @@ internal val viewModelModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { CommunityViewModel(get()) }
     viewModel { WriteViewModel(get(), get()) }
-    viewModel { CommunityDetailViewModel() }
+    viewModel { CommunityDetailViewModel(get()) }
 }
 
 internal fun initNickNameDB(): DatabaseReference {
@@ -49,7 +50,7 @@ internal fun initNickNameDB(): DatabaseReference {
 }
 
 internal fun initCommunityDB(): CollectionReference {
-    return Firebase.firestore.collection(AppShareKey.DB_Community)
+    return Firebase.firestore.collection(DB_Community)
 }
 
 internal fun initSharedPreferences(context: Context): SharedPreferences {

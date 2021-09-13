@@ -27,7 +27,7 @@
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_connect_without_contact_24"
+            android:src="@drawable/ic_connect_without_contact_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/main_color"
@@ -48,24 +48,6 @@
             tools:text="작성자" />
 
         <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textStyle="bold"
-            app:autoSizeMaxTextSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:autoSizeMinTextSize="14sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/writerTextView"
-            tools:text="금연 성공 후기" />
-
-        <TextView
             android:id="@+id/dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,6 +59,68 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="2021.09.09 14:22" />
 
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/viewsIcon"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/writerTextView"
+            tools:text="금연 성공 후기" />
+
+        <View
+            android:id="@+id/viewsIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/ic_eye_20"
+            app:layout_constraintBottom_toBottomOf="@id/commentCountTextView"
+            app:layout_constraintEnd_toStartOf="@+id/viewsCountTextView"
+            app:layout_constraintTop_toTopOf="@+id/commentCountTextView" />
+
+        <TextView
+            android:id="@+id/viewsCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:text="@string/zero"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/titleTextView"
+            app:layout_constraintEnd_toStartOf="@+id/commentIcon"
+            app:layout_constraintTop_toTopOf="@id/titleTextView" />
+
+        <View
+            android:id="@+id/commentIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/ic_comment_24"
+            app:layout_constraintBottom_toBottomOf="@id/commentCountTextView"
+            app:layout_constraintEnd_toStartOf="@+id/commentCountTextView"
+            app:layout_constraintTop_toTopOf="@+id/commentCountTextView" />
+
+        <TextView
+            android:id="@+id/commentCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zero"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/titleTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

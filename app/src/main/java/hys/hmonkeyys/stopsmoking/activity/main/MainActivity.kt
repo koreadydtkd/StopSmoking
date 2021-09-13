@@ -92,7 +92,6 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
         // 담소 버튼
         binding.communityLayout.setOnDuplicatePreventionClickListener {
-//            showSnackBar(binding.root, "현재 준비중입니다. 조금만 기다려주세요.")
             goNextActivity(this, CommunityActivity::class.java, 0)
         }
     }

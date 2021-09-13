@@ -28,13 +28,14 @@ class CommunityAdapter(
                     binding.imageView.setImageResource(R.drawable.ic_no_smoking_fail)
                 }
                 NO_SMOKING_OTHER -> {
-                    binding.imageView.setImageResource(R.drawable.ic_baseline_connect_without_contact_24)
+                    binding.imageView.setImageResource(R.drawable.ic_connect_without_contact_24)
                 }
             }
 
             binding.titleTextView.text = community.title
             binding.writerTextView.text = community.writer
             binding.dateTextView.text = community.date.convertTimeStampToDateFormat()
+            binding.viewsCountTextView.text = "${community.viewsCount}"
 
             binding.root.setOnDuplicatePreventionClickListener {
                 onCommunityItemClickListener(community)

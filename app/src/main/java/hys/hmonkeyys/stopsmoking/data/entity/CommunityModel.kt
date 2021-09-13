@@ -1,7 +1,7 @@
 package hys.hmonkeyys.stopsmoking.data.entity
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CommunityModel(
@@ -9,7 +9,8 @@ data class CommunityModel(
     val category: String,
     val writer: String,
     val contents: String,
-    val date: Long
+    val date: Long,
+    val viewsCount: Long
 ) : Parcelable {
-    constructor() : this("", "", "", "" , 0L)
+    constructor() : this("", "", "", "" , 0L, 0L)
 }

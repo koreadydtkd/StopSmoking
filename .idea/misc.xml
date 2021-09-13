@@ -3,34 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_grey_color.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_color.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_smoking_rooms_24.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_left_top_right_bottom.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_main_color_blur.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_right.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/widget_background.xml" value="0.2565972222222222" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_body_changes.xml" value="0.24583333333333332" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community_detail.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_registration.xml" value="0.24583333333333332" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_write.xml" value="0.24583333333333332" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/item_community.xml" value="0.33" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/widget.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2234375" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2234375" />
+        <entry key="app/src/main/res/drawable/ic_accessibility_new_24.xml" value="0.2465277777777778" />
+        <entry key="app/src/main/res/drawable/ic_baseline_smoking_rooms_24.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/drawable/rounded_main_color.xml" value="0.24861111111111112" />
+        <entry key="app/src/main/res/layout/activity_community.xml" value="0.21458333333333332" />
+        <entry key="app/src/main/res/layout/activity_community_detail.xml" value="0.28194444444444444" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22430555555555556" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/item_community.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/widget.xml" value="0.21805555555555556" />
+        <entry key="app/src/main/res/xml/widget_provider.xml" value="0.28194444444444444" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

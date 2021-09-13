@@ -44,10 +44,7 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel>(), AdapterVi
                 }
                 is CommunityState.PostFetchSuccess -> {
                     binding.progressBar.visibility = View.GONE
-                    it.communityList?.let { list ->
-                        communityAdapter.submitList(list)
-                    }
-
+                    communityAdapter.submitList(it.communityList)
                 }
             }
         }

@@ -6,9 +6,7 @@ import hys.hmonkeyys.stopsmoking.activity.BaseActivity
 import hys.hmonkeyys.stopsmoking.activity.community.CommunityActivity.Companion.COMMUNITY_DETAIL_KEY
 import hys.hmonkeyys.stopsmoking.data.entity.CommunityModel
 import hys.hmonkeyys.stopsmoking.databinding.ActivityCommunityDetailBinding
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_FAIL
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_OTHER
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.NO_SMOKING_SUCCESS
 import hys.hmonkeyys.stopsmoking.utils.Utility
 import hys.hmonkeyys.stopsmoking.utils.convertTimeStampToDateFormat
@@ -51,13 +49,17 @@ internal class CommunityDetailActivity : BaseActivity<CommunityDetailViewModel>(
             binding.titleTextView.text = it.title
             binding.dateTextView.text = it.date.convertTimeStampToDateFormat()
             binding.contentsTextView.text = it.contents
-            binding.viewCountTextView.text = "${1014}"
+            binding.viewCountTextView.text = "${it.viewsCount}"
             binding.categoryTextView.text = when (it.category) {
                 NO_SMOKING_SUCCESS -> "금연 성공담"
                 NO_SMOKING_FAIL -> "금연 실패담"
                 else -> "잡담"
             }
+
+            viewModel.addViewsCount(it.title, it.date)
         }
+
+
     }
 
     /** 뷰 초기화 */
