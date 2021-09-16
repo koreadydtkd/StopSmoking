@@ -72,23 +72,22 @@ internal class WriteActivity : BaseActivity<WriteViewModel>(), AdapterView.OnIte
 
     /** 등록 전 예외 확인 */
     private fun checkExceptionBeforeRegister() {
-        binding.progressBar.visibility = View.VISIBLE
-
         val title = binding.titleEditText.text.toString().trim()
         val contents = binding.contentsEditText.text.toString()
 
         when {
             title.length < 2 -> {
-                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "제목"))
+                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "제목", 2))
                 return
             }
 
             contents.length < 10 -> {
-                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "내용"))
+                showSnackBar(binding.root, getString(R.string.message_one_letter_or_more, "내용", 10))
                 return
             }
         }
 
+        binding.progressBar.visibility = View.VISIBLE
         viewModel.registerPost(title, selectedCategoryName, contents)
     }
 

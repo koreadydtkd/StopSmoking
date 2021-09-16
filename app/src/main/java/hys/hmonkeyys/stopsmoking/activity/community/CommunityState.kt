@@ -7,6 +7,10 @@ sealed class  CommunityState {
     object Initialize : CommunityState()
 
     data class PostFetchSuccess(
-        val communityList: List<CommunityModel>? = null
+        val communityList: MutableList<CommunityModel>
+    ) : CommunityState()
+
+    data class PostMoreFetchSuccess(
+        val communityMoreList: MutableList<CommunityModel>
     ) : CommunityState()
 }

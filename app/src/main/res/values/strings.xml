@@ -88,23 +88,29 @@
     <string name="warning_description">타인을 비방, 비하, 욕설 게시물은 통보 없이 삭제될 수 있습니다.</string>
     <string name="write_post">글 쓰기</string>
     <string name="zero">0</string>
+    <string name="no_data">등록 된 글이 없습니다.\n새로운 글을 작성해보세요.</string>
+    <string name="fetched_all_data">데이터를 모두 가져왔습니다.</string>
 
     <!-- CommunityDetail -->
-    <string name="from_writer">%s님이\n작성한 게시글입니다.</string>
+    <string name="from_writer">%s님이\n작성한 글입니다.</string>
+    <string name="from_writer_me">내가 작성한 글입니다.</string>
+    <string name="input_comment">내용을 입력해주세요.</string>
 
     <!-- Write -->
     <string name="shared_no_smoking_story">금연 성공담, 실패담 등등 이야기를 다른 사람들과 공유해보세요.</string>
     <string name="input_title">제목을 입력해주세요.</string>
     <string name="input_contents">내용을 입력해주세요.(최대 150자)</string>
     <string name="set_up_category">카테고리를 설정해주세요.</string>
+    <string name="post_warning">문제가 될 수 있는 글은 예고없이 삭제될 수 있습니다.</string>
 
     <string name="message_upload_success">업로드 성공</string>
     <string name="message_upload_fail">업로드 실패\n잠시 후 다시 시도해주세요.</string>
-    <string name="message_one_letter_or_more">%s은 최소 1자 이상 입력해주세요.</string>
+    <string name="message_one_letter_or_more">%s은 최소 %d자 이상 입력해주세요.</string>
 
     <!-- Default -->
     <string name="check">확인</string>
     <string name="edit">수정</string>
+    <string name="delete">삭제</string>
     <string name="error">예기치 못한 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</string>
 
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="category_array">
-        <item>모두</item>
+        <item>전체</item>
         <item>금연 성공담</item>
         <item>금연 실패담</item>
         <item>잡담</item>
+        <item>내가 쓴 글</item>
     </string-array>
 
     <string-array name="category_array_write">

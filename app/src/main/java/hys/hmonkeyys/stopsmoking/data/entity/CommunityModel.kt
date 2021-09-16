@@ -5,12 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CommunityModel(
+    var uid: String,
     val title: String,
     val category: String,
     val writer: String,
     val contents: String,
     val date: Long,
-    val viewsCount: Long
+    val viewsCount: Long,
 ) : Parcelable {
-    constructor() : this("", "", "", "" , 0L, 0L)
+    constructor() : this("","", "", "", "" , 0L, 0L)
 }

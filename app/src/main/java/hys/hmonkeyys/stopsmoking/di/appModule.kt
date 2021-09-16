@@ -2,6 +2,7 @@ package hys.hmonkeyys.stopsmoking.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.room.Room
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.CollectionReference
@@ -13,6 +14,8 @@ import hys.hmonkeyys.stopsmoking.activity.intro.IntroViewModel
 import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationViewModel
 import hys.hmonkeyys.stopsmoking.activity.write.WriteViewModel
+import hys.hmonkeyys.stopsmoking.room.ReadPostDatabase
+import hys.hmonkeyys.stopsmoking.room.dao.ReadPostDao
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_Community
@@ -27,32 +30,57 @@ internal val appModule = module {
     single { Dispatchers.Main }
     single { Dispatchers.IO }
 
-    // SharedPreFences 초기화
-    single { initSharedPreferences(androidApplication()) }
+    // SharedPreFences 생성
+    single { createSharedPreferences(androidApplication()) }
 
-    // Firebase NickName DB 초기화
-    single { initNickNameDB() }
+    // Firebase NickName DB(실시간) 생성
+    single { createNickNameDB() }
 
-    single { initCommunityDB() }
+    // Firebase NickName DB(Cloud) 생성
+    single { createCommunityDB() }
+
+    // Room DB 'ReadPost' DB 생성
+    single { createReadPostDB(androidApplication()) }
+    single { readPostDao(get()) }
 }
 
 internal val viewModelModule = module {
+
     viewModel { IntroViewModel(get()) }
+
     viewModel { RegistrationViewModel(get(), get()) }
+
     viewModel { MainViewModel(get()) }
-    viewModel { CommunityViewModel(get()) }
+
+    viewModel { CommunityViewModel(get(), get()) }
+
     viewModel { WriteViewModel(get(), get()) }
-    viewModel { CommunityDetailViewModel(get()) }
+
+    viewModel { CommunityDetailViewModel(get(), get(), get()) }
 }
 
-internal fun initNickNameDB(): DatabaseReference {
+internal fun createNickNameDB(): DatabaseReference {
     return Firebase.database.reference.child(DB_NICKNAME)
 }
 
-internal fun initCommunityDB(): CollectionReference {
+internal fun createCommunityDB(): CollectionReference {
     return Firebase.firestore.collection(DB_Community)
 }
 
-internal fun initSharedPreferences(context: Context): SharedPreferences {
+internal fun createSharedPreferences(context: Context): SharedPreferences {
     return context.getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE)
 }
+
+internal fun createReadPostDB(context: Context): ReadPostDatabase {
+    return Room.databaseBuilder(context, ReadPostDatabase::class.java, ReadPostDatabase.DB_NAME).build()
+}
+internal fun readPostDao(database: ReadPostDatabase): ReadPostDao {
+    return database.readPostDao()
+}
+
+/**
+ * module { ... } : 키워드로 주입받고자 하는 객체의 집합
+ * single { ... } : 앱이 실행되는 동안 계속 유지되는 싱글톤 객체를 생성
+ * factory { ... } : 요청할 때 마다 매번 새로운 객체를 생성
+ * get() : 컴포넌트 내에서 알맞은 의존성을 주입
+ */

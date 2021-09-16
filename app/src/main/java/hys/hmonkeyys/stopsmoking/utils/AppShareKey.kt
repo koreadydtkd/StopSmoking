@@ -30,5 +30,6 @@ class AppShareKey {
         const val NO_SMOKING_SUCCESS = "no_smoking_success"
         const val NO_SMOKING_FAIL = "no_smoking_fail"
         const val NO_SMOKING_OTHER = "no_smoking_other"
+        const val NO_SMOKING_MY_POST = "no_smoking_my_post"
     }
 }

@@ -17,8 +17,8 @@ android {
         applicationId "hys.hmonkeyys.stopsmoking"
         minSdk 26
         targetSdk 30
-        versionCode 5
-        versionName "1.1.0"
+        versionCode 6
+        versionName "1.2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,8 +77,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
 
     // koin DI
-    implementation "io.insert-koin:koin-core:3.1.2"
     implementation "io.insert-koin:koin-android:3.1.2"
     testImplementation "io.insert-koin:koin-test:3.1.2"
 
+    // Room
+    implementation 'androidx.room:room-runtime:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
+    implementation "androidx.room:room-ktx:2.3.0"
 }

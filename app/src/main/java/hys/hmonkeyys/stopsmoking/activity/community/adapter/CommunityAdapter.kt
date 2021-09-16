@@ -2,8 +2,6 @@ package hys.hmonkeyys.stopsmoking.activity.community.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.data.entity.CommunityModel
@@ -15,8 +13,9 @@ import hys.hmonkeyys.stopsmoking.utils.convertTimeStampToDateFormat
 import hys.hmonkeyys.stopsmoking.utils.setOnDuplicatePreventionClickListener
 
 class CommunityAdapter(
+    private var communityList: MutableList<CommunityModel> = mutableListOf<CommunityModel>(),
     val onCommunityItemClickListener: (CommunityModel) -> Unit
-): ListAdapter<CommunityModel ,CommunityAdapter.ViewHolder>(diffUtil) {
+): RecyclerView.Adapter<CommunityAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemCommunityBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(community: CommunityModel) {
@@ -48,13 +47,21 @@ class CommunityAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        holder.bind(communityList[position])
     }
 
-    companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<CommunityModel>() {
-            override fun areItemsTheSame(oldItem: CommunityModel, newItem: CommunityModel): Boolean = oldItem == newItem
-            override fun areContentsTheSame(oldItem: CommunityModel, newItem: CommunityModel): Boolean = oldItem == newItem
-        }
+    override fun getItemCount(): Int = communityList.size
+
+    fun setList(communityList: MutableList<CommunityModel>) {
+        this.communityList = communityList
+        notifyDataSetChanged()
     }
+
+    fun addList(communityList: MutableList<CommunityModel>) {
+        communityList.forEach {
+            this.communityList.add(it)
+        }
+        notifyDataSetChanged()
+    }
+
 }

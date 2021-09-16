@@ -32,7 +32,7 @@ internal class WriteViewModel(
             return
         }
 
-        val communityPost = CommunityModel(title, category, nickName, contents, System.currentTimeMillis(), 0L)
+        val communityPost = CommunityModel("" ,title, category, nickName, contents, System.currentTimeMillis(), 0L)
 
         communityDB.add(communityPost)
             .addOnSuccessListener {
