@@ -48,11 +48,15 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 금연 정보 초기화(TextView) */
     private fun initSmokingCessationInformation() {
+        // todo 금연 기간에 따른 애니메이션 넣기
+
         // 상단 d-day
         binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
 
         // 이름 부분 색상 변경
         val nickName = viewModel.getNickName()
+
+        // todo 금연 성공에 대한 응원 메세지 랜덤으로
         binding.titleTextView.text = Utility.changePartialTextColor(
             getString(R.string.main_title, nickName),
             getColor(R.color.black),
