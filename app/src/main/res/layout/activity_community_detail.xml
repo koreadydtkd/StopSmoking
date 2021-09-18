@@ -115,23 +115,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextView">
 
-        <TextView
-            android:id="@+id/contentsTextView"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:scrollbars="vertical"
-            android:textColor="@color/dark_grey"
-            android:textSize="16sp"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeMinTextSize="14sp"
-            app:autoSizeTextType="uniform"
-            tools:text="제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/contentsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeMinTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:text="제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
              제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
              제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
              제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
              제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다.
              제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다. 제목 입니다." />
+
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
 

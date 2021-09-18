@@ -43,15 +43,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1일" />
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:text="위젯은 추후 업데이트 예정입니다."
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainCardView"
-        app:layout_constraintStart_toStartOf="@id/mainCardView" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/mainCardView"
         android:layout_width="0dp"
@@ -306,19 +297,19 @@
     <View
         android:id="@+id/guidView"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="18dp"
+        android:layout_height="0.1dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@id/mainCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/editCardView"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="40dp"
-        app:cardElevation="4dp"
+        app:cardElevation="3dp"
         app:layout_constraintEnd_toEndOf="@+id/mainCardView"
         app:layout_constraintTop_toBottomOf="@+id/guidView">
 

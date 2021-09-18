@@ -48,8 +48,6 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 금연 정보 초기화(TextView) */
     private fun initSmokingCessationInformation() {
-        // todo 금연 기간에 따른 애니메이션 넣기
-
         // 상단 d-day
         binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
 
@@ -91,6 +89,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
         // 금연 후 신체변화 버튼
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
+            // todo 다이얼로그로 변경하기
             goNextActivity(this, BodyChangesActivity::class.java, 0)
         }
 
