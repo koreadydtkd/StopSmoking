@@ -48,9 +48,6 @@
             android:name=".activity.write.WriteActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
-            android:name=".activity.bodychanges.BodyChangesActivity"
-            android:theme="@style/Theme.Status.Custom" />
-        <activity
             android:name=".activity.communitydetail.CommunityDetailActivity"
             android:theme="@style/Theme.Status.Custom" />
 

@@ -1,9 +1,13 @@
 package hys.hmonkeyys.stopsmoking.activity.main
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
@@ -12,7 +16,6 @@ import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.kakao.sdk.link.LinkClient
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.activity.BaseActivity
-import hys.hmonkeyys.stopsmoking.activity.bodychanges.BodyChangesActivity
 import hys.hmonkeyys.stopsmoking.activity.community.CommunityActivity
 import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
@@ -87,10 +90,9 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
             shareKakaoLink()
         }
 
-        // 금연 후 신체변화 버튼
+        // 금연 후 신체변화 다이얼로그 띄우 버튼
         binding.bodyChangesLayout.setOnDuplicatePreventionClickListener {
-            // todo 다이얼로그로 변경하기
-            goNextActivity(this, BodyChangesActivity::class.java, 0)
+            showBodyChangesDialog()
         }
 
         // 담소 버튼
@@ -107,13 +109,32 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         finish()
     }
 
+    /** 금연 후 신체변화 dialog 띄우기 */
+    private fun showBodyChangesDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_body_changes, null)
+
+        val alertDialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .create()
+
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.show()
+
+        dialogView.findViewById<View>(R.id.cancelView).setOnClickListener {
+            alertDialog.dismiss()
+        }
+        dialogView.findViewById<View>(R.id.checkButton).setOnClickListener {
+            alertDialog.dismiss()
+        }
+    }
+
     /** 카카오 링크 공유 */
     private fun shareKakaoLink() {
         binding.progressBar.visibility = View.VISIBLE
 
         try {
-            val keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
-            Log.e(TAG, "Hash Key: $keyHash")
+//            val keyHash = com.kakao.sdk.common.util.Utility.getKeyHash(this)
+//            Log.e(TAG, "Hash Key: $keyHash")
 
             // 카카오톡 설치여부 확인
             if (LinkClient.instance.isKakaoLinkAvailable(this)) {

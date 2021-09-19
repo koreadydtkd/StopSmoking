@@ -50,7 +50,7 @@
     <string name="message_kakao_link_send_fail">카카오링크 보내기에 실패하였습니다.\n잠시 후 다시 시도해주세요.</string>
 
 
-    <!-- BodyChanges -->
+    <!-- BodyChanges Dialog -->
     <string name="body_changes_after_quitting_smoking">금연 후 신체변화</string>
     <string name="twenty_minutes">20분 경과</string>
     <string name="twenty_minutes_info">혈압이 정상으로 떨어지고 손과 발의 체온이 정상으로 돌아옵니다.</string>

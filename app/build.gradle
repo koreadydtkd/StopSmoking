@@ -17,8 +17,8 @@ android {
         applicationId "hys.hmonkeyys.stopsmoking"
         minSdk 26
         targetSdk 30
-        versionCode 6
-        versionName "1.2.1"
+        versionCode 7
+        versionName "1.2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
