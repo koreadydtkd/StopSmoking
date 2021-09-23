@@ -13,9 +13,14 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
+import android.util.TypedValue
+import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
+import java.util.*
 
 
 object Utility {
+    // (24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초 -> 초 변환 1000)
+    private const val DAY = 86400000
 
     /** 일부 텍스트 색상 변경 */
     fun changePartialTextColor(text: String, color: Int, start: Int, end: Int): SpannableStringBuilder {
@@ -52,5 +57,41 @@ object Utility {
         inputMethodManager?.hideSoftInputFromWindow(view.windowToken, 0) // 키보드 숨기기
         view.clearFocus() // 커서 숨기기
     }
+
+    /** dp Turn px */
+    fun dp2px(context: Context, dpVal: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal, context.resources.displayMetrics).toInt()
+    }
+
+    /** 오늘 날짜, 입력한 날짜로 d-day 계산 */
+    fun dDayCalculation(stopSmokingDate: String): Int {
+        val dDayList = stopSmokingDate.split("-")
+
+        val year = dDayList[0].toInt()
+        val month = dDayList[1].toInt()
+        val day = dDayList[2].toInt()
+
+        return try {
+            val todayCal = Calendar.getInstance()
+            val dDayCal = Calendar.getInstance()
+
+            // D-day의 날짜를 입력
+            dDayCal[year, month - 1] = day
+
+            val today = todayCal.timeInMillis / DAY
+            val dDay = dDayCal.timeInMillis / DAY
+
+            // 오늘 날짜에서 d day 날짜를 빼기
+            val count = today - dDay
+
+            // 오늘 부터 시작이면 1일 차
+            count.toInt() + 1
+        } catch (e: Exception) {
+            e.printStackTrace()
+            -1
+        }
+    }
+
+
 }
 

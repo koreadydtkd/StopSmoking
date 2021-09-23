@@ -1,6 +1,5 @@
 package hys.hmonkeyys.stopsmoking.activity.communitydetail.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,8 +24,6 @@ class CommentAdapter(
             if(comment.writer == nickName) {
                 binding.deleteButton.visibility = View.VISIBLE
                 binding.deleteButton.setOnDuplicatePreventionClickListener {
-                    // todo 댓글 삭제기능
-                    Log.e("@@@", "삭제 클릭")
                     onItemDeleteListener(comment)
                 }
             } else {

@@ -6,6 +6,9 @@
     <string name="banner_ad_id">ca-app-pub-3924676263890790/8274811070</string>
     <string name="banner_ad_test_id">ca-app-pub-3940256099942544/6300978111</string>
 
+    <!-- Intro -->
+    <string name="holding_it_in_well">잘 참고 계시죠..?</string>
+    <string name="wait">잠시만 기다려주세요…</string>
 
     <!-- Registration -->
     <string name="date_select_text">금연을 시작한 날짜를 선택해주세요.</string>
@@ -34,7 +37,11 @@
     <!-- Main -->
     <string name="main_top_label">금연한지</string>
     <string name="stop_smoking_d_day">%d일</string>
-    <string name="main_title">%s님 금연에 꼭 성공하세요!</string>
+    <string name="main_title1">%s님 금연에 꼭 성공하세요!</string>
+    <string name="main_title2">%s님 다시 피울 생각하는건 아니죠 ?</string>
+    <string name="main_title3">%s님 지금처럼 참아봐요 할 수 있어요!</string>
+    <string name="main_title4">%s님 피워봤자 좋은게 하나도 없어요..</string>
+    <string name="main_title5">%s님! 다시 흡연자로 돌아가지 마세요.</string>
     <string name="main_save_tobacco">%d개비</string>
     <string name="save_money">절약한 금액</string>
     <string name="my_resolution">나의 각오</string>

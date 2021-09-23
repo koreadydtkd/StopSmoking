@@ -10,6 +10,7 @@ import com.kakao.sdk.template.model.FeedTemplate
 import com.kakao.sdk.template.model.Link
 import hys.hmonkeyys.stopsmoking.activity.BaseViewModel
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey
+import hys.hmonkeyys.stopsmoking.utils.Utility.dDayCalculation
 import hys.hmonkeyys.stopsmoking.utils.toCommaWon
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -35,31 +36,7 @@ internal class MainViewModel(
     /** 오늘 날짜, 입력한 날짜로 d-day 계산 */
     fun getDDay(): Int {
         val stopSmokingDate = spf.getString(AppShareKey.STOP_SMOKING_DATE, "") ?: ""
-        val dDayList = stopSmokingDate.split("-")
-
-        val year = dDayList[0].toInt()
-        val month = dDayList[1].toInt()
-        val day = dDayList[2].toInt()
-
-        return try {
-            val todayCal = Calendar.getInstance()
-            val dDayCal = Calendar.getInstance()
-
-            // D-day의 날짜를 입력
-            dDayCal[year, month - 1] = day
-
-            val today = todayCal.timeInMillis / DAY
-            val dDay = dDayCal.timeInMillis / DAY
-
-            // 오늘 날짜에서 d day 날짜를 빼기
-            val count = today - dDay
-
-            // 오늘 부터 시작이면 1일 차
-            count.toInt() + 1
-        } catch (e: Exception) {
-            e.printStackTrace()
-            -1
-        }
+        return dDayCalculation(stopSmokingDate)
     }
 
     /** 1개비 11분 기준으로 늘어난 수명 계산 */
@@ -83,6 +60,7 @@ internal class MainViewModel(
 
     /** 카카오 링크 피드 */
     fun getDefaultFeed(): FeedTemplate {
+        // todo 원하는 태그 넣도록
         return FeedTemplate(
             content = Content(
                 title = "금연 시작",

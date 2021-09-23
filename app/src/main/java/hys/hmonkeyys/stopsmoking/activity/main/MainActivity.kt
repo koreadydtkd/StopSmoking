@@ -1,11 +1,13 @@
 package hys.hmonkeyys.stopsmoking.activity.main
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.ads.AdListener
@@ -49,21 +51,23 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
-    /** 금연 정보 초기화(TextView) */
-    private fun initSmokingCessationInformation() {
-        // 상단 d-day
-        binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
+    override fun onResume() {
+        super.onResume()
 
-        // 이름 부분 색상 변경
+        // 이름 부분 색상 변경 및 금연에 대한 응원 메세지 랜덤
         val nickName = viewModel.getNickName()
-
-        // todo 금연 성공에 대한 응원 메세지 랜덤으로
         binding.titleTextView.text = Utility.changePartialTextColor(
-            getString(R.string.main_title, nickName),
+            getRandomText(nickName),
             getColor(R.color.black),
             0,
             nickName.length
         )
+    }
+
+    /** 금연 정보 초기화(TextView) */
+    private fun initSmokingCessationInformation() {
+        // 상단 d-day
+        binding.dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
 
         // 각오
         binding.myResolutionTextView.text = viewModel.getMyResolution()
@@ -101,6 +105,17 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }
     }
 
+    /** 랜덤 텍스트 가져오기 */
+    private fun getRandomText(nickName: String): String {
+        return when ((1..5).random()) {
+            1 -> getString(R.string.main_title1, nickName)
+            2 -> getString(R.string.main_title2, nickName)
+            3 -> getString(R.string.main_title3, nickName)
+            4 -> getString(R.string.main_title4, nickName)
+            else -> getString(R.string.main_title5, nickName)
+        }
+    }
+
     /** 수정(등록) 화면으로 이동 - 'RegistrationActivity' 재 활용 */
     private fun goEditActivity() {
         val intent = Intent(this, RegistrationActivity::class.java)
@@ -111,20 +126,16 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     /** 금연 후 신체변화 dialog 띄우기 */
     private fun showBodyChangesDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_body_changes, null)
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_body_changes)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
 
-        val alertDialog = AlertDialog.Builder(this)
-            .setView(dialogView)
-            .create()
-
-        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        alertDialog.show()
-
-        dialogView.findViewById<View>(R.id.cancelView).setOnClickListener {
-            alertDialog.dismiss()
+        dialog.findViewById<View>(R.id.cancelView).setOnClickListener {
+            dialog.dismiss()
         }
-        dialogView.findViewById<View>(R.id.checkButton).setOnClickListener {
-            alertDialog.dismiss()
+        dialog.findViewById<View>(R.id.checkButton).setOnClickListener {
+            dialog.dismiss()
         }
     }
 

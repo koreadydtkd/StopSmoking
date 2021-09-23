@@ -1,13 +1,11 @@
 package hys.hmonkeyys.stopsmoking.activity.intro
 
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.ktx.storage
 import hys.hmonkeyys.stopsmoking.activity.BaseViewModel
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey
@@ -41,19 +39,6 @@ internal class IntroViewModel(
 
     /** App 처음 실행 여부 */
     fun isFirstTime() = spf.getBoolean(IS_REGISTRATION, false)
-
-    /** FCM token 가져오기 */
-    /*fun getFCMToken() {
-        FirebaseMessaging.getInstance().token
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "${task.result}")
-                }
-
-            }.addOnFailureListener {
-                FirebaseCrashlytics.getInstance().recordException(it)
-            }
-    }*/
 
     companion object {
         private const val TAG = "SS_IntroViewModel"
