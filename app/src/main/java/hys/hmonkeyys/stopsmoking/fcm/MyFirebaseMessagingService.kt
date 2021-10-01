@@ -8,11 +8,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import hys.hmonkeyys.stopsmoking.R
-import hys.hmonkeyys.stopsmoking.activity.intro.IntroActivity
+import hys.hmonkeyys.stopsmoking.activitys.intro.IntroActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 

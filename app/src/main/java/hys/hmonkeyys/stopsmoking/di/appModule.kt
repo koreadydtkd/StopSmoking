@@ -1,27 +1,29 @@
 package hys.hmonkeyys.stopsmoking.di
 
+import android.app.Activity
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.room.Room
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import hys.hmonkeyys.stopsmoking.activity.community.CommunityViewModel
-import hys.hmonkeyys.stopsmoking.activity.communitydetail.CommunityDetailViewModel
-import hys.hmonkeyys.stopsmoking.activity.intro.IntroViewModel
-import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
-import hys.hmonkeyys.stopsmoking.activity.registration.RegistrationViewModel
-import hys.hmonkeyys.stopsmoking.activity.write.WriteViewModel
-import hys.hmonkeyys.stopsmoking.room.ReadPostDatabase
-import hys.hmonkeyys.stopsmoking.room.dao.ReadPostDao
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey
+import hys.hmonkeyys.stopsmoking.activitys.community.CommunityViewModel
+import hys.hmonkeyys.stopsmoking.activitys.communitydetail.CommunityDetailViewModel
+import hys.hmonkeyys.stopsmoking.activitys.intro.IntroViewModel
+import hys.hmonkeyys.stopsmoking.activitys.main.MainViewModel
+import hys.hmonkeyys.stopsmoking.activitys.registration.RegistrationViewModel
+import hys.hmonkeyys.stopsmoking.activitys.write.WriteViewModel
+import hys.hmonkeyys.stopsmoking.data.db.ReadPostDatabase
+import hys.hmonkeyys.stopsmoking.data.db.dao.ReadPostDao
+import hys.hmonkeyys.stopsmoking.data.preference.PreferenceManager
+import hys.hmonkeyys.stopsmoking.data.preference.SharedPreferenceManager
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_Community
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.DB_NICKNAME
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -30,8 +32,9 @@ internal val appModule = module {
     single { Dispatchers.Main }
     single { Dispatchers.IO }
 
-    // SharedPreFences 생성
-    single { createSharedPreferences(androidApplication()) }
+    // SharedPreFences
+    single { androidContext().getSharedPreferences(APP_DEFAULT_KEY, Activity.MODE_PRIVATE) }
+    single<PreferenceManager> { SharedPreferenceManager(get()) }
 
     // Firebase NickName DB(실시간) 생성
     single { createNickNameDB() }
@@ -65,10 +68,6 @@ internal fun createNickNameDB(): DatabaseReference {
 
 internal fun createCommunityDB(): CollectionReference {
     return Firebase.firestore.collection(DB_Community)
-}
-
-internal fun createSharedPreferences(context: Context): SharedPreferences {
-    return context.getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE)
 }
 
 internal fun createReadPostDB(context: Context): ReadPostDatabase {

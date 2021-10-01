@@ -12,13 +12,11 @@ class AppShareKey {
         const val TOBACCO_PRICE = "tobacco_price"
         const val MY_RESOLUTION = "my_resolution"
 
-        const val FIREBASE_IMAGE_URL = "firebase_image_url"
-//        const val FCM_TOKEN = "firebase_token"
-
-        // share intent key
+        // intent key
         const val EDIT = "edit"
 
         // firebase
+        const val FIREBASE_IMAGE_URL = "firebase_image_url"
         const val DB_NICKNAME = "db_nick_name"
         const val DB_Community = "db_community"
 

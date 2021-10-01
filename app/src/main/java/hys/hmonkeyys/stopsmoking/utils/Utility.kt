@@ -14,7 +14,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
 import android.util.TypedValue
-import hys.hmonkeyys.stopsmoking.activity.main.MainViewModel
 import java.util.*
 
 
