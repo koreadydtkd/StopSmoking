@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StopSmoking">
         <activity
-            android:name=".activitys.intro.IntroActivity"
+            android:name=".ui.intro.IntroActivity"
             android:theme="@style/Theme.Status.Custom"
             android:exported="true">
             <intent-filter>
@@ -37,19 +37,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activitys.registration.RegistrationActivity"
+            android:name=".ui.registration.RegistrationActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
-            android:name=".activitys.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
-            android:name=".activitys.community.CommunityActivity"
+            android:name=".ui.community.CommunityActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
-            android:name=".activitys.write.WriteActivity"
+            android:name=".ui.write.WriteActivity"
             android:theme="@style/Theme.Status.Custom" />
         <activity
-            android:name=".activitys.communitydetail.CommunityDetailActivity"
+            android:name="hys.hmonkeyys.stopsmoking.ui.community.detail.CommunityDetailActivity"
             android:theme="@style/Theme.Status.Custom" />
 
         <!-- 배너 광고 -->

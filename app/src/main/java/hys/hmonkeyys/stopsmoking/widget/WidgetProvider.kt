@@ -6,10 +6,9 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import hys.hmonkeyys.stopsmoking.activitys.intro.IntroActivity
+import hys.hmonkeyys.stopsmoking.ui.intro.IntroActivity
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
-import java.util.*
 import android.content.ComponentName
 import hys.hmonkeyys.stopsmoking.R
 import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.WIDGET_UPDATE

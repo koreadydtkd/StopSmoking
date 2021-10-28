@@ -35,7 +35,9 @@
 
 
     <!-- Main -->
+    <string name="main_top_start_label">에 시작해서</string>
     <string name="main_top_label">금연한지</string>
+    <string name="main_top_end_label">되었어요.</string>
     <string name="stop_smoking_d_day">%d일</string>
     <string name="main_title1">%s님 금연에 꼭 성공하세요!</string>
     <string name="main_title2">%s님 다시 피울 생각하는건 아니죠 ?</string>
@@ -43,13 +45,13 @@
     <string name="main_title4">%s님 피워봤자 좋은게 하나도 없어요..</string>
     <string name="main_title5">%s님! 다시 흡연자로 돌아가지 마세요.</string>
     <string name="main_save_tobacco">%d개비</string>
-    <string name="save_money">절약한 금액</string>
+    <string name="the_amount_saved">아낀 금액</string>
     <string name="my_resolution">나의 각오</string>
     <string name="un_smoked_cigarettes">지금까지 안피운 담배</string>
     <string name="increased_lifespan">금연 후 늘어난 수명</string>
-    <string name="chat">담소</string>
+    <string name="chat">담소 나누기</string>
     <string name="stop_smoking_after_body_changes">금연 후\n신체 변화</string>
-    <string name="stop_smoking_share_friends">금연 시작 친구에게 공유</string>
+    <string name="stop_smoking_share_friends">금연 시작\n친구에게 공유</string>
 
     <string name="message_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
     <string name="message_kakao_not_install">카카오톡이 설치되지 않거나 로그인하지 않은 경우\n해당 기능을 이용할 수 없습니다.</string>

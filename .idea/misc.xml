@@ -5,13 +5,15 @@
       <map>
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_grey_color.xml" value="0.2565972222222222" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_color.xml" value="0.2565972222222222" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_accessibility_new_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_main_color_blur.xml" value="0.2565972222222222" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_scroll_bar.xml" value="0.2565972222222222" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_white_dialog.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community_detail.xml" value="0.24583333333333332" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.27335907335907333" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.36875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.2765625" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main2.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_registration.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_write.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/dialog_body_changes.xml" value="0.2765625" />

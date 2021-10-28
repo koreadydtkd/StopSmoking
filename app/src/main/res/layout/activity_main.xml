@@ -5,56 +5,135 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".activitys.main.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
-    <TextView
-        android:id="@+id/labelDDayTextView"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autoSizeMaxTextSize="24dp"
-        android:text="@string/main_top_label"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:autoSizeMaxTextSize="20sp"
-        app:autoSizeMinTextSize="14sp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@id/dDayTextView"
-        app:layout_constraintEnd_toStartOf="@id/dDayTextView"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/dDayTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:autoSizeMaxTextSize="32dp"
-        android:textColor="@color/main_color"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:autoSizeMaxTextSize="36sp"
-        app:autoSizeMinTextSize="28sp"
-        app:autoSizeTextType="uniform"
+        android:background="@color/white"
+        android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/labelDDayTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1일" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/startDayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:autoSizeMaxTextSize="22dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="22dp"
+            app:autoSizeMinTextSize="16sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2020년 1월 1일" />
+
+        <TextView
+            android:id="@+id/labelStartDayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:text="@string/main_top_start_label"
+            android:textColor="@color/dark_grey"
+            app:autoSizeMaxTextSize="18dp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBaseline_toBaselineOf="@id/startDayTextView"
+            app:layout_constraintStart_toEndOf="@+id/startDayTextView" />
+
+        <TextView
+            android:id="@+id/labelDDayStartTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:autoSizeMaxTextSize="24dp"
+            android:text="@string/main_top_label"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="@id/startDayTextView"
+            app:layout_constraintTop_toBottomOf="@+id/startDayTextView" />
+
+        <TextView
+            android:id="@+id/dDayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:autoSizeMaxTextSize="32dp"
+            android:textColor="@color/main_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="28sp"
+            app:autoSizeMinTextSize="20sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBaseline_toBaselineOf="@id/labelDDayStartTextView"
+            app:layout_constraintStart_toEndOf="@+id/labelDDayStartTextView"
+            tools:text="1일" />
+
+        <TextView
+            android:id="@+id/labelDDayEndTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:autoSizeMaxTextSize="24dp"
+            android:text="@string/main_top_end_label"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBaseline_toBaselineOf="@+id/dDayTextView"
+            app:layout_constraintStart_toEndOf="@+id/dDayTextView" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:autoSizeMaxTextSize="16dp"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelDDayStartTextView"
+            tools:text="OOO님 금연에 꼭 성공하세요!" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/lineView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/main_color_blur"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout" />
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/mainCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         app:cardCornerRadius="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/bodyChangesLayout"
+        app:layout_constraintBottom_toTopOf="@+id/shareButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dDayTextView">
+        app:layout_constraintTop_toBottomOf="@+id/editCardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -62,256 +141,202 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/myResolutionLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:autoSizeMaxTextSize="16dp"
-                android:background="@color/white"
-                android:paddingHorizontal="8dp"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="12sp"
-                app:autoSizeTextType="uniform"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="OOO님 금연에 꼭 성공하세요!" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <View
-                android:id="@+id/myResolutionView"
+                <TextView
+                    android:id="@+id/labelMyResolutionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoSizeMaxTextSize="18dp"
+                    android:background="@drawable/rounded_main_color"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/my_resolution"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="18sp"
+                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/myResolutionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:autoSizeMaxTextSize="24dp"
+                    android:gravity="start"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="24sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform"
+                    tools:text="각오합시다각오합시다각오합시다각오합시다" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cigarettesSavedLayout"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/border_main_color"
-                app:layout_constraintBottom_toTopOf="@+id/cigarettesSavedView"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/increasedLifespanLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/myResolutionLayout">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/labelCigarettesSavedTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoSizeMaxTextSize="18dp"
+                    android:background="@drawable/rounded_main_color"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/un_smoked_cigarettes"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="18sp"
+                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/cigarettesSavedTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/myResolutionTextView"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/cigarettesSavedTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:autoSizeMaxTextSize="24dp"
+                    android:gravity="start"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="24sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelCigarettesSavedTextView"
+                    tools:text="100개비" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/increasedLifespanLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="18dp"
-                android:background="@color/white"
-                android:paddingHorizontal="8dp"
-                android:text="@string/my_resolution"
-                android:textColor="@color/dark_grey"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:translationY="-8dp"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="@id/myResolutionView"
-                app:layout_constraintStart_toStartOf="@id/myResolutionView"
-                app:layout_constraintTop_toTopOf="@+id/myResolutionView" />
-
-            <TextView
-                android:id="@+id/myResolutionTextView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeMaxTextSize="18dp"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="2"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintBottom_toBottomOf="@id/myResolutionView"
-                app:layout_constraintEnd_toEndOf="@id/myResolutionView"
-                app:layout_constraintStart_toStartOf="@id/myResolutionView"
-                app:layout_constraintTop_toTopOf="@+id/myResolutionView"
-                tools:text="각오합시다각오합시다각오합시다각오합시다" />
-
-
-            <View
-                android:id="@+id/cigarettesSavedView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/border_main_color"
-                app:layout_constraintBottom_toTopOf="@+id/increasedLifespanView"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/saveMoneyLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myResolutionView" />
+                app:layout_constraintTop_toBottomOf="@+id/cigarettesSavedLayout">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="18dp"
-                android:background="@color/white"
-                android:paddingHorizontal="8dp"
-                android:text="@string/un_smoked_cigarettes"
-                android:textColor="@color/dark_grey"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:translationY="-8dp"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="@id/cigarettesSavedView"
-                app:layout_constraintStart_toStartOf="@id/cigarettesSavedView"
-                app:layout_constraintTop_toTopOf="@+id/cigarettesSavedView" />
+                <TextView
+                    android:id="@+id/labelIncreasedLifespanTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoSizeMaxTextSize="18dp"
+                    android:background="@drawable/rounded_main_color"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/increased_lifespan"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="18sp"
+                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeTextType="uniform" />
 
-            <TextView
-                android:id="@+id/cigarettesSavedTextView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeMaxTextSize="18dp"
-                android:gravity="center"
-                android:padding="12dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="20sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintBottom_toBottomOf="@id/cigarettesSavedView"
-                app:layout_constraintEnd_toEndOf="@id/cigarettesSavedView"
-                app:layout_constraintStart_toStartOf="@id/cigarettesSavedView"
-                app:layout_constraintTop_toTopOf="@+id/cigarettesSavedView"
-                tools:text="100개비" />
+                <TextView
+                    android:id="@+id/increasedLifespanTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:autoSizeMaxTextSize="24dp"
+                    android:gravity="start"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="24sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform"
+                    tools:text="1일 22시간 33분" />
 
+            </LinearLayout>
 
-            <View
-                android:id="@+id/increasedLifespanView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/border_main_color"
-                app:layout_constraintBottom_toTopOf="@+id/saveMoneyView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cigarettesSavedView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="18dp"
-                android:background="@color/white"
-                android:paddingHorizontal="8dp"
-                android:text="@string/increased_lifespan"
-                android:textColor="@color/dark_grey"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:translationY="-8dp"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="@id/increasedLifespanView"
-                app:layout_constraintStart_toStartOf="@id/increasedLifespanView"
-                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView" />
-
-            <TextView
-                android:id="@+id/increasedLifespanTextView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeMaxTextSize="18dp"
-                android:gravity="center"
-                android:padding="12dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="20sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintBottom_toBottomOf="@id/increasedLifespanView"
-                app:layout_constraintEnd_toEndOf="@id/increasedLifespanView"
-                app:layout_constraintStart_toStartOf="@id/increasedLifespanView"
-                app:layout_constraintTop_toTopOf="@+id/increasedLifespanView"
-                tools:text="1일 22시간 33분" />
-
-
-            <View
-                android:id="@+id/saveMoneyView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginVertical="12dp"
-                android:background="@drawable/border_main_color"
-                app:layout_constraintBottom_toTopOf="@+id/shareButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/increasedLifespanView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="18dp"
-                android:background="@color/white"
-                android:paddingHorizontal="8dp"
-                android:text="@string/save_money"
-                android:textColor="@color/dark_grey"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:translationY="-8dp"
-                app:autoSizeMaxTextSize="18sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintEnd_toEndOf="@id/saveMoneyView"
-                app:layout_constraintStart_toStartOf="@id/saveMoneyView"
-                app:layout_constraintTop_toTopOf="@+id/saveMoneyView" />
-
-            <TextView
-                android:id="@+id/saveMoneyTextView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:autoSizeMaxTextSize="18dp"
-                android:gravity="center"
-                android:padding="12dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:autoSizeMaxTextSize="20sp"
-                app:autoSizeMinTextSize="14sp"
-                app:autoSizeTextType="uniform"
-                app:layout_constraintBottom_toBottomOf="@id/saveMoneyView"
-                app:layout_constraintEnd_toEndOf="@id/saveMoneyView"
-                app:layout_constraintStart_toStartOf="@id/saveMoneyView"
-                app:layout_constraintTop_toTopOf="@+id/saveMoneyView"
-                tools:text="502,500원" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/shareButton"
+            <LinearLayout
+                android:id="@+id/saveMoneyLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:text="@string/stop_smoking_share_friends"
-                app:autoSizeMaxTextSize="14sp"
-                app:autoSizeMinTextSize="12sp"
-                app:autoSizeTextType="uniform"
-                app:cornerRadius="18dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/labelSaveMoneyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:autoSizeMaxTextSize="18dp"
+                    android:background="@drawable/rounded_main_color"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/the_amount_saved"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="18sp"
+                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/saveMoneyTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:autoSizeMaxTextSize="24dp"
+                    android:gravity="start"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="24sp"
+                    app:autoSizeMinTextSize="16sp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="502,500원" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <View
-        android:id="@+id/guidView"
-        android:layout_width="0dp"
-        android:layout_height="0.1dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@id/mainCardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/editCardView"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
         app:cardCornerRadius="40dp"
         app:cardElevation="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/mainCardView"
-        app:layout_constraintTop_toBottomOf="@+id/guidView">
+        app:layout_constraintBottom_toBottomOf="@+id/lineView"
+        app:layout_constraintEnd_toEndOf="@+id/lineView"
+        app:layout_constraintTop_toTopOf="@+id/lineView">
 
         <View
             android:layout_width="match_parent"
@@ -322,7 +347,48 @@
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bodyChangesButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/stop_smoking_after_body_changes"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="14sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_accessibility_new_24"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/communityLayout"
+        app:layout_constraintEnd_toStartOf="@+id/shareButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/shareButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/stop_smoking_share_friends"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="14sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeTextType="uniform"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_baseline_share_24"
+        app:iconPadding="0dp"
+        app:iconSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/communityLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bodyChangesButton" />
+
+
+    <!--<LinearLayout
         android:id="@+id/bodyChangesLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -333,8 +399,8 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/adView"
-        app:layout_constraintEnd_toStartOf="@+id/communityLayout"
+        app:layout_constraintBottom_toTopOf="@+id/communityLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <View
@@ -357,21 +423,21 @@
             app:autoSizeMinTextSize="14sp"
             app:autoSizeTextType="uniform" />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
     <LinearLayout
         android:id="@+id/communityLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_main_color"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/bodyChangesLayout"
+        android:paddingVertical="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bodyChangesLayout"
-        app:layout_constraintTop_toTopOf="@id/bodyChangesLayout">
+        app:layout_constraintStart_toStartOf="parent">
 
         <View
             android:layout_width="32dp"
@@ -388,10 +454,10 @@
             android:gravity="center"
             android:text="@string/chat"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeMinTextSize="14sp"
+            app:autoSizeMaxTextSize="24sp"
+            app:autoSizeMinTextSize="18sp"
             app:autoSizeTextType="uniform" />
 
     </LinearLayout>
@@ -401,7 +467,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_test_id"
+        ads:adUnitId="@string/banner_ad_id"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintStart_toStartOf="parent" />
@@ -410,9 +476,9 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="6dp"
         android:indeterminateTint="@color/main_color"
         android:visibility="gone"
-        android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
