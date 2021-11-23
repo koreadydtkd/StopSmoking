@@ -104,6 +104,9 @@
     <string name="from_writer">%s님이\n작성한 글입니다.</string>
     <string name="from_writer_me">내가 작성한 글입니다.</string>
     <string name="input_comment">내용을 입력해주세요.</string>
+    <string name="comment_failure">댓글이 등록되지 않았습니다. 잠시 후 다시 시도해주세요.</string>
+    <string name="comment_delete_success">댓글이 삭제되었습니다.</string>
+    <string name="comment_delete_failure">댓글이 삭제되지 않았습니다. 잠시 후 다시 시도해주세요.</string>
 
     <!-- Write -->
     <string name="shared_no_smoking_story">금연 성공담, 실패담 등등 이야기를 다른 사람들과 공유해보세요.</string>

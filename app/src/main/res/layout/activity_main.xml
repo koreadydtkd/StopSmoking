@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".screen.main.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topLayout"
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autoSizeMaxTextSize="18dp"
-                    android:background="@drawable/rounded_main_color"
+                    android:background="@drawable/bg_main_rounded_12"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="@string/my_resolution"
@@ -199,7 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autoSizeMaxTextSize="18dp"
-                    android:background="@drawable/rounded_main_color"
+                    android:background="@drawable/bg_main_rounded_12"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="@string/un_smoked_cigarettes"
@@ -250,7 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autoSizeMaxTextSize="18dp"
-                    android:background="@drawable/rounded_main_color"
+                    android:background="@drawable/bg_main_rounded_12"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="@string/increased_lifespan"
@@ -294,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:autoSizeMaxTextSize="18dp"
-                    android:background="@drawable/rounded_main_color"
+                    android:background="@drawable/bg_main_rounded_12"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="@string/the_amount_saved"
@@ -342,7 +342,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="6dp"
-            android:background="@drawable/ic_edit_24"
+            android:background="@drawable/ic_edit"
             android:backgroundTint="@color/main_color" />
 
     </androidx.cardview.widget.CardView>
@@ -360,7 +360,7 @@
         app:autoSizeMinTextSize="12sp"
         app:autoSizeTextType="uniform"
         app:cornerRadius="12dp"
-        app:icon="@drawable/ic_accessibility_new_24"
+        app:icon="@drawable/ic_accessibility"
         app:iconPadding="0dp"
         app:iconSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/communityLayout"
@@ -380,7 +380,7 @@
         app:autoSizeMinTextSize="12sp"
         app:autoSizeTextType="uniform"
         app:cornerRadius="12dp"
-        app:icon="@drawable/ic_baseline_share_24"
+        app:icon="@drawable/ic_share"
         app:iconPadding="0dp"
         app:iconSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/communityLayout"
@@ -431,7 +431,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_main_color"
+        android:background="@drawable/bg_main_rounded_12"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
@@ -444,7 +444,7 @@
             android:layout_height="32dp"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/ic_forum_24"
+            android:background="@drawable/ic_forum"
             android:backgroundTint="@color/white" />
 
         <TextView

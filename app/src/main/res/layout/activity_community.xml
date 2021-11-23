@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/default_background"
-    tools:context=".ui.community.CommunityActivity">
+    tools:context=".screen.main.community.CommunityActivity">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -68,7 +68,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/ic_cancel_24"
+        android:background="@drawable/ic_cancel"
         android:backgroundTint="@color/main_color"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/rounded_main_color"
+        android:background="@drawable/bg_main_rounded_12"
         android:drawablePadding="6dp"
         android:gravity="center_vertical"
         android:paddingHorizontal="8dp"
@@ -93,7 +93,7 @@
         app:autoSizeMaxTextSize="16sp"
         app:autoSizeMinTextSize="12sp"
         app:autoSizeTextType="uniform"
-        app:drawableStartCompat="@drawable/ic_baseline_report_24"
+        app:drawableStartCompat="@drawable/ic_report"
         app:drawableTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
         android:orientation="vertical"
         android:scrollbarDefaultDelayBeforeFade="500000"
         android:scrollbarSize="5dp"
-        android:scrollbarThumbVertical="@drawable/rounded_scroll_bar"
+        android:scrollbarThumbVertical="@drawable/bg_main_blur_rounded_32"
         android:scrollbars="vertical"
         android:visibility="invisible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -127,7 +127,7 @@
         android:id="@+id/noListTextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/rounded_main_color_blur"
+        android:background="@drawable/bg_main_blur_rounded_12"
         android:gravity="center"
         android:text="@string/no_data"
         android:textColor="@color/white"

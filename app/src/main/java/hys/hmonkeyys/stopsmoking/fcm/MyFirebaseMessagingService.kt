@@ -11,7 +11,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import hys.hmonkeyys.stopsmoking.R
-import hys.hmonkeyys.stopsmoking.ui.intro.IntroActivity
+import hys.hmonkeyys.stopsmoking.screen.intro.IntroActivity
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 

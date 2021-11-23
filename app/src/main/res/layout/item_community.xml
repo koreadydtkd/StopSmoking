@@ -27,7 +27,7 @@
             android:id="@+id/imageView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_connect_without_contact_24"
+            android:src="@drawable/ic_connect"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:tint="@color/main_color"
@@ -82,7 +82,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginEnd="2dp"
-            android:background="@drawable/ic_eye_20"
+            android:background="@drawable/ic_views"
             app:layout_constraintBottom_toBottomOf="@id/viewsCountTextView"
             app:layout_constraintEnd_toStartOf="@+id/viewsCountTextView"
             app:layout_constraintTop_toTopOf="@+id/viewsCountTextView" />

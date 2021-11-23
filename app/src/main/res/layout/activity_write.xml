@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/default_background"
-    tools:context=".ui.registration.RegistrationActivity">
+    tools:context=".screen.registration.RegistrationActivity">
 
     <TextView
         android:id="@+id/sharedTextView"
@@ -47,7 +47,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/ic_cancel_24"
+        android:background="@drawable/ic_cancel"
         android:backgroundTint="@color/main_color"
         android:elevation="6dp"
         android:gravity="center"

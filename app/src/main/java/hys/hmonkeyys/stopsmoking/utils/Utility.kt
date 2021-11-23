@@ -3,6 +3,8 @@ package hys.hmonkeyys.stopsmoking.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.Network
 import android.os.Handler
 import android.os.Looper
 import android.text.Spannable
@@ -14,12 +16,16 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.google.android.material.snackbar.Snackbar
 import android.util.TypedValue
+import androidx.core.content.ContextCompat.getSystemService
 import java.util.*
 
 
 object Utility {
     // (24 * 60 * 60 * 1000) 24시간 60분 60초 * (ms초 -> 초 변환 1000)
     private const val DAY = 86400000
+
+    /** network 연결 여부 확인 */
+    fun isNetworkConnecting(context: Context): Network? = context.getSystemService(ConnectivityManager::class.java).activeNetwork
 
     /** 일부 텍스트 색상 변경 */
     fun changePartialTextColor(text: String, color: Int, start: Int, end: Int): SpannableStringBuilder {
@@ -36,7 +42,7 @@ object Utility {
     }
 
     /** 스낵바 띄우기 */
-    fun showSnackBar(view: View, text: String) {
+    fun snackBar(view: View, text: String) {
         Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
     }
 

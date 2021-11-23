@@ -3,15 +3,15 @@ package hys.hmonkeyys.stopsmoking.widget
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import hys.hmonkeyys.stopsmoking.ui.intro.IntroActivity
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.APP_DEFAULT_KEY
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.STOP_SMOKING_DATE
-import android.content.ComponentName
 import hys.hmonkeyys.stopsmoking.R
-import hys.hmonkeyys.stopsmoking.utils.AppShareKey.Companion.WIDGET_UPDATE
+import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.APP_DEFAULT_KEY
+import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.STOP_SMOKING_DATE
+import hys.hmonkeyys.stopsmoking.screen.intro.IntroActivity
+import hys.hmonkeyys.stopsmoking.utils.Constant.WIDGET_UPDATE
 import hys.hmonkeyys.stopsmoking.utils.Utility.dDayCalculation
 
 
