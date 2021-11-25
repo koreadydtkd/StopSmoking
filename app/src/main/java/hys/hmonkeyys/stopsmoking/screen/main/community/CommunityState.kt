@@ -14,5 +14,7 @@ sealed class CommunityState {
         val communityList: List<CommunityModel>,
     ) : CommunityState()
 
+    object NoPost : CommunityState()
+
     object PostFetchAll : CommunityState()
 }

@@ -20,6 +20,7 @@ class AppPreferenceManager(
         private const val IS_FIRST_VALUE = true
 
         // SharedPreference key
+        const val USER_UID = "user_uid"
         const val IS_REGISTRATION = "is_registration"
         const val STOP_SMOKING_DATE = "stop_smoking_date"
         const val NICK_NAME = "nick_name"

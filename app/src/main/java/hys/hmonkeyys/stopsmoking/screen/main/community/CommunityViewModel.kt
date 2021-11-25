@@ -46,6 +46,7 @@ internal class CommunityViewModel(
                 // 해당 카테고리
                 else -> Pair(FIELD_CATEGORY, postCategory)
             }
+
             if (isMore) {
                 fetchMoreListInFirebase(pair.first, pair.second)
             } else {
@@ -82,10 +83,12 @@ internal class CommunityViewModel(
         val communityList = communityPair.first
         val querySnapshot = communityPair.second
 
-        // 더이상 가져올 데이터가 없으면 return
+        // 가져올 데이터가 없으면 return
         if (querySnapshot.size() == 0) {
             if (isMore) {
                 _communityStateLiveData.postValue(CommunityState.PostFetchAll)
+            } else {
+                _communityStateLiveData.postValue(CommunityState.NoPost)
             }
             return
         }

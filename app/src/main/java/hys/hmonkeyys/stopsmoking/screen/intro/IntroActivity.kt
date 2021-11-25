@@ -30,7 +30,9 @@ internal class IntroActivity : BaseActivity<IntroViewModel, ActivityIntroBinding
     private fun checkCurrentNetwork() {
         isNetworkConnecting(this)?.let {
             showDelayTextView()
-            viewModel.getKakaoLinkImageUrl()
+
+            // 익명 가입했는지 확인
+            viewModel.checkCurrentUser()
         } ?: kotlin.run {
             goNext()
         }

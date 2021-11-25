@@ -34,7 +34,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
         datePicker.maxDate = System.currentTimeMillis()
 
         // 취소 버튼
-        cancelView.setOnDuplicatePreventionClickListener {
+        viewCancel.setOnDuplicatePreventionClickListener {
             onBackPressed()
         }
 
@@ -54,7 +54,10 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
                 is RegistrationState.CheckNickName -> nickNameCheckResult(it.hasNickName)
 
                 // 수정하기 위해 들어온 경우 기본값 셋팅
-                is RegistrationState.StoredValue -> setData(it.dateArray, it.nickName, it.myResolution, it.amountOfSmoking, it.tobaccoPrice)
+                is RegistrationState.StoredValue -> setData(it.dateArray,
+                    it.nickName, /*it.myResolution,*/
+                    it.amountOfSmoking,
+                    it.tobaccoPrice)
 
                 // 수정 완료에 대한 처리
                 is RegistrationState.EditInformation -> onBackPressed()
@@ -67,15 +70,16 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
         isEdit = intent.getBooleanExtra(EDIT, false)
         if (isEdit) {
             viewModel.getDefaultData()
+            binding.titleTextView.text = getString(R.string.edit)
         }
-        binding.cancelView.isVisible = isEdit
+        binding.viewCancel.isVisible = isEdit
     }
 
     /** 수정하기 위해 넘어온 경우 셋팅 */
     private fun setData(
         dateArray: List<String>,
         nickName: String,
-        myResolution: String,
+//        myResolution: String,
         amountOfSmoking: Int,
         tobaccoPrice: Int,
     ) = with(binding) {
@@ -83,7 +87,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
         nickNameEditText.setText(nickName)
         nickNameEditText.isEnabled = false
         nickNameTextField.hint = getString(R.string.edit_nick_name)
-        myResolutionEditText.setText(myResolution)
+//        myResolutionEditText.setText(myResolution)
 
         if (amountOfSmoking > 0 && tobaccoPrice > 0) {
             amountOfSmokingEditText.setText("$amountOfSmoking")
@@ -108,7 +112,6 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
         val nickName = nickNameEditText.text.toString().trim()
         val amountOfSmoking = amountOfSmokingEditText.text.toString()
         val tobaccoPrice = tobaccoPriceEditText.text.toString()
-        val myResolution = myResolutionEditText.text.toString()
 
         val exceptionMessage = when {
             // 닉네임 예외 처리
@@ -126,9 +129,6 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
             tobaccoPrice.length > 6 -> getString(R.string.message_tobacco_price_length)
             tobaccoPrice.toInt() < 1 -> getString(R.string.message_zero_input_exception)
 
-            // 각오 예외 처리
-            myResolution.isEmpty() -> getString(R.string.message_my_resolution)
-            myResolution.length > 20 -> getString(R.string.message_my_resolution_length)
             else -> ""
         }
 
@@ -139,18 +139,18 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
 
         // 등록
         val inputDate = getDatePicker(datePicker.year, datePicker.month, datePicker.dayOfMonth)
-        noSmokingRegistration(inputDate, nickName, amountOfSmoking.toInt(), tobaccoPrice.toInt(), myResolution)
+        noSmokingRegistration(inputDate, nickName, amountOfSmoking.toInt(), tobaccoPrice.toInt()/*, myResolution*/)
     }
 
     /**
      * 수정인 경우 금연정보 수정 및 위젯 업데이트.
      * 등록인 경우 닉네임 체크 후 저장
      * */
-    private fun noSmokingRegistration(inputDate: String, nickName: String, amountOfSmoking: Int, tobaccoPrice: Int, myResolution: String) {
+    private fun noSmokingRegistration(inputDate: String, nickName: String, amountOfSmoking: Int, tobaccoPrice: Int) {
         binding.progressBar.isVisible = true
 
         if (isEdit) {
-            viewModel.saveInfo(inputDate, amountOfSmoking, tobaccoPrice, myResolution)
+            viewModel.saveInfo(inputDate, amountOfSmoking, tobaccoPrice)
             updateWidget()
         } else {
             viewModel.checkForDuplicateNickname(
@@ -159,7 +159,6 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
                 nickName = nickName,
                 amountOfSmoking = amountOfSmoking,
                 tobaccoPrice = tobaccoPrice,
-                myResolution = myResolution
             )
         }
     }

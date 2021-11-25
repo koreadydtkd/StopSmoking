@@ -36,7 +36,7 @@ internal class CommunityDetailActivity : BaseActivity<CommunityDetailViewModel, 
         getIntentAndSetView()
 
         // cancel button
-        cancelView.setOnDuplicatePreventionClickListener {
+        viewCancel.setOnDuplicatePreventionClickListener {
             finish()
         }
 

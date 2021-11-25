@@ -26,9 +26,6 @@ class BodyChangeDialog(
     }
 
     private fun initViews() {
-        binding.cancelView.setOnClickListener {
-            dismiss()
-        }
         binding.checkButton.setOnClickListener {
             dismiss()
         }

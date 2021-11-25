@@ -6,5 +6,4 @@ sealed class IntroState {
 
     object GetImageUrlForKakaoLink : IntroState()
 
-
 }

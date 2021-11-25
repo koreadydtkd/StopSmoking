@@ -45,12 +45,8 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel, ActivityComm
     /** 뷰 초기화 */
     override fun initViews() = with(binding) {
         // 취소 버튼
-        cancelView.setOnDuplicatePreventionClickListener {
+        viewCancel.setOnDuplicatePreventionClickListener {
             finish()
-        }
-
-        noticeTextView.setOnDuplicatePreventionClickListener {
-            // todo 공지사항 내용 팝업 알림
         }
 
         // 글 쓰기 버튼
@@ -115,6 +111,8 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel, ActivityComm
 
                 is CommunityState.PostMoreFetchSuccess -> addPostList(it.communityList)
 
+                is CommunityState.NoPost -> noPost()
+
                 is CommunityState.PostFetchAll -> fetchedAll()
             }
         }
@@ -138,6 +136,14 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel, ActivityComm
     private fun addPostList(communityList: List<CommunityModel>) {
         binding.progressBar.isGone = true
         communityAdapter.addList(communityList)
+    }
+
+    /** 데이터 없음 */
+    private fun noPost() {
+        binding.progressBar.isGone = true
+        binding.recyclerView.isInvisible = true
+        binding.noListTextView.isVisible = true
+        snackBar(binding.root, getString(R.string.no_data))
     }
 
     /** 데이터 모두 가져옴 */

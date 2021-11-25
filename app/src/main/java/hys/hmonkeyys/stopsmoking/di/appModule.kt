@@ -1,5 +1,6 @@
 package hys.hmonkeyys.stopsmoking.di
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -20,6 +21,8 @@ import hys.hmonkeyys.stopsmoking.data.repository.nickname.DefaultNickNameReposit
 import hys.hmonkeyys.stopsmoking.data.repository.nickname.NickNameRepository
 import hys.hmonkeyys.stopsmoking.data.repository.readpost.DefaultReadPostRepository
 import hys.hmonkeyys.stopsmoking.data.repository.readpost.ReadPostRepository
+import hys.hmonkeyys.stopsmoking.data.repository.user.DefaultUserRepository
+import hys.hmonkeyys.stopsmoking.data.repository.user.UserRepository
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -30,6 +33,7 @@ internal val appModule = module {
     single { Dispatchers.Main }
     single { Dispatchers.IO }
 
+    single { FirebaseAuth.getInstance() }
     single { Firebase.storage }
     single { Firebase.database }
     single { Firebase.firestore }
@@ -42,11 +46,13 @@ internal val appModule = module {
     single { readPostDao(get()) }
 
     // Api
+    single<CheckUserApi> { CheckUserFireAuthApi(get()) }
     single<LinkImageApi> { LinkImageFirestoreApi(get()) }
     single<NickNameApi> { NickNameFirebaseApi(get()) }
     single<CommunityApi> { CommunityFireStoreApi(get()) }
 
     // Repository(network)
+    single<UserRepository> { DefaultUserRepository(get(), get()) }
     single<LinkImageRepository> { DefaultLinkImageRepository(get(), get()) }
     single<NickNameRepository> { DefaultNickNameRepository(get(), get()) }
     single<CommunityRepository> { DefaultCommunityRepository(get(), get()) }
@@ -57,7 +63,7 @@ internal val appModule = module {
 
 internal val viewModelModule = module {
 
-    viewModel { IntroViewModel(get(), get()) }
+    viewModel { IntroViewModel(get(), get(), get()) }
 
     viewModel { RegistrationViewModel(get(), get()) }
 

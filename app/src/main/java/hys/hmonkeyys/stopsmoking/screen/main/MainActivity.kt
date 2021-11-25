@@ -32,22 +32,22 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
     /** 각 뷰 초기화 */
     override fun initViews() {
         // 수정 버튼
-        binding.editCardView.setOnDuplicatePreventionClickListener {
+        binding.imageViewEdit.setOnDuplicatePreventionClickListener {
             goEditActivity()
         }
 
         // 카카오 링크 공유 버튼
-        binding.shareButton.setOnDuplicatePreventionClickListener {
+        binding.imageViewShare.setOnDuplicatePreventionClickListener {
             shareKakaoLink()
         }
 
         // 금연 후 신체변화 다이얼로그 띄우 버튼
-        binding.bodyChangesButton.setOnDuplicatePreventionClickListener {
+        binding.layoutBodyChanges.setOnDuplicatePreventionClickListener {
             BodyChangeDialog().show(supportFragmentManager, "")
         }
 
         // 담소 버튼
-        binding.communityLayout.setOnDuplicatePreventionClickListener {
+        binding.layoutCommunity.setOnDuplicatePreventionClickListener {
             goNextActivity(this, CommunityActivity::class.java, 0)
         }
     }
@@ -111,19 +111,16 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
         startDayTextView.text = viewModel.getStartDay() ?: "데이터를 가져오지 못했습니다."
 
         // 상단 d-day
-        dDayTextView.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
-
-        // 각오
-        myResolutionTextView.text = viewModel.getMyResolution()
+        textViewDDay.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
 
         // 안피운 담배
-        cigarettesSavedTextView.text = getString(R.string.main_save_tobacco, viewModel.getCigaretteCount())
+        textViewCigarettesSaved.text = getString(R.string.main_save_tobacco, viewModel.getCigaretteCount())
 
         // 늘어난 수명
-        increasedLifespanTextView.text = viewModel.getIncreasedLifespan()
+        textViewIncreasedLifespan.text = viewModel.getIncreasedLifespan()
 
         // 절약한 금액
-        saveMoneyTextView.text = viewModel.getTobaccoPrice()
+        textViewSaveMoney.text = viewModel.getTobaccoPrice()
     }
 
     /** 하단 배너광고 초기화 */
@@ -150,7 +147,7 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
 
         // 이름 부분 색상 변경 및 금연에 대한 응원 메세지 랜덤
         val nickName = viewModel.getNickName()
-        binding.titleTextView.text = Utility.changePartialTextColor(
+        binding.textViewUserName.text = Utility.changePartialTextColor(
             getRandomText(nickName),
             getColor(R.color.black),
             0,

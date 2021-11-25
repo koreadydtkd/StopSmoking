@@ -26,7 +26,7 @@ internal class WriteActivity : BaseActivity<WriteViewModel, ActivityWriteBinding
     /** 뷰 초기화 */
     override fun initViews() = with(binding) {
         // 취소 버튼
-        cancelView.setOnDuplicatePreventionClickListener {
+        viewCancel.setOnDuplicatePreventionClickListener {
             finish()
         }
 

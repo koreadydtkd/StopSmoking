@@ -12,8 +12,8 @@
     <color name="main_color_blur">#80e45666</color>
     <color name="default_background">#f8f8f8</color>
     <color name="yellow">#FBC02D</color>
-    <color name="light_grey">#AAAAAA</color>
+    <color name="light_grey">#BBBBBB</color>
     <color name="dark_grey">#595959</color>
-
+    <color name="transparent_grey">#DDAAAAAA</color>
     <color name="widget_color">#44808080</color>
 </resources>

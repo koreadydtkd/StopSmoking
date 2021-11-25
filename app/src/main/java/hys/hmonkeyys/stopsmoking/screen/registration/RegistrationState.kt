@@ -8,7 +8,7 @@ sealed class RegistrationState {
         val nickName: String,
         val amountOfSmoking: Int,
         val tobaccoPrice: Int,
-        val myResolution: String,
+//        val myResolution: String,
     ) : RegistrationState()
 
     data class CheckNickName(

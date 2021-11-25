@@ -96,9 +96,6 @@ internal class MainViewModel(
     /** 닉네임 가져오기 */
     fun getNickName(): String = pref.getString(NICK_NAME) ?: "Error"
 
-    /** 각오 가져오기 */
-    fun getMyResolution(): String = pref.getString(MY_RESOLUTION) ?: "Error"
-
     companion object {
 //        private const val TAG = "SS_MainViewModel"
         private const val ONE_CIGARETTE_LIFE_SPAN = 11

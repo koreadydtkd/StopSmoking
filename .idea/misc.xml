@@ -3,27 +3,54 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable-v24/bg_white_rounded_12.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/bg_light_grey_rounded_left_top_right_bottom_8.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/bg_main_rounded_12.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/bg_main_rounded_16.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/bg_white_rounded_16.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_2_5_main_rounded_16.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_grey_color.xml" value="0.2565972222222222" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_light_grey_2_rounded_16.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_light_grey_rounded_16.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_color.xml" value="0.2565972222222222" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/border_main_rounded_16.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/circle_main.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/circle_white.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_access_time.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_accessibility.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_accessibility_new_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_add.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_add_box_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_report_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_cancel.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_cancel_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_comment.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_connect.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_connect_without_contact_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_edit.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_edit_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_eye_20.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_forum.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_forum_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_message.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_message_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_monetization.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_monetization_on_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_no_smoking_fail.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_no_smoking_success.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_person.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_person_pin_24.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_report.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_send.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_send_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_share.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_smoke_free_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_smoke_no.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_smoke_ok.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_smoking_rooms_24.xml" value="0.288671875" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/ic_views.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_bottom_dialog.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_left_top_right_bottom.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_main_color.xml" value="0.288671875" />
@@ -33,15 +60,15 @@
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/rounded_white_dialog.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/drawable/widget_background.xml" value="0.288671875" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community_detail.xml" value="0.24583333333333332" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_community_detail.xml" value="0.2765625" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_intro.xml" value="0.36875" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.2765625" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_main2.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_registration.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/activity_write.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/dialog_body_change.xml" value="0.2765625" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/dialog_body_changes.xml" value="0.2765625" />
-        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/item_comment.xml" value="0.24583333333333332" />
+        <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/item_comment.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/item_commnet.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/item_community.xml" value="0.24583333333333332" />
         <entry key="..\:/AndroidStudioProjecct/StopSmoking/app/src/main/res/layout/widget.xml" value="0.2765625" />
