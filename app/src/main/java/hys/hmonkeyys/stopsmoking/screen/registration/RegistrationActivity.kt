@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.app.PendingIntent.CanceledException
 import android.content.Intent
 import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import hys.hmonkeyys.stopsmoking.R
@@ -54,10 +55,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
                 is RegistrationState.CheckNickName -> nickNameCheckResult(it.hasNickName)
 
                 // 수정하기 위해 들어온 경우 기본값 셋팅
-                is RegistrationState.StoredValue -> setData(it.dateArray,
-                    it.nickName, /*it.myResolution,*/
-                    it.amountOfSmoking,
-                    it.tobaccoPrice)
+                is RegistrationState.StoredValue -> setData(it.dateArray, it.nickName, it.amountOfSmoking, it.tobaccoPrice)
 
                 // 수정 완료에 대한 처리
                 is RegistrationState.EditInformation -> onBackPressed()
@@ -72,22 +70,15 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
             viewModel.getDefaultData()
             binding.titleTextView.text = getString(R.string.edit)
         }
-        binding.viewCancel.isVisible = isEdit
+        binding.viewCancel.isInvisible = isEdit.not()
     }
 
     /** 수정하기 위해 넘어온 경우 셋팅 */
-    private fun setData(
-        dateArray: List<String>,
-        nickName: String,
-//        myResolution: String,
-        amountOfSmoking: Int,
-        tobaccoPrice: Int,
-    ) = with(binding) {
+    private fun setData(dateArray: List<String>, nickName: String, amountOfSmoking: Int, tobaccoPrice: Int) = with(binding) {
         datePicker.updateDate(dateArray[0].toInt(), dateArray[1].toInt() - 1, dateArray[2].toInt())
         nickNameEditText.setText(nickName)
         nickNameEditText.isEnabled = false
         nickNameTextField.hint = getString(R.string.edit_nick_name)
-//        myResolutionEditText.setText(myResolution)
 
         if (amountOfSmoking > 0 && tobaccoPrice > 0) {
             amountOfSmokingEditText.setText("$amountOfSmoking")
