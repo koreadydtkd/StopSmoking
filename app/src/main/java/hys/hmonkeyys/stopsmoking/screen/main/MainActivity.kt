@@ -1,21 +1,20 @@
 package hys.hmonkeyys.stopsmoking.screen.main
 
 import android.content.Intent
+import android.view.animation.AlphaAnimation
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.kakao.sdk.link.LinkClient
 import hys.hmonkeyys.stopsmoking.R
-import hys.hmonkeyys.stopsmoking.screen.BaseActivity
-import hys.hmonkeyys.stopsmoking.screen.main.community.CommunityActivity
-import hys.hmonkeyys.stopsmoking.screen.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.databinding.ActivityMainBinding
 import hys.hmonkeyys.stopsmoking.extension.setOnDuplicatePreventionClickListener
+import hys.hmonkeyys.stopsmoking.screen.BaseActivity
 import hys.hmonkeyys.stopsmoking.screen.dialog.BodyChangeDialog
+import hys.hmonkeyys.stopsmoking.screen.main.community.CommunityActivity
+import hys.hmonkeyys.stopsmoking.screen.registration.RegistrationActivity
 import hys.hmonkeyys.stopsmoking.utils.Constant.EDIT
 import hys.hmonkeyys.stopsmoking.utils.Utility
 import hys.hmonkeyys.stopsmoking.utils.Utility.goNextActivity
@@ -26,6 +25,16 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
 
     override val viewModel: MainViewModel by viewModel()
     override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+
+    private val nickName: String by lazy { viewModel.getNickName() }
+
+    // 투명도 효과
+    private val anim: AlphaAnimation by lazy {
+        AlphaAnimation(0F, 1F).apply {
+            duration = 500
+            repeatCount = 2
+        }
+    }
 
     private var backPressTime = 0L
 
@@ -88,7 +97,7 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
                 snackBar(binding.root, getString(R.string.message_kakao_not_install))
             }
         } catch (e: Exception) {
-            snackBar(binding.root ,getString(R.string.message_kakao_error))
+            snackBar(binding.root, getString(R.string.message_kakao_error))
             FirebaseCrashlytics.getInstance().recordException(e)
             e.printStackTrace()
         } finally {
@@ -98,7 +107,7 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
 
     override fun observeData() {
         viewModel.mainLiveData.observe(this) {
-            when(it) {
+            when (it) {
                 is MainState.Initialize -> {
                     initSmokingCessationInformation()
                     initAdmob()
@@ -152,13 +161,15 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
         super.onResume()
 
         // 이름 부분 색상 변경 및 금연에 대한 응원 메세지 랜덤
-        val nickName = viewModel.getNickName()
         binding.textViewUserName.text = Utility.changePartialTextColor(
             getRandomText(nickName),
             getColor(R.color.black),
             0,
             nickName.length
         )
+
+        // 깜빡이는 효과 start
+        startAnimation()
     }
 
     /** 랜덤 텍스트 가져오기 */
@@ -172,6 +183,20 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
         }
     }
 
+    /** 공유하기 버튼 깜빡이는 효과 */
+    private fun startAnimation() {
+        binding.labelShare.startAnimation(anim)
+        binding.imageViewShare.startAnimation(anim)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // 애니메이션 제거
+        binding.labelShare.clearAnimation()
+        binding.imageViewShare.clearAnimation()
+    }
+
     override fun onBackPressed() {
         val time = System.currentTimeMillis()
         if (time - backPressTime > ONE_POINT_FIVE_SECOND) {
@@ -183,7 +208,7 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
     }
 
     companion object {
-//        private const val TAG = "SS_MainActivity"
+        //        private const val TAG = "SS_MainActivity"
         private const val ONE_POINT_FIVE_SECOND = 1500L
     }
 }

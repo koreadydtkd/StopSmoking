@@ -35,6 +35,8 @@
 
 
     <!-- Main -->
+    <string name="stop_smoking_label">금연 정보</string>
+    <string name="share_label">주변에 금연 소식 알리기</string>
     <string name="main_top_start_label">에 시작했어요</string>
     <string name="main_top_label">금연한지</string>
     <string name="main_top_end_label">되었어요.</string>
