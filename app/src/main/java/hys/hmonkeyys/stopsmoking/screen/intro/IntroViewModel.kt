@@ -31,9 +31,8 @@ internal class IntroViewModel(
 
     /** 가입여부 확인 */
     fun checkCurrentUser() = viewModelScope.launch {
-        userRepository.getCurrentUser()?.let {
-            pref.setString(USER_UID, it.uid)
-
+        val userUid = pref.getString(USER_UID)
+        userUid?.let {
             // 링크 공유 시 전달할 이미지 가져오기
             getKakaoLinkImageUrl()
         } ?: kotlin.run {

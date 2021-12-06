@@ -67,7 +67,7 @@ internal val viewModelModule = module {
 
     viewModel { RegistrationViewModel(get(), get()) }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 
     viewModel { CommunityViewModel(get(), get()) }
 

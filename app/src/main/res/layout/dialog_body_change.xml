@@ -29,7 +29,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/border_light_grey_rounded_16"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:paddingHorizontal="8dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/checkButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="4dp">
+            android:padding="8dp">
 
             <TextView
                 android:layout_width="match_parent"

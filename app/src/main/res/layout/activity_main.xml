@@ -100,7 +100,7 @@
                 android:layout_marginHorizontal="12dp"
                 android:background="@drawable/bg_white_rounded_16"
                 android:elevation="1dp"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,13 +130,16 @@
 
                 <TextView
                     android:id="@+id/textViewDDay"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:gravity="end"
                     android:textColor="@color/main_color"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelDDay"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="1일" />
 
@@ -150,7 +153,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_white_rounded_16"
                 android:elevation="1dp"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -180,13 +183,16 @@
 
                 <TextView
                     android:id="@+id/textViewCigarettesSaved"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:gravity="end"
                     android:textColor="@color/main_color"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelCigarettesSaved"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="100개비" />
 
@@ -200,7 +206,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_white_rounded_16"
                 android:elevation="1dp"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -230,13 +236,16 @@
 
                 <TextView
                     android:id="@+id/textViewIncreasedLifespan"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:gravity="end"
                     android:textColor="@color/main_color"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelIncreasedLifespan"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="1일 22시간 33분" />
 
@@ -250,7 +259,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_white_rounded_16"
                 android:elevation="1dp"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -280,13 +289,16 @@
 
                 <TextView
                     android:id="@+id/textViewSaveMoney"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:gravity="end"
                     android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/labelSaveMoney"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="502,500원" />
 
@@ -300,7 +312,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_white_rounded_16"
                 android:elevation="1dp"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

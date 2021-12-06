@@ -13,6 +13,7 @@ import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.
 import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.NICK_NAME
 import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.STOP_SMOKING_DATE
 import hys.hmonkeyys.stopsmoking.data.preference.AppPreferenceManager.Companion.TOBACCO_PRICE
+import hys.hmonkeyys.stopsmoking.data.repository.user.UserRepository
 import hys.hmonkeyys.stopsmoking.extension.toCommaWon
 import hys.hmonkeyys.stopsmoking.screen.BaseViewModel
 import hys.hmonkeyys.stopsmoking.utils.Constant.FIREBASE_IMAGE_URL
@@ -21,6 +22,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 internal class MainViewModel(
+    private val userRepository: UserRepository,
     private val pref: AppPreferenceManager
 ) : BaseViewModel() {
 
@@ -35,6 +37,15 @@ internal class MainViewModel(
         inputAmountOfSmoking = pref.getInt(AMOUNT_OF_SMOKING_PER_DAY)
 
         _mainStateLiveData.postValue(MainState.Initialize)
+    }
+
+    /** 유저아이디 확인 */
+    fun getCurrentUser() = viewModelScope.launch {
+        userRepository.getCurrentUser()?.let {
+            _mainStateLiveData.postValue(MainState.HaveUid)
+        } ?: kotlin.run {
+            _mainStateLiveData.postValue(MainState.NoHaveUid)
+        }
     }
 
     /** 시작 날짜 */

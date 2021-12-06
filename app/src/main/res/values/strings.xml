@@ -52,6 +52,7 @@
     <string name="chat">담소 나누기</string>
     <string name="stop_smoking_after_body_changes">금연 후 신체 변화</string>
     <string name="stop_smoking_share_friends">금연 시작 친구에게 공유하기</string>
+    <string name="failed_get_data">데이터를 가져오지 못했습니다.</string>
 
     <string name="message_backward_finish">뒤로가기를 한번 더 실행하면 앱이 종료됩니다.</string>
     <string name="message_kakao_not_install">카카오톡이 설치되지 않거나 로그인하지 않은 경우\n해당 기능을 이용할 수 없습니다.</string>

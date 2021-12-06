@@ -30,25 +30,26 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
     private var backPressTime = 0L
 
     /** 각 뷰 초기화 */
-    override fun initViews() {
+    override fun initViews() = with(binding) {
         // 수정 버튼
-        binding.imageViewEdit.setOnDuplicatePreventionClickListener {
+        imageViewEdit.setOnDuplicatePreventionClickListener {
             goEditActivity()
         }
 
         // 카카오 링크 공유 버튼
-        binding.imageViewShare.setOnDuplicatePreventionClickListener {
+        imageViewShare.setOnDuplicatePreventionClickListener {
             shareKakaoLink()
         }
 
         // 금연 후 신체변화 다이얼로그 띄우 버튼
-        binding.layoutBodyChanges.setOnDuplicatePreventionClickListener {
+        layoutBodyChanges.setOnDuplicatePreventionClickListener {
             BodyChangeDialog().show(supportFragmentManager, "")
         }
 
-        // 담소 버튼
-        binding.layoutCommunity.setOnDuplicatePreventionClickListener {
-            goNextActivity(this, CommunityActivity::class.java, 0)
+        // Uid 확인 후 있는 경우에만 이동
+        layoutCommunity.setOnDuplicatePreventionClickListener {
+            progressBar.isVisible = true
+            viewModel.getCurrentUser()
         }
     }
 
@@ -102,13 +103,18 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
                     initSmokingCessationInformation()
                     initAdmob()
                 }
+
+                is MainState.HaveUid -> existUid()
+
+                is MainState.NoHaveUid -> noneUid()
             }
         }
     }
 
-    /** 금연 정보 초기화(TextView) */
+    /** 금연 정보 초기셋팅 */
     private fun initSmokingCessationInformation() = with(binding) {
-        startDayTextView.text = viewModel.getStartDay() ?: "데이터를 가져오지 못했습니다."
+        // 금연 시작 date
+        startDayTextView.text = viewModel.getStartDay() ?: getString(R.string.failed_get_data)
 
         // 상단 d-day
         textViewDDay.text = getString(R.string.stop_smoking_d_day, viewModel.getDDay())
@@ -127,19 +133,19 @@ internal class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>()
     private fun initAdmob() {
         MobileAds.initialize(this)
         val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+    }
 
-        binding.adView.apply {
-            loadAd(adRequest)
-            adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                    super.onAdLoaded()
-                }
+    /** Uid 있음, 글 쓰기 및 읽기 가능 */
+    private fun existUid() {
+        binding.progressBar.isGone = true
+        goNextActivity(this, CommunityActivity::class.java, 0)
+    }
 
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    super.onAdFailedToLoad(error)
-                }
-            }
-        }
+    /** Uid 없음, 글 쓰기 및 읽기 불가 */
+    private fun noneUid() {
+        binding.progressBar.isGone = true
+        snackBar(binding.root, getString(R.string.error))
     }
 
     override fun onResume() {

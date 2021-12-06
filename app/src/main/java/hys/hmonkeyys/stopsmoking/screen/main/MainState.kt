@@ -4,4 +4,7 @@ sealed class MainState {
 
     object Initialize: MainState()
 
+    object HaveUid: MainState()
+
+    object NoHaveUid: MainState()
 }

@@ -1,5 +1,6 @@
 package hys.hmonkeyys.stopsmoking.screen.main.community
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Handler
 import android.view.View
@@ -118,6 +119,13 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel, ActivityComm
         }
     }
 
+    /** 하단 배너광고 초기화 */
+    private fun initAdmob() {
+        MobileAds.initialize(this)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+    }
+
     /** 게시물 데이터 셋팅 */
     private fun setPostList(communityList: List<CommunityModel>) {
         binding.progressBar.isGone = true
@@ -159,25 +167,6 @@ internal class CommunityActivity : BaseActivity<CommunityViewModel, ActivityComm
                 putExtra(COMMUNITY_DETAIL_KEY, communityModel)
             }
         )
-    }
-
-    /** 하단 배너광고 초기화 */
-    private fun initAdmob() {
-        MobileAds.initialize(this)
-        val adRequest = AdRequest.Builder().build()
-
-        binding.adView.apply {
-            loadAd(adRequest)
-            adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                    super.onAdLoaded()
-                }
-
-                override fun onAdFailedToLoad(error: LoadAdError) {
-                    super.onAdFailedToLoad(error)
-                }
-            }
-        }
     }
 
     /** Spinner 아이템 클릭 시
