@@ -17,28 +17,30 @@ import hys.hmonkeyys.stopsmoking.utils.Utility.dDayCalculation
 
 class WidgetProvider : AppWidgetProvider() {
 
-    override fun onUpdate(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetIds: IntArray?) {
-        super.onUpdate(context, appWidgetManager, appWidgetIds)
-
-        val spf = context?.getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE)
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        val spf = context.getSharedPreferences(APP_DEFAULT_KEY, Context.MODE_PRIVATE)
 
         // Provider 에 속한 각 앱 위젯에 대해 루프 절차 수행
-        appWidgetIds?.forEach { appWidgetId ->
+        appWidgetIds.forEach { appWidgetId ->
 
             // Activity 를 시작하기 위한 인텐트 생성
             val pendingIntent: PendingIntent = Intent(context, IntroActivity::class.java).let { intent ->
-                PendingIntent.getActivity(context, 0, intent, 0)
+                PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
             }
 
             // 앱 위젯의 레이아웃을 가져오고 클릭 시 리스너를 버튼에 연결합니다.
-            val views: RemoteViews = RemoteViews(context?.packageName, R.layout.widget).apply {
-                val dDay = spf?.getString(STOP_SMOKING_DATE, "0") ?: "0"
+            val views: RemoteViews = RemoteViews(context.packageName, R.layout.widget).apply {
+                val dDay = spf.getString(STOP_SMOKING_DATE, "0") ?: "0"
                 setTextViewText(R.id.dDayWidgetTextView, "금연한지 +${dDayCalculation(dDay)}일")
                 setOnClickPendingIntent(R.id.dDayWidgetTextView, pendingIntent)
             }
 
-            // 현재 앱 위젯에서 업데이트를 수행하도록 AppWidgetManager에 지시
-            appWidgetManager?.updateAppWidget(appWidgetId, views)
+            // 현재 앱 위젯에서 업데이트를 수행하도록 AppWidgetManager 에 지시
+            appWidgetManager.updateAppWidget(appWidgetId, views)
         }
     }
 

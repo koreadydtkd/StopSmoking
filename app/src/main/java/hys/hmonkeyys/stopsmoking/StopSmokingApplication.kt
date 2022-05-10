@@ -9,6 +9,7 @@ import hys.hmonkeyys.stopsmoking.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class StopSmokingApplication: Application() {
     override fun onCreate() {
@@ -18,7 +19,9 @@ class StopSmokingApplication: Application() {
         initSDK()
 
         startKoin {
-            androidLogger()
+            androidLogger(
+                if (BuildConfig.DEBUG) Level.ERROR else Level.NONE
+            )
             androidContext(this@StopSmokingApplication)
             modules(appModule + viewModelModule)
         }

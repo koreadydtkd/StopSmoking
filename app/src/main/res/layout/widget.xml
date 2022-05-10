@@ -15,8 +15,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="@color/main_color"
-        android:textSize="21sp"
+        android:textSize="21dp"
         android:textStyle="bold"
-        tools:text="금연한지 +365일" />
+        tools:text="금연한지 +365일"
+        tools:ignore="SpUsage" />
 
 </FrameLayout>

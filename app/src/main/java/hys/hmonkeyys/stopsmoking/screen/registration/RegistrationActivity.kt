@@ -161,7 +161,7 @@ internal class RegistrationActivity : BaseActivity<RegistrationViewModel, Activi
             val updateWidgetIntent = Intent(this, WidgetProvider::class.java)
             updateWidgetIntent.action = WIDGET_UPDATE
 
-            val pendingIntent = PendingIntent.getBroadcast(this, 0, updateWidgetIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            val pendingIntent = PendingIntent.getBroadcast(this, 0, updateWidgetIntent, PendingIntent.FLAG_IMMUTABLE)
             pendingIntent.send()
         } catch (e: CanceledException) {
             FirebaseCrashlytics.getInstance().recordException(e)
